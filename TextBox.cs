@@ -2,6 +2,11 @@
 
 public class TextBox
 {
+    // colorCodeURL = https://en.wikipedia.org/wiki/ANSI_escape_code#8-bit
+    public const string COLOR_CODE_FRONT = "\u001b[38;5;";
+    public const string COLOR_CODE_MIDDLE = "m";
+    public const string COLOR_CODE_BACK = "\u001b[0m";
+
     public enum TextHorizonAlign
     {
         Left,
@@ -31,6 +36,8 @@ public class TextBox
 
     public Layout ParentLayout;
 
+    private int _colorCode = 231;
+
     public TextBox(string m_text)
     {
         this._sb = new StringBuilder();
@@ -38,6 +45,14 @@ public class TextBox
     }
 
     public void AddText(string m_text, bool m_lineMode = false)
+    {
+        if (m_lineMode)
+            _sb.AppendLine();
+
+        _sb.Append(m_text);
+    }
+
+    public void AddText(char m_text, bool m_lineMode = false)
     {
         if (m_lineMode)
             _sb.AppendLine();
@@ -57,17 +72,28 @@ public class TextBox
         this._posY = m_posY;
     }
 
-    public void SetLine(int m_line)
-    { this._printLine = m_line; }
-
-    public void SetAlign(TextHorizonAlign m_horizon)
-    {
-        this._horizonAlign = m_horizon;
+    public TextBox SetLine(int m_line)
+    { 
+        this._printLine = m_line;
+        return this;
     }
 
-    public void SetAlign(TextVerticalAlign m_vertical)
+    public TextBox SetColor(int m_colorCode)
+    {
+        this._colorCode = m_colorCode;
+        return this;
+    }
+
+    public TextBox SetAlign(TextHorizonAlign m_horizon)
+    {
+        this._horizonAlign = m_horizon;
+        return this;
+    }
+
+    public TextBox SetAlign(TextVerticalAlign m_vertical)
     {
         this._verticalAlign = m_vertical;
+        return this;
     }
 
     public void PrintText()
@@ -82,7 +108,7 @@ public class TextBox
                 row = ParentLayout.Right - (ParentLayout.Width / 2) - Length / 2;
                 break;
             case TextHorizonAlign.Right:
-                row = ParentLayout.Right - Length * 2 - 1;
+                row = (int)(ParentLayout.Right - Length*1.5f);
                 break;
         }
 
@@ -107,7 +133,7 @@ public class TextBox
                 continue;
             }
 
-            Console.Write(_sb[i]);
+            Console.Write($"{COLOR_CODE_FRONT}{_colorCode}{COLOR_CODE_MIDDLE}{_sb[i]}{COLOR_CODE_BACK}");
         }
     }
 }

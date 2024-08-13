@@ -1,76 +1,152 @@
 ﻿using MiniCooked;
 
+public enum RectOption
+{
+    Relative,
+    Absolute,
+}
+
+public enum LayoutCorner
+{
+    TopL,
+    TopR,
+    BotL,
+    BotR,
+}
+
+public struct Rect
+{
+    public int StartX;
+    public int StartY;
+    public int EndX;
+    public int EndY;
+
+    public Rect(int m_width, int m_height)
+    {
+        EndX = m_width;
+        EndY = m_height;
+    }
+
+    public Rect(int m_startX, int m_startY, int m_nextX, int m_nextY,RectOption m_option = RectOption.Relative)
+    {
+        if (m_option == RectOption.Absolute && (m_startX >= m_nextX || m_startY >= m_nextY))
+            throw new Exception("범위가 제대로 설정되지 않음");
+
+        StartX = m_startX;
+        StartY = m_startY;
+
+        switch (m_option)
+        {
+            case RectOption.Relative:
+                {
+                    EndX = m_startX + m_nextX;
+                    EndY = m_startY + m_nextY;
+                    break;
+                }
+            case RectOption.Absolute:
+                {
+                    EndX = m_nextX;
+                    EndY = m_nextY;
+                    break;
+                }
+        }
+    }
+}
+
 public class Layout
 {
-    private int _posX;
-    private int _posY;
+    private Rect _rect;
 
-    private int _width;
-    private int _height;
+    public int Top => _rect.StartY;
+    public int Left => _rect.StartX;
+    public int Right => _rect.EndX;
+    public int Bottom => _rect.EndY;
 
-    public int Top => _posY;
-    public int Left => _posX;
-    public int Right => _posX + _width;
-    public int Bottom => _posY + _height;
-
-    public int Width => _width;
-    public int Height => _height;
-
-    private int _sortingOrder;
+    public int Width => _rect.EndX - _rect.StartX;
+    public int Height => _rect.EndY - _rect.StartY;
 
     private List<Layout> _innerLayouts;
     private List<TextBox> _textBoxes;
 
-    public Layout(int m_startX, int m_startY, int m_width, int m_height)
+    public Layout(Rect m_rect)
     {
-        this._posX = m_startX;
-        this._posY = m_startY;
-
-        this._width = m_width;
-        this._height = m_height;
+        this._rect = m_rect;
     }
 
-    public void AddLayout(Layout m_layout)
+    public Layout(int m_startX, int m_startY, int m_nextX, int m_nextY, RectOption m_option = RectOption.Relative)
+    {
+        this._rect = new Rect(m_startX,m_startY,m_nextX,m_nextY,m_option);
+    }
+
+    public Layout(Layout m_sourceLayout, LayoutCorner m_corner, int m_offsetX, int m_offsetY,Rect m_size)
+    {
+        if (m_size.StartX != 0 || m_size.StartY != 0)
+            throw new Exception("Rect 객체 잘못된 생성 Width, Height 값을 통해 생성자 호출요망");
+
+        int[] standard = m_sourceLayout.GetCorner(m_corner);
+        standard[0] += m_offsetX;
+        standard[1] += m_offsetY;
+
+        this._rect = new Rect(standard[0], standard[1],
+            m_size.EndX, m_size.EndY);
+    }
+
+    public Layout AddLayout(Layout m_layout)
     {
         if (_innerLayouts == null)
             _innerLayouts = new List<Layout>();
 
         _innerLayouts.Add(m_layout);
+
+        return this;
     }
 
-    public void AddLayout(int m_startX, int m_startY, int m_width, int m_height)
-    {
-        if (_innerLayouts == null)
-            _innerLayouts = new List<Layout>();
+    //public Layout AddLayout(int m_startX, int m_startY, int m_width, int m_height)
+    //{
+    //    if (_innerLayouts == null)
+    //        _innerLayouts = new List<Layout>();
 
-        _innerLayouts.Add(new Layout(m_startX, m_startY, m_width, m_height));
-    }
+    //    _innerLayouts.Add(new Layout(m_startX, m_startY, m_width, m_height));
 
-    public void SetSortingOrder(int m_sort)
-    {
-        this._sortingOrder = m_sort;
-    }
+    //    return this;
+    //}
 
-
-
-    public void AddText(TextBox m_text)
+    public Layout AddText(TextBox m_text)
     {
         if (_textBoxes == null)
             _textBoxes = new List<TextBox>();
 
         _textBoxes.Add(m_text);
         m_text.ParentLayout = this;
+
+        return this;
+    }
+
+    public int[] GetCorner(LayoutCorner m_corner)
+    {
+        switch (m_corner)
+        {
+            case LayoutCorner.TopL:
+                return new int[] { Left, Top };
+            case LayoutCorner.TopR:
+                return new int[] { Right, Top };
+            case LayoutCorner.BotL:
+                return new int[] { Left, Bottom };
+            case LayoutCorner.BotR:
+                return new int[] { Right, Bottom };
+        }
+
+        return null;
     }
 
     public void PrintLayout()
     {
-        Console.SetCursorPosition(_posX, _posY);
-
+        Console.SetCursorPosition(Left, Top);
 
         //상단 테두리
         Console.Write(Fonts.LAYOUT_OUTLINE_TOPLEFT);
 
-        for (int i = _posX; i < _posX + _width - 2; i++)
+        for (int i = Left; i < Right - 2; i++)
         {
             Console.Write(Fonts.LAYOUT_OUTLINE_HORIZON);
         }
@@ -79,20 +155,20 @@ public class Layout
 
 
         //좌우
-        for (int i = _posY + 1; i < _posY + _height; i++)
+        for (int i = Top + 1; i < Bottom; i++)
         {
-            Console.SetCursorPosition(_posX, i);
+            Console.SetCursorPosition(Left, i);
             Console.Write(Fonts.LAYOUT_OUTLINE_VERTICAL);
-            Console.SetCursorPosition(_posX + _width - 1, i);
+            Console.SetCursorPosition(Left + Width - 1, i);
             Console.Write(Fonts.LAYOUT_OUTLINE_VERTICAL);
         }
 
         //하단부
-        Console.SetCursorPosition(_posX, _height + _posY);
+        Console.SetCursorPosition(Left, Bottom);
 
         Console.Write(Fonts.LAYOUT_OUTLINE_DOWNLEFT);
 
-        for (int i = _posX; i < _posX + _width - 2; i++)
+        for (int i = Left; i < Right - 2; i++)
         {
             Console.Write(Fonts.LAYOUT_OUTLINE_HORIZON);
         }
@@ -116,4 +192,6 @@ public class Layout
         }
 
     }
+    
+    
 }
