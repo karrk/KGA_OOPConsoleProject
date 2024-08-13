@@ -18,10 +18,10 @@ public class UIManager
 
     public void Init()
     {
-        _mainLayout = new Layout(1, 1, 200, 60);
+        _mainLayout = new Layout(new Rect(1, 1, 200, 60));
         InitLayouts();
 
-        _mainLayout.PrintLayout();
+        _mainLayout.Print();
     }
 
     private void InitLayouts()
@@ -35,33 +35,49 @@ public class UIManager
 
     private void AddOrderLayout()
     {
-        Layout orderLayout = new Layout(14, 4, 124, 24);
-        _mainLayout.AddLayout(orderLayout);
+        Layout orderLayout = new Layout(new Rect(14, 4, 124, 24));
+        _mainLayout.AddLayout(orderLayout).SetColor(120);
 
         orderLayout.AddText(
-            new TextBox("수입 :\t\t\t\t\t\t\t\t\t")
-            .SetAlign(TextBox.TextHorizonAlign.Right)
+            (TextBox)new TextBox("수 입 : ")
+            .SetAlign(HorizonAlign.Right)
             );
     }
 
     private void AddPreviewLayout()
     {
-        Layout previewLayout = new Layout(10, 30, 50, 30);
+        Layout previewLayout = new Layout(new Rect(10, 30, 50, 30));
         _mainLayout.AddLayout(previewLayout);
 
-        previewLayout.AddText(new TextBox("  테이블"));
+        previewLayout.AddText(new TextBox("테 이 블"));
 
-        previewLayout.AddText(
-            new TextBox("█████████████████████████████████████████████████").SetColor(166)
-            .SetAlign(TextBox.TextVerticalAlign.Bottom).SetLine(2));
+        TextBox test =
+         (TextBox)
+         new TextBox(" ██████████████████████████████████████████████████")
+            .AddText("██████████████████████████████████████████████████", true)
+            .AddText("██████████████████████████████████████████████████", true)
+            .SetColor(166)
+            .SetAlign(VerticalAlign.Bottom)
+            .SetAlign(HorizonAlign.Center);
 
-        previewLayout.AddText(
-            new TextBox("█████████████████████████████████████████████████").SetColor(167)
-            .SetAlign(TextBox.TextVerticalAlign.Bottom).SetLine(1));
-        
-        previewLayout.AddText(
-            new TextBox("█████████████████████████████████████████████████").SetColor(168)
-            .SetAlign(TextBox.TextVerticalAlign.Bottom));
+        previewLayout.AddText(test);
+
+        //previewLayout.AddText(
+        //    (TextBox)new TextBox("█████████████████████████████████████████████████")
+        //    .SetColor(166)
+        //    .SetAlign(VerticalAlign.Bottom)
+        //    .SetAlign(HorizonAlign.Center));
+
+
+        //previewLayout.AddText(
+        //    (TextBox)new TextBox("█████████████████████████████████████████████████").SetColor(167)
+        //    .SetAlign(VerticalAlign.Bottom)
+        //    .SetAlign(HorizonAlign.Center));
+
+        //previewLayout.AddText(
+        //    (TextBox)new TextBox("███████████████████████████████████████████████").SetColor(168)
+        //    .SetAlign(VerticalAlign.Bottom)
+        //    .SetAlign(HorizonAlign.Center));
     }
 
     private void AddSelectLayout()
@@ -69,11 +85,11 @@ public class UIManager
         Layout BtnSetup(Layout m_btn, string m_btnTitle, char m_img, int m_color)
         {
             m_btn.AddText(new TextBox($" {m_btnTitle}"));
-            
-            TextBox imgBox = new TextBox(null)
+
+            TextBox imgBox = (TextBox)new TextBox(string.Empty)
                 .SetColor(m_color)
-                .SetAlign(TextBox.TextHorizonAlign.Center)
-                .SetAlign(TextBox.TextVerticalAlign.Center);
+                .SetAlign(HorizonAlign.Center)
+                .SetAlign(VerticalAlign.Center);
 
             for (int i = 0; i < SettingManager.Instance.FoodsMinCount; i++)
             {
@@ -85,51 +101,51 @@ public class UIManager
             return m_btn;
         }
 
-        Layout selectLayout = new Layout(70, 30, 70, 26);
+        Layout selectLayout = new Layout(new Rect(70, 30, 70, 26));
         _mainLayout.AddLayout(selectLayout);
 
-        selectLayout.AddText(new TextBox("  재료"));
+        selectLayout.AddText(new TextBox("재 료"));
 
         Rect boxSize = new Rect(20, 6);
 
-        Layout btn7 = new Layout(selectLayout, LayoutCorner.TopL, 4, 3, boxSize);
+        Layout btn7 = new Layout(selectLayout, RectCorner.TopL, 4, 3, boxSize);
         selectLayout.AddLayout(BtnSetup(btn7, "Num7", Fonts.OPTION1,100));
 
-        Layout btn8 = new Layout(btn7, LayoutCorner.TopR, 1, 0, boxSize);
+        Layout btn8 = new Layout(btn7, RectCorner.TopR, 2, 0, boxSize);
         selectLayout.AddLayout(BtnSetup(btn8, "Num8", Fonts.OPTION2,110));
 
-        Layout btn9 = new Layout(btn8, LayoutCorner.TopR, 1, 0, boxSize);
+        Layout btn9 = new Layout(btn8, RectCorner.TopR, 2, 0, boxSize);
         selectLayout.AddLayout(BtnSetup(btn9, "Num9", Fonts.OPTION3,120));
 
 
-        Layout btn4 = new Layout(btn7, LayoutCorner.BotL, 0, 2, boxSize);
+        Layout btn4 = new Layout(btn7, RectCorner.BotL, 0, 2, boxSize);
         selectLayout.AddLayout(BtnSetup(btn4, "Num4", Fonts.BEEF1, 140));
 
-        Layout btn5 = new Layout(btn4, LayoutCorner.TopR, 1, 0, boxSize);
+        Layout btn5 = new Layout(btn4, RectCorner.TopR, 2, 0, boxSize);
         selectLayout.AddLayout(BtnSetup(btn5, "Num5", Fonts.BEEF2, 160));
 
-        Layout btn6 = new Layout(btn5, LayoutCorner.TopR, 1, 0, boxSize);
+        Layout btn6 = new Layout(btn5, RectCorner.TopR, 2, 0, boxSize);
         selectLayout.AddLayout(BtnSetup(btn6, "Num6", Fonts.BEEF3, 200));
 
 
-        Layout btn1 = new Layout(btn4, LayoutCorner.BotL, 0, 2, boxSize);
+        Layout btn1 = new Layout(btn4, RectCorner.BotL, 0, 2, boxSize);
         selectLayout.AddLayout(BtnSetup(btn1, "Num1", Fonts.BREAD1, 80));
 
-        Layout btn2 = new Layout(btn1, LayoutCorner.TopR, 1, 0, boxSize);
+        Layout btn2 = new Layout(btn1, RectCorner.TopR, 2, 0, boxSize);
         selectLayout.AddLayout(BtnSetup(btn2, "Num2", Fonts.BREAD2, 210));
 
-        Layout btn3 = new Layout(btn2, LayoutCorner.TopR, 1, 0, boxSize);
+        Layout btn3 = new Layout(btn2, RectCorner.TopR, 2, 0, boxSize);
         selectLayout.AddLayout(BtnSetup(btn3, "Num3", Fonts.BREAD3, 240));
     }
 
     private void AddSpaceBarLayout()
     {
-        Layout spaceBarLayout = new Layout(80, 57, 50, 3);
+        Layout spaceBarLayout = new Layout(new Rect(80, 57, 50, 3));
         _mainLayout.AddLayout(spaceBarLayout);
 
         TextBox spaceText = new TextBox($"SpaceBar : 서빙");
-        spaceText.SetAlign(TextBox.TextHorizonAlign.Center);
-        spaceText.SetAlign(TextBox.TextVerticalAlign.Center);
+        spaceText.SetAlign(HorizonAlign.Center);
+        spaceText.SetAlign(VerticalAlign.Center);
         spaceText.SetColor(159);
 
         spaceBarLayout.AddText(spaceText);
@@ -137,32 +153,31 @@ public class UIManager
 
     private void AddMenuLayout()
     {
-        Layout menuLayout = new Layout(145, 2, 50, 58);
+        Layout menuLayout = new Layout(new Rect(145, 2, 50, 58));
         _mainLayout.AddLayout(menuLayout);
 
-        TextBox tb = new TextBox($"메뉴{Fonts.EMPTY}레시피");
-        tb.SetAlign(TextBox.TextHorizonAlign.Center);
-        tb.SetLine(1);
-        tb.SetAlign(TextBox.TextVerticalAlign.Top);
+        TextBox tb = new TextBox($"메 뉴 레 시 피");
+        tb.SetAlign(HorizonAlign.Center);
+        tb.SetAlign(VerticalAlign.Top);
 
         menuLayout.AddText(tb);
 
-        Layout menu1 = new Layout(150,8,40,12);
+        Layout menu1 = new Layout(new Rect(150, 8, 40, 12));
 
         menuLayout.AddLayout(menu1);
-        menu1.AddText(new TextBox("  메뉴 1"));
-        menu1.AddText(new TextBox("가격 : 500 원").SetAlign(TextBox.TextHorizonAlign.Right));
+        menu1.AddText(new TextBox("메 뉴 1"));
+        menu1.AddText((TextBox)new TextBox("가 격 : 500 원").SetAlign(HorizonAlign.Right));
 
-        Layout menu2 = new Layout(150, 22, 40, 12);
+        Layout menu2 = new Layout(new Rect(150, 22, 40, 12));
 
         menuLayout.AddLayout(menu2);
-        menu2.AddText(new TextBox("  메뉴 2"));
-        menu2.AddText(new TextBox("가격 : 800 원").SetAlign(TextBox.TextHorizonAlign.Right));
+        menu2.AddText(new TextBox("메 뉴 2"));
+        menu2.AddText((TextBox)new TextBox("가 격 : 800 원").SetAlign(HorizonAlign.Right));
 
-        Layout menu3 = new Layout(150, 36, 40, 12);
+        Layout menu3 = new Layout(new Rect(150, 36, 40, 12));
 
         menuLayout.AddLayout(menu3);
-        menu3.AddText(new TextBox("  메뉴 3"));
-        menu3.AddText(new TextBox("가격 : 1000 원").SetAlign(TextBox.TextHorizonAlign.Right));
+        menu3.AddText(new TextBox("메 뉴 3"));
+        menu3.AddText((TextBox)new TextBox("가 격 : 1000 원").SetAlign(HorizonAlign.Right));
     }
 }

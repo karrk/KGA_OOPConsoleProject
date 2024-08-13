@@ -1,139 +1,140 @@
-﻿using System.Text;
+﻿using MiniCooked;
+using System.Text;
 
-public class TextBox
+public class TextBox : RectUI
 {
-    // colorCodeURL = https://en.wikipedia.org/wiki/ANSI_escape_code#8-bit
-    public const string COLOR_CODE_FRONT = "\u001b[38;5;";
-    public const string COLOR_CODE_MIDDLE = "m";
-    public const string COLOR_CODE_BACK = "\u001b[0m";
+    private StringBuilder _sb = new StringBuilder();
+    //[][][]
+    //c c c
+    //cw[sb[1]] cw[sb[2]]
+    private int _tempIdx = 0;
+    private int _lineCount = 0;
 
-    public enum TextHorizonAlign
+    private List<int> _lineRange = new List<int>();
+
+    public TextBox(Rect m_rect) : base(m_rect)
     {
-        Left,
-        Center,
-        Right,
     }
 
-    public enum TextVerticalAlign
+    public TextBox(RectUI m_source, RectCorner m_corner, int m_offsetX, int m_offsetY, Rect m_size) : base(m_source, m_corner, m_offsetX, m_offsetY, m_size)
     {
-        Top,
-        Center,
-        Bottom,
     }
-
-    private StringBuilder _sb;
-    public int Length => _sb.Length;
-
-    private int _posX;
-    private int _posY;
-
-    private int _printLine;
-
-    public int PrintLine => _printLine;
-
-    private TextHorizonAlign _horizonAlign;
-    private TextVerticalAlign _verticalAlign;
-
-    public Layout ParentLayout;
-
-    private int _colorCode = 231;
 
     public TextBox(string m_text)
     {
-        this._sb = new StringBuilder();
-        this._sb.Append(m_text);
-    }
-
-    public void AddText(string m_text, bool m_lineMode = false)
-    {
-        if (m_lineMode)
-            _sb.AppendLine();
-
-        _sb.Append(m_text);
-    }
-
-    public void AddText(char m_text, bool m_lineMode = false)
-    {
-        if (m_lineMode)
-            _sb.AppendLine();
-
-        _sb.Append(m_text);
+        SetNewText(m_text);
     }
 
     public void SetNewText(string m_text)
     {
+        _lineRange.Clear();
+        _lineRange.Add(0);
+        _tempIdx = 0;
         _sb.Clear();
-        _sb.Append(m_text);
-    }
+        _lineCount = 1;
 
-    public void SetPos(int m_posX, int m_posY)
-    {
-        this._posX = m_posX;
-        this._posY = m_posY;
-    }
+        int count = 0;
 
-    public TextBox SetLine(int m_line)
-    { 
-        this._printLine = m_line;
-        return this;
-    }
-
-    public TextBox SetColor(int m_colorCode)
-    {
-        this._colorCode = m_colorCode;
-        return this;
-    }
-
-    public TextBox SetAlign(TextHorizonAlign m_horizon)
-    {
-        this._horizonAlign = m_horizon;
-        return this;
-    }
-
-    public TextBox SetAlign(TextVerticalAlign m_vertical)
-    {
-        this._verticalAlign = m_vertical;
-        return this;
-    }
-
-    public void PrintText()
-    {
-        int row = ParentLayout.Left + 1;
-        int column = ParentLayout.Top + _printLine + 1;
-
-
-        switch (_horizonAlign)
+        for (int i = 0; i < m_text.Length; i++)
         {
-            case TextHorizonAlign.Center:
-                row = ParentLayout.Right - (ParentLayout.Width / 2) - Length / 2;
-                break;
-            case TextHorizonAlign.Right:
-                row = (int)(ParentLayout.Right - Length*1.5f);
-                break;
-        }
+            _sb.Append(m_text[i]);
+            count++;
 
-        switch (_verticalAlign)
-        {
-            case TextVerticalAlign.Center:
-                column = ParentLayout.Bottom - (ParentLayout.Height / 2);
-                break;
-            case TextVerticalAlign.Bottom:
-                column = ParentLayout.Bottom - _printLine - 1;
-                break;
-        }
-
-        Console.SetCursorPosition(row, column);
-
-        for (int i = 0; i < _sb.Length; i++)
-        {
-            if (_sb[i] == '\n')
+            if (CharContoroller.isHalf(m_text[i]))
             {
-                Console.WriteLine();
-                Console.SetCursorPosition(row, ++column);
-                continue;
+                _sb.Append(' '); // 반각 문자는 공백 추가로 2칸 차지하게 함
+                count++;
+            }
+        }
+
+        _rect.EndX = _rect.StartX + count;
+        _lineRange.Add(count);
+    }
+
+    public TextBox AddText(string m_text, bool m_lineMode = false)
+    {
+        if (m_lineMode)
+        {
+            _sb.AppendLine();
+            _tempIdx = _sb.Length;
+            _rect.EndY++;
+            _lineCount++;
+            _lineRange.Add(_lineRange[_lineRange.Count - 1]);
+        }
+
+        int count = 0;
+
+        for (int i = 0; i < m_text.Length; i++)
+        {
+            _sb.Append(m_text[i]);
+            count++;
+
+            if (CharContoroller.isHalf(m_text[i]))
+            {
+                _sb.Append(' '); // 반각 문자 뒤에 공백 추가
+                count++;
+            }
+        }
+
+        _tempIdx += count;
+        _lineRange[_lineRange.Count - 1] = _tempIdx;
+
+        if (_rect.EndY < _tempIdx)
+            _rect.EndY = _tempIdx;
+
+        return this;
+    }
+
+    public TextBox AddText(char m_text, bool m_lineMode = false)
+    {
+        return AddText(m_text.ToString(), m_lineMode);
+    }
+
+    public override void Print()
+    {
+        if (Parent == null)
+            throw new Exception("부모 객체가 없습니다.");
+
+        int standardX = Parent.Left;
+        int standardY = Parent.Top;
+        int strLength;
+
+        for (int i = 1; i <= _lineCount; i++)
+        {
+            strLength = _lineRange[i] - _lineRange[i - 1];
+
+            switch (_horizon)
+            {
+                case HorizonAlign.Center:
+                    standardX = Parent.Left + (Parent.Width - strLength) / 2;
+                    break;
+                case HorizonAlign.Right:
+                    standardX = Parent.Right - strLength;
+                    break;
+                default:
+                    standardX = Parent.Left;
+                    break;
             }
 
-            Console.Write($"{COLOR_CODE_FRONT}{_colorCode}{COLOR_CODE_MIDDLE}{_sb[i]}{COLOR_CODE_BACK}");
+            switch (_vertical)
+            {
+                case VerticalAlign.Center:
+                    standardY = ((Parent.Bottom - Parent.Top) / 2) + Parent.Top + i - 1;
+                    break;
+                case VerticalAlign.Bottom:
+                    standardY = Parent.Bottom - _lineCount + i - 1;
+                    break;
+                default:
+                    standardY = Parent.Top + i - 1;
+                    break;
+            }
+
+            int start = _lineRange[i - 1];
+
+            for (int j = 0; j < strLength; j++)
+            {
+                ColorPrinter.Print(standardX + j, standardY, _printColor, _sb[start + j]);
+            }
         }
     }
 }

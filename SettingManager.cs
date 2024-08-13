@@ -43,8 +43,5 @@ public class SettingManager
         var handle = GetStdHandle(STD_OUTPUT_HANDLE);
         GetConsoleMode(handle, out uint mode);
         SetConsoleMode(handle, mode | ENABLE_VIRTUAL_TERMINAL_PROCESSING);
-
-        // ANSI escape code for setting text color to bright red (color 196 in 256-color palette)
-        //Console.WriteLine("\u001b[38;5;130mHello, 256-color world!\u001b[0m");
     }
 }

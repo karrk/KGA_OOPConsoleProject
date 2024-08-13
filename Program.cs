@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-namespace MiniCooked
+﻿namespace MiniCooked
 {
     internal class Program
     {
@@ -10,38 +8,80 @@ namespace MiniCooked
             GameManager.Instance.Init();
             SettingManager.Instance.Init();
             UIManager.Instance.Init();
-
-            //Console.WriteLine($"{Fonts.BREAD1}{Fonts.BREAD1}{Fonts.BREAD1}{Fonts.BREAD1}{Fonts.BREAD1}{Fonts.BREAD1}");
-            //Console.WriteLine($"{Fonts.BREAD2}{Fonts.BREAD2}{Fonts.BREAD2}{Fonts.BREAD2}{Fonts.BREAD2}{Fonts.BREAD2}");
-            //Console.WriteLine($"{Fonts.BREAD3}{Fonts.BREAD3}{Fonts.BREAD3}{Fonts.BREAD3}{Fonts.BREAD3}{Fonts.BREAD3}");
-            //Console.WriteLine($"{Fonts.BREAD4}{Fonts.BREAD4}{Fonts.BREAD4}{Fonts.BREAD4}{Fonts.BREAD4}{Fonts.BREAD4}");
-
-            //Console.WriteLine();
-            //Console.WriteLine($"{Fonts.BEEF1}{Fonts.BEEF1}{Fonts.BEEF1}{Fonts.BEEF1}{Fonts.BEEF1}{Fonts.BEEF1}");
-            //Console.WriteLine($"{Fonts.BEEF2}{Fonts.BEEF2}{Fonts.BEEF2}{Fonts.BEEF2}{Fonts.BEEF2}{Fonts.BEEF2}");
-            //Console.WriteLine($"{Fonts.BEEF3}{Fonts.BEEF3}{Fonts.BEEF3}{Fonts.BEEF3}{Fonts.BEEF3}{Fonts.BEEF3}");
-            //Console.WriteLine($"{Fonts.BEEF4}{Fonts.BEEF4}{Fonts.BEEF4}{Fonts.BEEF4}{Fonts.BEEF4}{Fonts.BEEF4}");
-
-            //Console.WriteLine();
-
-            //Console.WriteLine($"{Fonts.OPTION1}{Fonts.OPTION1}{Fonts.OPTION1}");
-            //Console.WriteLine($"{Fonts.OPTION2}{Fonts.OPTION2}{Fonts.OPTION2}");
-            //Console.WriteLine($"{Fonts.OPTION3}{Fonts.OPTION3}{Fonts.OPTION3}");
-            //Console.WriteLine($"{Fonts.OPTION4}{Fonts.OPTION4}{Fonts.OPTION4}");
-
-            Console.SetCursorPosition(0, 0);
-            //Console.WriteLine(Fonts.CUSTOMERHEAD);
-            //Console.WriteLine(Fonts.CUSTOMERHEAD);
-            //Console.WriteLine(Fonts.CUSTOMERBODY);
-            //Console.WriteLine(Fonts.CUSTOMERBODY);
-            //Console.WriteLine(Fonts.CUSTOMERBODY);
-            //Console.WriteLine(Fonts.CUSTOMERBODY);
-            //Console.WriteLine(Fonts.CUSTOMERBODY);
+            //StringBuilder sb = new StringBuilder();
+            //sb.Append("한글자 ");
+            //Console.WriteLine(sb.Length);
 
             while (true)
             {
 
             }
+        }
+    }
+
+    public enum HorizonAlign
+    {
+        Left,
+        Center,
+        Right,
+    }
+
+    public enum VerticalAlign
+    {
+        Top,
+        Center,
+        Bottom,
+    }
+
+    public static class ColorPrinter
+    {
+        // colorCodeURL = https://en.wikipedia.org/wiki/ANSI_escape_code#8-bit
+        public const string COLOR_CODE_FRONT = "\u001b[38;5;";
+        public const string COLOR_CODE_MIDDLE = "m";
+        public const string COLOR_CODE_BACK = "\u001b[0m";
+
+        public static void Print(int m_cursorX, int m_cursorY, int m_color,string text)
+        {
+            Console.SetCursorPosition(m_cursorX, m_cursorY);
+            Console.Write($"{COLOR_CODE_FRONT}{m_color}{COLOR_CODE_MIDDLE}{text}{COLOR_CODE_BACK}");
+        }
+
+        public static void Print(int m_cursorX, int m_cursorY, int m_color, char text)
+        {
+            Console.SetCursorPosition(m_cursorX, m_cursorY);
+            Console.Write($"{COLOR_CODE_FRONT}{m_color}{COLOR_CODE_MIDDLE}{text}{COLOR_CODE_BACK}");
+        }
+
+        public static void PrintLine(int m_cursorX, int m_cursorY, int m_color, string text)
+        {
+            Console.SetCursorPosition(m_cursorX, m_cursorY);
+            Console.WriteLine($"{COLOR_CODE_FRONT}{m_color}{COLOR_CODE_MIDDLE}{text}{COLOR_CODE_BACK}");
+        }
+        public static void PrintLine(int m_cursorX, int m_cursorY, int m_color, char text)
+        {
+            Console.SetCursorPosition(m_cursorX, m_cursorY);
+            Console.WriteLine($"{COLOR_CODE_FRONT}{m_color}{COLOR_CODE_MIDDLE}{text}{COLOR_CODE_BACK}");
+        }
+    }
+
+    public static class CharContoroller
+    {
+        public static char HalfToFull(char m_half)
+        {
+            if (m_half > 0x21 && m_half <= 0x7e)
+
+                m_half += (char)0xfee0;
+
+            else if (m_half == 0x20)
+
+                m_half = (char)0x3000;
+
+            return m_half;
+        }
+
+        public static bool isHalf(char m_half)
+        {
+            return (m_half >= 0x20 && m_half <= 0x7E);
         }
     }
 
