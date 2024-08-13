@@ -42,6 +42,23 @@ public class UIManager
             (TextBox)new TextBox("수 입 : ")
             .SetAlign(HorizonAlign.Right)
             );
+
+        Customer c = new Customer();
+        c.Layout.SetPos(orderLayout, RectCorner.BotL, 10, -13);
+        c.SetCommunity();
+        c.Layout.Print();
+
+        Customer d = new Customer();
+        d.Layout.SetPos(c.Layout, RectCorner.TopR, 10, 0);
+        d.Layout.Print();
+
+        Customer e = new Customer();
+        e.Layout.SetPos(d.Layout, RectCorner.TopR, 10, 0);
+        e.Layout.Print();
+
+        Customer f = new Customer();
+        f.Layout.SetPos(e.Layout, RectCorner.TopR, 10, 0);
+        f.Layout.Print();
     }
 
     private void AddPreviewLayout()
@@ -61,23 +78,6 @@ public class UIManager
             .SetAlign(HorizonAlign.Center);
 
         previewLayout.AddText(test);
-
-        //previewLayout.AddText(
-        //    (TextBox)new TextBox("█████████████████████████████████████████████████")
-        //    .SetColor(166)
-        //    .SetAlign(VerticalAlign.Bottom)
-        //    .SetAlign(HorizonAlign.Center));
-
-
-        //previewLayout.AddText(
-        //    (TextBox)new TextBox("█████████████████████████████████████████████████").SetColor(167)
-        //    .SetAlign(VerticalAlign.Bottom)
-        //    .SetAlign(HorizonAlign.Center));
-
-        //previewLayout.AddText(
-        //    (TextBox)new TextBox("███████████████████████████████████████████████").SetColor(168)
-        //    .SetAlign(VerticalAlign.Bottom)
-        //    .SetAlign(HorizonAlign.Center));
     }
 
     private void AddSelectLayout()
@@ -143,7 +143,7 @@ public class UIManager
         Layout spaceBarLayout = new Layout(new Rect(80, 57, 50, 3));
         _mainLayout.AddLayout(spaceBarLayout);
 
-        TextBox spaceText = new TextBox($"SpaceBar : 서빙");
+        TextBox spaceText = new TextBox($"SpaceBar : 서 빙");
         spaceText.SetAlign(HorizonAlign.Center);
         spaceText.SetAlign(VerticalAlign.Center);
         spaceText.SetColor(159);

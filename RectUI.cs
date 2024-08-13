@@ -102,5 +102,16 @@ public abstract class RectUI
         return this;
     }
 
+    public void TurnOff()
+    {
+        int tempColor = _printColor;
+
+        this._printColor = (int)ConsoleColor.Black;
+
+        Print();
+
+        this._printColor = tempColor;
+    }
+
     public abstract void Print();
 }

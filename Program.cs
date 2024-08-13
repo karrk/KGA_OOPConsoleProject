@@ -8,9 +8,6 @@
             GameManager.Instance.Init();
             SettingManager.Instance.Init();
             UIManager.Instance.Init();
-            //StringBuilder sb = new StringBuilder();
-            //sb.Append("한글자 ");
-            //Console.WriteLine(sb.Length);
 
             while (true)
             {
@@ -39,6 +36,13 @@
         public const string COLOR_CODE_FRONT = "\u001b[38;5;";
         public const string COLOR_CODE_MIDDLE = "m";
         public const string COLOR_CODE_BACK = "\u001b[0m";
+
+        private static Random _rand = new Random();
+
+        public static int GetRandomColorNumber()
+        {
+            return _rand.Next(90, 196);
+        }
 
         public static void Print(int m_cursorX, int m_cursorY, int m_color,string text)
         {
