@@ -5,14 +5,9 @@
         static void Main(string[] args)
         {
             GameManager gm = new GameManager();
-            GameManager.Instance.Init();
-            SettingManager.Instance.Init();
-            UIManager.Instance.Init();
-            
-            while (true)
-            {
+            gm.Init();
 
-            }
+            gm.Run();
         }
     }
 
