@@ -2,37 +2,35 @@
 
 public class Layout : RectUI
 {
-    private List<RectUI> _innerElement;
-
     public Layout(Rect m_rect) : base(m_rect)
     {
     }
 
-    public Layout(RectUI m_source, RectCorner m_corner, int m_offsetX, int m_offsetY, Rect m_size) : base(m_source, m_corner, m_offsetX, m_offsetY, m_size)
-    {
-    }
+    //public Layout(RectUI m_source, RectCorner m_corner, int m_offsetX, int m_offsetY, Rect m_size) : base(m_source, m_corner, m_offsetX, m_offsetY, m_size)
+    //{
+    //}
 
-    public Layout AddLayout(Layout m_layout)
-    {
-        if (_innerElement == null)
-            _innerElement = new List<RectUI>();
+    //public Layout AddLayout(Layout m_layout)
+    //{
+    //    if (_innerElement == null)
+    //        _innerElement = new List<RectUI>();
 
-        m_layout.SetParent(this);
-        _innerElement.Add(m_layout);
+    //    m_layout.SetParent(this);
+    //    _innerElement.Add(m_layout);
 
-        return this;
-    }
+    //    return this;
+    //}
 
-    public Layout AddText(TextBox m_text)
-    {
-        if (_innerElement == null)
-            _innerElement = new List<RectUI>();
+    //public Layout AddText(TextBox m_text)
+    //{
+    //    if (_innerElement == null)
+    //        _innerElement = new List<RectUI>();
 
-        _innerElement.Add(m_text);
-        m_text.SetParent(this);
+    //    _innerElement.Add(m_text);
+    //    m_text.SetParent(this);
 
-        return this;
-    }
+    //    return this;
+    //}
 
     public int[] GetCorner(RectCorner m_corner)
     {
@@ -73,11 +71,11 @@ public class Layout : RectUI
 
         ColorPrinter.Print(Right+1, Bottom, _printColor, Fonts.LAYOUT_OUTLINE_DOWNRIGHT);
 
-        if (_innerElement != null)
+        if (_childs != null)
         {
-            for (int i = 0; i < _innerElement.Count; i++)
+            for (int i = 0; i < _childs.Count; i++)
             {
-                _innerElement[i].Print();
+                _childs[i].Print();
             }
         }
 

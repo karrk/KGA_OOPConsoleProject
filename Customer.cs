@@ -11,36 +11,55 @@ public class Customer
 
     private int _selectMenu;
 
-    public Customer()
+    public Customer(RectUI m_baseUI)
     {
-        _layout = new Layout(new Rect(15, 9));
-        _imgTextBox = (TextBox)SetImgBox().SetColor(ColorPrinter.GetRandomColorNumber());
-        _layout.SetColor(0);
+        _layout = new Layout(new Rect(0,0,15,9));
+        _layout.SetParent(m_baseUI);
 
-        _layout.AddText(_imgTextBox);
+        _imgTextBox = SetImgBox();
+        _imgTextBox.SetColor(ColorPrinter.GetRandomColorNumber());
+        _imgTextBox.SetParent(_layout);
+
+        _communicateBox = new TextBox("1번 주 세 요");
+        _communicateBox.SetParent(_layout);
+
+        _layout.SetAlign(HorizonAlign.Left);
+        _layout.SetAlign(VerticalAlign.Center);
+        _communicateBox.SetAlign(HorizonAlign.Center);
+        _communicateBox.SetAlign(VerticalAlign.Top);
+
+        _layout.SetPos(5, 2, RectOption.Relative);
+        _communicateBox.SetPos(0, -3, RectOption.Relative);
+
+        _layout.SetColor(0);
     }
 
     public void SetCommunity()
     {
-        _communicateBox = (TextBox)new TextBox("1번 주 세 요")
-            .SetPos(_layout, RectCorner.TopL, -15,10);
-        _layout.AddText(_communicateBox);
+        //_communicateBox = (TextBox)new TextBox("1번 주 세 요")
+        //    .SetPos(_layout, RectCorner.TopL, 0,3);
+        //_layout.AddText(_communicateBox);
     }
 
     private TextBox SetImgBox()
     {
         TextBox img =
-(TextBox)new TextBox(" █████████")
-            .AddText(" █　████　██ ", true)
-            .AddText(" █　████　██ ", true)
+           new TextBox("　　　██████████")
+            .AddText("　　█　████　██ ", true)
+            .AddText("　　█　████　██ ", true)
             .AddText("█████████████", true)
             .AddText("█████████████", true)
             .AddText("█████████████", true)
             .AddText("█████████████", true)
-            .AddText("█████████████", true)
-            .SetAlign(HorizonAlign.Center)
-            .SetAlign(VerticalAlign.Bottom);
+            .AddText("█████████████", true);
 
         return img;
+    }
+
+    public void Hide()
+    {
+        _layout.TurnOff();
+        _communicateBox.TurnOff();
+        _imgTextBox.TurnOff();
     }
 }

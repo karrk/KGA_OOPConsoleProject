@@ -52,7 +52,7 @@
 
         public static void Print(int m_cursorX, int m_cursorY, int m_color, char text)
         {
-            Console.SetCursorPosition(m_cursorX, m_cursorY);
+             Console.SetCursorPosition(m_cursorX, m_cursorY);
             Console.Write($"{COLOR_CODE_FRONT}{m_color}{COLOR_CODE_MIDDLE}{text}{COLOR_CODE_BACK}");
         }
 
@@ -115,7 +115,7 @@
         public const char OPTION3 = '\u16E5';
         public const char OPTION4 = '\u2180';
 
-        public const string CUSTOMERHEAD = "\u0020\u0020\u0020█████";
-        public const string CUSTOMERBODY = "████████████";
+        //public const string CUSTOMERHEAD = "\u0020\u0020\u0020█████";
+        //public const string CUSTOMERBODY = "████████████";
     }
 }

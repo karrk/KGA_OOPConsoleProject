@@ -16,9 +16,9 @@ public class TextBox : RectUI
     {
     }
 
-    public TextBox(RectUI m_source, RectCorner m_corner, int m_offsetX, int m_offsetY, Rect m_size) : base(m_source, m_corner, m_offsetX, m_offsetY, m_size)
-    {
-    }
+    //public TextBox(RectUI m_source, RectCorner m_corner, int m_offsetX, int m_offsetY, Rect m_size) : base(m_source, m_corner, m_offsetX, m_offsetY, m_size)
+    //{
+    //}
 
     public TextBox(string m_text)
     {
@@ -92,48 +92,48 @@ public class TextBox : RectUI
 
     public override void Print()
     {
-        if (Parent == null)
-            throw new Exception("부모 객체가 없습니다.");
+        //if (Parent == null)
+        //    throw new Exception("부모 객체가 없습니다.");
 
-        int standardX = Parent.Left;
-        int standardY = Parent.Top;
+        int standardX = Left;
+        int standardY = Top;
         int strLength;
 
         for (int i = 1; i <= _lineCount; i++)
         {
             strLength = _lineRange[i] - _lineRange[i - 1];
 
-            switch (_horizon)
-            {
-                case HorizonAlign.Center:
-                    standardX = Parent.Left + (Parent.Width - strLength) / 2;
-                    break;
-                case HorizonAlign.Right:
-                    standardX = Parent.Right - strLength;
-                    break;
-                default:
-                    standardX = Parent.Left;
-                    break;
-            }
+            //switch (_horizon)
+            //{
+            //    case HorizonAlign.Center:
+            //        standardX = Left + (Parent.Width - strLength) / 2;
+            //        break;
+            //    case HorizonAlign.Right:
+            //        standardX = Right - strLength;
+            //        break;
+            //    default:
+            //        standardX = Left;
+            //        break;
+            //}
 
-            switch (_vertical)
-            {
-                case VerticalAlign.Center:
-                    standardY = ((Parent.Bottom - Parent.Top) / 2) + Parent.Top + i - 1;
-                    break;
-                case VerticalAlign.Bottom:
-                    standardY = Parent.Bottom - _lineCount + i - 1;
-                    break;
-                default:
-                    standardY = Parent.Top + i - 1;
-                    break;
-            }
+            //switch (_vertical)
+            //{
+            //    case VerticalAlign.Center:
+            //        standardY = ((Bottom - Top) / 2) + Top + i - 1;
+            //        break;
+            //    case VerticalAlign.Bottom:
+            //        standardY = Bottom - _lineCount + i - 1;
+            //        break;
+            //    default:
+            //        standardY = Top + i - 1;
+            //        break;
+            //}
 
             int start = _lineRange[i - 1];
 
             for (int j = 0; j < strLength; j++)
             {
-                ColorPrinter.Print(standardX + j, standardY, _printColor, _sb[start + j]);
+                ColorPrinter.Print(standardX + j, standardY+i, _printColor, _sb[start + j]);
             }
         }
     }
