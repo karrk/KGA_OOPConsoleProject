@@ -92,9 +92,6 @@ public class TextBox : RectUI
 
     public override void Print()
     {
-        //if (Parent == null)
-        //    throw new Exception("부모 객체가 없습니다.");
-
         int standardX = Left;
         int standardY = Top;
         int strLength;
@@ -102,32 +99,6 @@ public class TextBox : RectUI
         for (int i = 1; i <= _lineCount; i++)
         {
             strLength = _lineRange[i] - _lineRange[i - 1];
-
-            //switch (_horizon)
-            //{
-            //    case HorizonAlign.Center:
-            //        standardX = Left + (Parent.Width - strLength) / 2;
-            //        break;
-            //    case HorizonAlign.Right:
-            //        standardX = Right - strLength;
-            //        break;
-            //    default:
-            //        standardX = Left;
-            //        break;
-            //}
-
-            //switch (_vertical)
-            //{
-            //    case VerticalAlign.Center:
-            //        standardY = ((Bottom - Top) / 2) + Top + i - 1;
-            //        break;
-            //    case VerticalAlign.Bottom:
-            //        standardY = Bottom - _lineCount + i - 1;
-            //        break;
-            //    default:
-            //        standardY = Top + i - 1;
-            //        break;
-            //}
 
             int start = _lineRange[i - 1];
 

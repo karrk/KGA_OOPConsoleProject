@@ -8,7 +8,7 @@
             GameManager.Instance.Init();
             SettingManager.Instance.Init();
             UIManager.Instance.Init();
-
+            
             while (true)
             {
 
@@ -89,33 +89,5 @@
         }
     }
 
-    public static class Fonts
-    {
-        public const char LAYOUT_OUTLINE_HORIZON = '\u2501';
-        public const char LAYOUT_OUTLINE_VERTICAL = '\u2503';
-        public const char LAYOUT_OUTLINE_TOPLEFT = '\u250F';
-        public const char LAYOUT_OUTLINE_TOPRIGHT = '\u2513';
-        public const char LAYOUT_OUTLINE_DOWNLEFT = '\u2517';
-        public const char LAYOUT_OUTLINE_DOWNRIGHT = '\u251B';
-
-        public const char EMPTY = '\u0020';
-
-        public const char BREAD1 = '\u0150';
-        public const char BREAD2 = '\u014C';
-        public const char BREAD3 = '\u0277';
-        public const char BREAD4 = '\u0276';
-
-        public const char BEEF1 = '\u0B24';
-        public const char BEEF2 = '\u0C5A';
-        public const char BEEF3 = '\u0F36';
-        public const char BEEF4 = '\u0F36';
-
-        public const char OPTION1 = '\u07D8';
-        public const char OPTION2 = '\u0B24';
-        public const char OPTION3 = '\u16E5';
-        public const char OPTION4 = '\u2180';
-
-        //public const string CUSTOMERHEAD = "\u0020\u0020\u0020█████";
-        //public const string CUSTOMERBODY = "████████████";
-    }
+    
 }

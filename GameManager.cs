@@ -20,5 +20,6 @@ public class GameManager
     {
         _ui = new UIManager();
         _setting = new SettingManager();
+        MenuManager.Init();
     }
 }

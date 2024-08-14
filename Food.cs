@@ -7,25 +7,60 @@
 
 public class FoodElement : Food
 {
-    private ConsoleColor _color;
+    private char _foodChar;
+    private int _colorNumber;
+
+    public char FoodChar => _foodChar;
+    public int ColorNumber => _colorNumber;
+    
+    public FoodElement(char m_char, int m_num)
+    {
+        this._foodChar = m_char;
+        this._num = m_num;
+    }
+
+    public void SetColor(int m_colorNumber)
+    {
+        this._colorNumber = m_colorNumber;
+    }
 }
 
 public class Burger : Food
 {
-    private List<int> _burgerStack = new List<int>();
+    private List<FoodElement> _burgerStack = new List<FoodElement>();
 
-    public bool IsMatchFoodNumber(params int[] m_numbers)
+    public int Count => _burgerStack.Count;
+
+    private int _price;
+    public int Price => _price;
+
+    public Burger(int m_price)
     {
-        return this._num == m_numbers.Sum();
+        this._price = m_price;
     }
 
-    public void AddStack(Food m_food)
+    public FoodElement this[int idx]
     {
-        _burgerStack.Add(m_food.Number);
+        get
+        {
+            return _burgerStack[idx];
+        }
     }
 
-    public void AddStack(int m_foodNum)
+    public bool IsMatchFoodNumber(int m_numbers)
     {
-        _burgerStack.Add(m_foodNum);
+        return (this._num & m_numbers) == this._num;
+    }
+
+    public void AddStack(FoodElement m_food)
+    {
+        _num += m_food.Number;
+        _burgerStack.Add(m_food);
+    }
+
+    // 마지막 스택은 값추가 안함
+    public void CloseStack()
+    {
+        _burgerStack.Add(_burgerStack.First());
     }
 }

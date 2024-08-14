@@ -172,7 +172,7 @@ public abstract class RectUI
                 SetPos(this.Left, (Parent.Height / 2) + Parent.Top - this.Height/2);
                 break;
             case VerticalAlign.Bottom:
-                SetPos(this.Left, Parent.Bottom);
+                SetPos(this.Left, Parent.Bottom-Height);
                 break;
         }
 
