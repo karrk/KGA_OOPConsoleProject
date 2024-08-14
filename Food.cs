@@ -13,15 +13,23 @@ public class FoodElement : Food
     public char FoodChar => _foodChar;
     public int ColorNumber => _colorNumber;
     
-    public FoodElement(char m_char, int m_num)
+    public FoodElement(char m_char, int m_foodNum)
     {
         this._foodChar = m_char;
-        this._num = m_num;
+        this._num = m_foodNum;
     }
 
     public void SetColor(int m_colorNumber)
     {
         this._colorNumber = m_colorNumber;
+    }
+
+    public FoodElement Copy()
+    {
+        FoodElement copy = new FoodElement(this._foodChar,_num);
+        copy.SetColor(this._colorNumber);
+
+        return copy;
     }
 }
 
