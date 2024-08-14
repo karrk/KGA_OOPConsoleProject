@@ -8,6 +8,9 @@ public class UIManager
 
     private Layout _mainLayout = null;
 
+    private TextBox _goldTextBox = null;
+
+
     public UIManager()
     {
         if (_instance != null)
@@ -20,6 +23,7 @@ public class UIManager
     {
         _mainLayout = new Layout(new Rect(1, 1, 200, 60));
         _mainLayout.SetColor(120);
+        DrawMainGameTitle();
         InitLayouts();
 
         _mainLayout.Print();
@@ -34,16 +38,26 @@ public class UIManager
         AddSpaceBarLayout();
     }
 
+    public void RenewalGold(int m_gold)
+    {
+        _goldTextBox.TurnOff();
+        _goldTextBox.SetNewText($"수 입 : {m_gold}원");
+        _goldTextBox.SetAlign(HorizonAlign.Right);
+        _goldTextBox.SetAlign(VerticalAlign.Top);
+
+        _goldTextBox.Print();
+    }
+
     private void AddOrderLayout()
     {
-        Layout orderLayout = new Layout(new Rect(120, 20));
+        Layout orderLayout = new Layout(new Rect(120, 16));
         orderLayout.SetParent(_mainLayout);
-        orderLayout.SetPos(10, 5, RectOption.Relative);
+        orderLayout.SetPos(10, 10, RectOption.Relative);
 
-        TextBox goldText = new TextBox("수 입 : ");
-        goldText.SetParent(orderLayout);
-        goldText.SetAlign(HorizonAlign.Right);
-        goldText.SetAlign(VerticalAlign.Top);
+        _goldTextBox = new TextBox("수 입 : 0 원");
+        _goldTextBox.SetParent(orderLayout);
+        _goldTextBox.SetAlign(HorizonAlign.Right);
+        _goldTextBox.SetAlign(VerticalAlign.Top);
         
         Customer c = new Customer(orderLayout);
         Layout cLayout = c.Layout;
@@ -56,6 +70,11 @@ public class UIManager
 
         Customer f = new Customer(orderLayout);
         f.Layout.SetPos(e.Layout, RectCorner.TopR, 4, 0);
+
+        CustomerContainer.AddCustomer(c);
+        CustomerContainer.AddCustomer(d);
+        CustomerContainer.AddCustomer(e);
+        CustomerContainer.AddCustomer(f);
     }
 
     private void AddPreviewLayout()
@@ -93,35 +112,13 @@ public class UIManager
         tableImg1.SetColor(52);
         tableImg2.SetColor(88);
         tableImg3.SetColor(196);
+
+
+        BurgerTable.SetTableLayout(previewLayout);
     }
 
     private void AddSelectLayout()
     {
-        Layout BtnSetup(Layout m_btn, string m_btnTitle, char m_img, int m_color)
-        {
-            TextBox btnText = new TextBox($"{m_btnTitle}");
-            TextBox elementImg = new TextBox(string.Empty);
-
-            btnText.SetParent(m_btn);
-            elementImg.SetParent(m_btn);
-
-            btnText.SetAlign(HorizonAlign.Left);
-            btnText.SetAlign(VerticalAlign.Top);
-
-            elementImg.SetColor(m_color);
-            elementImg.SetAlign(HorizonAlign.Center);
-            elementImg.SetAlign(VerticalAlign.Center);
-
-            btnText.SetPos(3, 0, RectOption.Relative);
-
-            for (int i = 0; i < SettingManager.Instance.FoodsMinCount; i++)
-            {
-                elementImg.AddText(m_img);
-            }
-
-            return m_btn;
-        }
-
         Layout btnAreaLayout = new Layout(new Rect(70, 26));
         btnAreaLayout.SetParent(_mainLayout);
         btnAreaLayout.SetAlign(HorizonAlign.Center);
@@ -134,70 +131,29 @@ public class UIManager
         elementText.SetAlign(HorizonAlign.Center);
         elementText.SetAlign(VerticalAlign.Top);
 
-        Rect btnSize = new Rect(18, 6);
+        Rect btnSize = new Rect(18, 5);
 
-        //Layout btn7 = new Layout(btnSize);
-        //btn7.SetParent(btnAreaLayout);
-        //btn7.SetAlign(VerticalAlign.Top);
-        //btn7.SetAlign(HorizonAlign.Left);
-        //btn7.SetPos(4, 3, RectOption.Relative);
-        //BtnSetup(btn7, "Num7", Fonts.OPTION1, 100);
+        int intervalX = 4;
+        int intervalY = 3;
 
-        //Layout btn8 = new Layout(btnSize);
-        //btn8.SetParent(btnAreaLayout);
-        //btn8.SetAlign(VerticalAlign.Top);
-        //btn8.SetAlign(HorizonAlign.Left);
-        //btn8.SetPos(btn7, RectCorner.TopR, 4, 0);
-        //BtnSetup(btn8, "Num8", Fonts.OPTION2, 120);
+        int width = btnSize.EndX;
+        int height = btnSize.EndY;
 
-        //Layout btn9 = new Layout(btnSize);
-        //btn9.SetParent(btnAreaLayout);
-        //btn9.SetAlign(VerticalAlign.Top);
-        //btn9.SetAlign(HorizonAlign.Left);
-        //btn9.SetPos(btn8, RectCorner.TopR, 4, 0);
-        //BtnSetup(btn9, "Num9", Fonts.OPTION3, 140);
+        int count = 0;
 
-        //Layout btn4 = new Layout(btnSize);
-        //btn4.SetParent(btnAreaLayout);
-        //btn4.SetAlign(VerticalAlign.Top);
-        //btn4.SetAlign(HorizonAlign.Left);
-        //btn4.SetPos(btn7, RectCorner.BotL, 0, 2);
-        //BtnSetup(btn4, "Num4", Fonts.OPTION5, 160);
+        for (int i = 1; i <= 3; i++)
+        {
+            for (int j = 1; j <= 3; j++)
+            {
+                Layout btn = new Layout(btnSize);
+                btn.SetParent(btnAreaLayout);
+                btn.SetAlign(VerticalAlign.Bottom).SetAlign(HorizonAlign.Left);
+                btn.SetPos(intervalX * j + (width * (j - 1)),
+                    -intervalY * i - (height * (i - 1)), RectOption.Relative);
 
-        //Layout btn5 = new Layout(btnSize);
-        //btn5.SetParent(btnAreaLayout);
-        //btn5.SetAlign(VerticalAlign.Top);
-        //btn5.SetAlign(HorizonAlign.Left);
-        //btn5.SetPos(btn4, RectCorner.TopR, 4, 0);
-        //BtnSetup(btn5, "Num5", Fonts.OPTION6, 180);
-
-        //Layout btn6 = new Layout(btnSize);
-        //btn6.SetParent(btnAreaLayout);
-        //btn6.SetAlign(VerticalAlign.Top);
-        //btn6.SetAlign(HorizonAlign.Left);
-        //btn6.SetPos(btn5, RectCorner.TopR, 4, 0);
-        //BtnSetup(btn6, "Num6", Fonts.OPTION7, 200);
-
-        //Layout btn1 = new Layout(btnSize);
-        //btn1.SetParent(btnAreaLayout);
-        //btn1.SetAlign(VerticalAlign.Top);
-        //btn1.SetAlign(HorizonAlign.Left);
-        //btn1.SetPos(btn4, RectCorner.BotL, 0, 2);
-        //BtnSetup(btn1, "Num1", Fonts.OPTION1, 210);
-
-        //Layout btn2 = new Layout(btnSize);
-        //btn2.SetParent(btnAreaLayout);
-        //btn2.SetAlign(VerticalAlign.Top);
-        //btn2.SetAlign(HorizonAlign.Left);
-        //btn2.SetPos(btn1, RectCorner.TopR, 4, 0);
-        //BtnSetup(btn2, "Num2", Fonts.OPTION2, 220);
-
-        //Layout btn3 = new Layout(btnSize);
-        //btn3.SetParent(btnAreaLayout);
-        //btn3.SetAlign(VerticalAlign.Top);
-        //btn3.SetAlign(HorizonAlign.Left);
-        //btn3.SetPos(btn2, RectCorner.TopR, 4, 0);
-        //BtnSetup(btn3, "Num3", Fonts.OPTION3, 230);
+                MenuManager.RegistElementBtn(btn,count++);
+            }
+        }
     }
 
     private void AddSpaceBarLayout()
@@ -226,7 +182,7 @@ public class UIManager
         TextBox menuText = new TextBox("= 메 뉴 레 시 피 =");
         menuText.SetParent(menuBaseLayout);
         menuText.SetAlign(VerticalAlign.Top).SetAlign(HorizonAlign.Center);
-        menuText.SetPos(0, 2, RectOption.Relative);
+        menuText.SetPos(0, 3, RectOption.Relative);
 
         Rect menuSize = new Rect(40, 12);
 
@@ -242,7 +198,7 @@ public class UIManager
         menu1Text.SetAlign(HorizonAlign.Left).SetAlign(VerticalAlign.Top);
         menu1Text.SetPos(2, 0, RectOption.Relative);
 
-        AddMenuImage(menu1Layout, MenuManager.Burgers[0]);
+        AddBurgerImage(menu1Layout, MenuManager.Burgers[0]);
 
 
         // 버거 2
@@ -255,7 +211,7 @@ public class UIManager
         menu2Text.SetAlign(HorizonAlign.Left).SetAlign(VerticalAlign.Top);
         menu2Text.SetPos(2, 0, RectOption.Relative);
 
-        AddMenuImage(menu2Layout, MenuManager.Burgers[1]);
+        AddBurgerImage(menu2Layout, MenuManager.Burgers[1]);
 
 
         // 버거 3
@@ -268,11 +224,11 @@ public class UIManager
         menu3Text.SetAlign(HorizonAlign.Left).SetAlign(VerticalAlign.Top);
         menu3Text.SetPos(2, 0, RectOption.Relative);
 
-        AddMenuImage(menu3Layout, MenuManager.Burgers[2]);
+        AddBurgerImage(menu3Layout, MenuManager.Burgers[2]);
 
     }
 
-    public static void AddMenuImage(RectUI m_baseLayout,Burger m_burger)
+    public static void AddBurgerImage(RectUI m_baseLayout,Burger m_burger)
     {
         for (int i = 0; i < m_burger.Count; i++)
         {
@@ -295,5 +251,20 @@ public class UIManager
         priceText.SetParent(m_baseLayout);
         priceText.SetAlign(HorizonAlign.Right).SetAlign(VerticalAlign.Top);
 
+    }
+
+    private void DrawMainGameTitle()
+    {
+        TextBox title = new TextBox
+            (" #     #   #   ##    #  #   ###   ###   ###   #  #  ")
+   .AddText ("### ###       # #   #     #     #   # #   #  # #",true)
+   .AddText ("#  #  #   #   #  #  #  #  #     #   # #   #  ##",true)
+   .AddText ("#     #   #   #   # #  #  #     #   # #   #  # #",true)
+   .AddText ("#     #   #   #    ##  #   ###   ###   ###   #  #",true);
+
+        title.SetColor(202);
+        title.SetParent(_mainLayout);
+        title.SetAlign(VerticalAlign.Top).SetAlign(HorizonAlign.Left);
+        title.SetPos(12, 1, RectOption.Relative);
     }
 }
