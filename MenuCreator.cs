@@ -1,73 +1,103 @@
 ﻿public static class MenuManager
 {
-    private static Burger _burger1;
-    private static Burger _burger2;
-    private static Burger _burger3;
-
     private static Random _rand = new Random();
     private static int _randomElementNum => _rand.Next(0, Fonts.OptionCharList.Count);
+    private static int _randomColorNum => _rand.Next(90, 191);
+    public static int RandomMenuNum => _rand.Next(1, _burgers.Count+1);
 
     private static List<Burger> _burgers = new List<Burger>();
     public static List<Burger> Burgers => _burgers;
 
+    private static List<FoodElement> _elements = new List<FoodElement>();
+
+    private static int _lastFoodNumber = 1;
+
     public static void Init()
     {
-        BurgerGenerate();
+        BurgerSetting();
+        SettingManager.Instance.SetLimitKey(_elements.Count);
     }
 
-    private static void BurgerGenerate()
+    public static FoodElement GetElement(int m_idx)
     {
-        _burger1 = new Burger(500);
+        return _elements[m_idx];
+    }
 
-        FoodElement fe1 = new FoodElement(Fonts.OptionCharList[_randomElementNum], 1<<0);
-        fe1.SetColor(60);
-        FoodElement fe2 = new FoodElement(Fonts.OptionCharList[_randomElementNum], 1<<1);
-        fe2.SetColor(80);
-        FoodElement fe3 = new FoodElement(Fonts.OptionCharList[_randomElementNum], 1<<2);
-        fe3.SetColor(80);
+    private static bool isContainChar(char m_ch,out FoodElement element)
+    {
+        foreach (var e in _elements)
+        {
+            if (m_ch == e.FoodChar)
+            {
+                element = e.Copy();
 
-        _burger1.AddStack(fe1);
-        _burger1.AddStack(fe2);
-        _burger1.CloseStack();
-        _burgers.Add(_burger1);
+                return true;
+            }
+        }
+
+        element = null;
+        return false;
+    }
+
+    private static Burger GenerateBurger(int m_price, int m_stackCount)
+    {
+        Burger burger = new Burger(m_price);
+
+        for (int i = 0; i < m_stackCount-1; i++)
+        {
+            char tempChar = Fonts.OptionCharList[_randomElementNum];
+            FoodElement element;
+
+            if(!isContainChar(tempChar,out element))
+            {
+                element = new FoodElement(tempChar, _lastFoodNumber << 1);
+                element.SetColor(_randomColorNum);
+                _lastFoodNumber = _lastFoodNumber << 1;
+                _elements.Add(element);
+            }
+
+            burger.AddStack(element);
+        }
+
+        burger.CloseStack();
+
+        return burger;
+    }
+
+    private static void BurgerSetting()
+    {
+        _burgers.Add(GenerateBurger(200, 4));
+        _burgers.Add(GenerateBurger(1000, 6));
+        _burgers.Add(GenerateBurger(4000, 8));
+    }
+
+    public static void RegistElementBtn(Layout m_baseBtn, int m_elementIdx)
+    {
+        if (m_elementIdx >= _elements.Count)
+            return;
+
+        TextBox btnText = new TextBox($"Num{m_elementIdx + 1}");
+        TextBox elementImg = new TextBox(string.Empty);
 
 
-        _burger2 = new Burger(1000);
+        btnText.SetParent(m_baseBtn);
+        elementImg.SetParent(m_baseBtn);
 
-        FoodElement fe11 = new FoodElement(Fonts.OptionCharList[_randomElementNum], 1 << 0);
-        fe11.SetColor(40);
-        FoodElement fe21 = new FoodElement(Fonts.OptionCharList[_randomElementNum], 1 << 1);
-        fe21.SetColor(100);
-        FoodElement fe31 = new FoodElement(Fonts.OptionCharList[_randomElementNum], 1 << 2);
-        fe31.SetColor(140); 
-        FoodElement fe41 = new FoodElement(Fonts.OptionCharList[_randomElementNum], 1 << 2);
-        fe41.SetColor(160);
+        btnText.SetAlign(MiniCooked.HorizonAlign.Left).SetAlign(MiniCooked.VerticalAlign.Top);
+        elementImg.SetColor(_elements[m_elementIdx].ColorNumber);
+        elementImg.SetAlign(MiniCooked.HorizonAlign.Center)
+            .SetAlign(MiniCooked.VerticalAlign.Center);
 
-        _burger2.AddStack(fe11);
-        _burger2.AddStack(fe21);
-        _burger2.AddStack(fe31);
-        _burger2.AddStack(fe41);
-        _burger2.CloseStack();
-        _burgers.Add(_burger2);
+        for (int i = 0; i < SettingManager.Instance.FoodsMinCount; i++)
+        {
+            elementImg.AddText(_elements[m_elementIdx].FoodChar);
+        }
 
+        btnText.SetPos(3, 0, RectOption.Relative);
+    }
 
-
-        _burger3 = new Burger(5000);
-
-        FoodElement fe111 = new FoodElement(Fonts.OptionCharList[_randomElementNum], 1 << 0);
-        fe111.SetColor(140);
-        FoodElement fe222 = new FoodElement(Fonts.OptionCharList[_randomElementNum], 1 << 1);
-        fe222.SetColor(138);
-        FoodElement fe333 = new FoodElement(Fonts.OptionCharList[_randomElementNum], 1 << 2);
-        fe333.SetColor(136);
-        FoodElement fe444 = new FoodElement(Fonts.OptionCharList[_randomElementNum], 1 << 2);
-        fe444.SetColor(100);
-
-        _burger3.AddStack(fe111);
-        _burger3.AddStack(fe222);
-        _burger3.AddStack(fe333);
-        _burger3.AddStack(fe444);
-        _burger3.CloseStack();
-        _burgers.Add(_burger3);
+    public static int GetBurgerTotalNumber(int m_burgerIdx)
+    {
+        return _burgers[m_burgerIdx-1].Number;
     }
 }
