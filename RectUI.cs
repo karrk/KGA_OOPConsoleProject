@@ -146,7 +146,6 @@ public abstract class RectUI
                 SetPos(Parent.Left, this.Top);
                 break;
             case HorizonAlign.Center:
-                //SetPos(Parent.Left + (Parent.Width - this.Right) / 2, this.Top);
                 SetPos((Parent.Left + Parent.Width/2 - Width/2), this.Top);
                 break;
             case HorizonAlign.Right:
@@ -192,6 +191,14 @@ public abstract class RectUI
         Print();
 
         this._printColor = tempColor;
+
+        if (_childs == null)
+            return;
+
+        foreach (var child in _childs)
+        {
+            child.TurnOff();
+        }
     }
 
     /// <summary>

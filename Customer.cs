@@ -10,7 +10,8 @@ public class Customer
     public Layout Layout => _layout;
 
     private int _selectMenu;
-
+    public int SelectNumber => _selectMenu;
+    
     public Customer(RectUI m_baseUI)
     {
         _layout = new Layout(new Rect(0,0,15,9));
@@ -20,7 +21,7 @@ public class Customer
         _imgTextBox.SetColor(ColorPrinter.GetRandomColorNumber());
         _imgTextBox.SetParent(_layout);
 
-        _communicateBox = new TextBox("1번 주 세 요");
+        _communicateBox = new TextBox("");
         _communicateBox.SetParent(_layout);
 
         _layout.SetAlign(HorizonAlign.Left);
@@ -32,13 +33,15 @@ public class Customer
         _communicateBox.SetPos(0, -3, RectOption.Relative);
 
         _layout.SetColor(0);
+
+        Order(MenuManager.RandomMenuNum);
     }
 
-    public void SetCommunity()
+    public void Order(int m_number)
     {
-        //_communicateBox = (TextBox)new TextBox("1번 주 세 요")
-        //    .SetPos(_layout, RectCorner.TopL, 0,3);
-        //_layout.AddText(_communicateBox);
+        _communicateBox.SetNewText($"{m_number}번 주 세 요");
+        _communicateBox.SetAlign(HorizonAlign.Center);
+        this._selectMenu = m_number;
     }
 
     private TextBox SetImgBox()
@@ -59,7 +62,5 @@ public class Customer
     public void Hide()
     {
         _layout.TurnOff();
-        _communicateBox.TurnOff();
-        _imgTextBox.TurnOff();
     }
 }
