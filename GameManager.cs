@@ -7,6 +7,10 @@ public class GameManager
 
     private UIManager _ui;
     private SettingManager _setting;
+    private InputManager _input;
+
+
+    private int _gold;
 
     public GameManager()
     {
@@ -20,6 +24,41 @@ public class GameManager
     {
         _ui = new UIManager();
         _setting = new SettingManager();
+        _input = new InputManager();
+        BurgerTable bTable = new BurgerTable();
+
         MenuManager.Init();
+        _setting.Init();
+        _ui.Init();
+       
+        _input.InputedNumkey += bTable.StackFoodElement;
+        _input.InputedSpaceKey += bTable.Serve;
+
+        _gold = 0;
+    }
+
+    public void AddGold(int m_gold)
+    {
+        _gold += m_gold;
+        UIManager.Instance.RenewalGold(_gold);
+    }
+
+    public void Run()
+    {
+        while(true)
+        {
+            Render();
+            Input();
+        }
+    }
+
+    private void Render()
+    {
+
+    }
+
+    private void Input()
+    {
+        _input.CheckInput();
     }
 }
