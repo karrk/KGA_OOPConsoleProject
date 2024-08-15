@@ -5,9 +5,10 @@ public class GameManager
     private static GameManager _instance = null;
     public static GameManager Instance => _instance;
 
-    private UIManager _ui;
-    private SettingManager _setting;
-    private InputManager _input;
+    private UIManager       _ui = new UIManager();
+    private SettingManager  _setting = new SettingManager();
+    private InputManager    _input = new InputManager();
+    private LevelSystem     _level = new LevelSystem();
 
     private int _gold;
 
@@ -21,13 +22,11 @@ public class GameManager
 
     public void Init()
     {
-        _ui = new UIManager();
-        _setting = new SettingManager();
-        _input = new InputManager();
         BurgerTable bTable = new BurgerTable();
-
-        MenuManager.Init();
+        
+        MenuManager.Init(); // 스태틱 => 변환
         _setting.Init();
+        _level.Init();
         _ui.Init();
        
         _input.InputedNumkey += bTable.StackFoodElement;

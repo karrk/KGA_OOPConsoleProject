@@ -56,13 +56,7 @@ public class Burger : Food
         this._price = m_price;
     }
 
-    public FoodElement this[int idx]
-    {
-        get
-        {
-            return _burgerStack[idx];
-        }
-    }
+    public FoodElement this[int idx] => _burgerStack[idx];
 
     /// <summary>
     /// 재료번호와 현재 층에 맞는 계산된 Score를 반환합니다.

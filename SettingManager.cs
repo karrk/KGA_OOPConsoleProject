@@ -23,12 +23,16 @@ public class SettingManager
 
     public int FoodsMinCount => 10;
     public int FoodsMaxCount => 25;
+    public int TableStackCount => 2;
+    public int MinStackLine => 3;
+    public int MaxStackLine => 15;
+    public int MaxBurgerCount => 3;
+    public int MaxLevel => 3;
+    public int MinPricePerElement = 2;
+    public int MaxPricePerElement = 7;
 
     private int _limitInputNumber = (int)ConsoleKey.NumPad9;
     public int LimitInputNumber => _limitInputNumber;
-
-    public int TableStackCount => 2;
-    public int MaxStackLine => 11;
 
     public SettingManager()
     {
