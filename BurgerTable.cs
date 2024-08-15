@@ -20,9 +20,12 @@ public class BurgerTable
     /// <summary>
     /// 미리보기영역(테이블)에 음식재료를 추가합니다.
     /// </summary>
-    public void StackFoodElement(int m_elementNumber)
+    public void StackFoodElement(int m_selectNumber)
     {
-        FoodElement element = MenuManager.GetElement(m_elementNumber - 1);
+        if (_stackLine >= SettingManager.Instance.MaxStackLine)
+            return;
+
+        FoodElement element = MenuManager.GetElement(m_selectNumber - 1);
         
         _foodTotalScore += element.FoodScore;
         _lastScore = element.FoodScore;

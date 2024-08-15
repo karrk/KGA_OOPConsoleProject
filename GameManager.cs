@@ -42,7 +42,7 @@ public class GameManager
         UIManager.Instance.RenewalGold(_gold);
     }
 
-    public void Run()
+    public void GameRun()
     {
         while(true)
         {
