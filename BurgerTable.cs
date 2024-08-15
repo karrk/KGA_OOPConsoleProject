@@ -6,7 +6,6 @@ public class BurgerTable
     private int _foodTotalScore;
 
     private int _stackLine;
-    private int _lastScore;
 
     private List<TextBox> _stackedList 
         = new List<TextBox>(SettingManager.Instance.MaxStackLine);
@@ -26,11 +25,10 @@ public class BurgerTable
             return;
 
         FoodElement element = MenuManager.GetElement(m_selectNumber - 1);
-        
-        _foodTotalScore += element.FoodScore;
-        _lastScore = element.FoodScore;
-
         DrawStackedElement(element);
+
+        _stackLine++;
+        _foodTotalScore += Burger.CalculateElementScore(element, _stackLine);
     }
 
     /// <summary>
@@ -41,7 +39,8 @@ public class BurgerTable
         if (_stackedList.Count <= 0)
             return;
 
-        _foodTotalScore -= _lastScore;
+        _foodTotalScore += _stackLine;
+
         _stackLine = 0;
         TableClear();
         _stackedList.Clear();
@@ -75,10 +74,9 @@ public class BurgerTable
                 stackImg.AddText(m_element.FoodChar);
             }
             stackImg.AddText("", true);
-            _stackLine++;
         }
 
-        stackImg.SetPos(-11, -_stackLine - 4, RectOption.Relative);
+        stackImg.SetPos(-11, -_stackLine*2 - 6, RectOption.Relative);
         _stackedList.Add(stackImg);
 
         stackImg.Print();

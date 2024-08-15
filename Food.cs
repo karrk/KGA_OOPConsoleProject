@@ -3,6 +3,11 @@
     protected int _foodScore;
 
     public int FoodScore => _foodScore;
+
+    public void SetFoodScore(int m_score)
+    {
+        this._foodScore = m_score;
+    }
 }
 
 public class FoodElement : Food
@@ -12,11 +17,11 @@ public class FoodElement : Food
 
     public char FoodChar => _foodChar;
     public int ColorNumber => _colorNumber;
-    
-    public FoodElement(char m_char, int m_foodNum)
+
+    public FoodElement(char m_char, int m_foodScore)
     {
         this._foodChar = m_char;
-        this._foodScore = m_foodNum;
+        this._foodScore = m_foodScore;
     }
 
     public void SetColor(int m_colorNumber)
@@ -60,6 +65,14 @@ public class Burger : Food
     }
 
     /// <summary>
+    /// 재료번호와 현재 층에 맞는 계산된 Score를 반환합니다.
+    /// </summary>
+    public static int CalculateElementScore(FoodElement m_element,int m_stackLine)
+    {
+        return (m_element.FoodScore / m_stackLine) + 1;
+    }
+
+    /// <summary>
     /// 전달받은 score와 버거의 숫자가 같은지 확인합니다.
     /// </summary>
     public bool IsMatchFoodScore(int m_score)
@@ -72,17 +85,19 @@ public class Burger : Food
     /// </summary>
     public void AddStack(FoodElement m_food)
     {
-        _foodScore += m_food.FoodScore;
+        //_foodScore += m_food.FoodScore;
+
         _burgerStack.Add(m_food);
+        //_foodScore += (m_food.FoodScore / _burgerStack.Count)+1;
+        _foodScore += CalculateElementScore(m_food, _burgerStack.Count);
     }
 
     /// <summary>
     /// 버거를 마무리합니다.
-    /// 마지막 스택은 Score에 추가하지 않습니다.
     /// </summary>
     public void CloseStack()
     {
-        // 이진수를 활용해 점수를 비교하는 방식으로 접근하려 했으나 문제발생 - 같은재료가 여러개 나올시 비트가 넘어감
-        _burgerStack.Add(_burgerStack.First());
+        AddStack(_burgerStack.First());
+        _foodScore += _burgerStack.Count;
     }
 }

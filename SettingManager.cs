@@ -3,6 +3,7 @@ using System.Text;
 
 public class SettingManager
 {
+    #region Color 설정 관련
     [DllImport("kernel32.dll", SetLastError = true)]
     static extern IntPtr GetStdHandle(int nStdHandle);
 
@@ -12,12 +13,13 @@ public class SettingManager
     [DllImport("kernel32.dll", SetLastError = true)]
     static extern bool SetConsoleMode(IntPtr hConsoleHandle, uint dwMode);
 
+    private const int STD_OUTPUT_HANDLE = -11;
+    private const uint ENABLE_VIRTUAL_TERMINAL_PROCESSING = 0x0004;
+    #endregion
+
     private static SettingManager _instance = null;
 
     public static SettingManager Instance => _instance;
-
-    private const int STD_OUTPUT_HANDLE = -11;
-    private const uint ENABLE_VIRTUAL_TERMINAL_PROCESSING = 0x0004;
 
     public int FoodsMinCount => 10;
     public int FoodsMaxCount => 25;

@@ -14,6 +14,7 @@
 
     public static void Init()
     {
+        _lastFoodNumber = 1;
         RegistBurger();
         SettingManager.Instance.SetLimitKey(_elements.Count);
     }
@@ -53,7 +54,7 @@
     private static Burger CreateRandomBurger(int m_price, int m_stackCount)
     {
         Burger burger = new Burger(m_price);
-
+        
         for (int i = 0; i < m_stackCount-1; i++)
         {
             char tempChar = Fonts.ElementCharList[_randomElementNum];
@@ -61,17 +62,20 @@
 
             if(!isContainChar(tempChar,out element))
             {
-                element = new FoodElement(tempChar, _lastFoodNumber << 1);
+                element = new FoodElement(tempChar, _lastFoodNumber);
                 element.SetColor(_randomColorNum);
-                _lastFoodNumber = _lastFoodNumber << 1;
+                _lastFoodNumber *= 10;
                 _elements.Add(element);
             }
-
             burger.AddStack(element);
         }
 
-        burger.CloseStack();
+        //score = Burger.CalculateElementScore(burger[0], m_stackCount);
+        //copyElement = burger[0].Copy();
+        //copyElement.SetFoodScore(score);
 
+        //burger.AddStack(copyElement);
+        burger.CloseStack();
         return burger;
     }
 
@@ -115,7 +119,7 @@
     /// <summary>
     /// N번째 버거의 총 Score를 가져옵니다.
     /// </summary>
-    public static int GetBurgerTotalNumber(int m_burgerIdx)
+    public static int GetBurgerScore(int m_burgerIdx)
     {
         return _burgers[m_burgerIdx-1].FoodScore;
     }

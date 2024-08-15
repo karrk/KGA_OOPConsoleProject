@@ -48,7 +48,7 @@ public static class CustomerContainer
         {
             if (node == null)
                 break;
-            else if(MenuManager.GetBurgerTotalNumber(node.Value.SelectNumber) == m_foodTotalScore)
+            else if(MenuManager.GetBurgerScore(node.Value.SelectNumber) == m_foodTotalScore)
             {
                 GameManager.Instance.AddGold(
                     MenuManager.Burgers[node.Value.SelectNumber-1].Price);
