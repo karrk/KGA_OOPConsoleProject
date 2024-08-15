@@ -18,6 +18,8 @@ public class CustomerContainer
     public event Action<int> ChangedWaiting;
     public event Action<int> ChangedGold;
 
+    private int _popedCount;
+
     private Rect _customerRect = new Rect(15, 9);
 
     public CustomerContainer()
@@ -33,7 +35,6 @@ public class CustomerContainer
         _containerLayout = UIManager.Instance[UILayout.Order];
         CreateCustomerStandard();
         SetWaitCount();
-        ChangedGold?.Invoke(0);
 
         _thread = new Thread(ThreadRun);
         _thread.Start();
@@ -48,7 +49,7 @@ public class CustomerContainer
 
         while (true)
         {
-            if (!_isThreadRunning)
+            if (!_isThreadRunning || _popedCount >= 0)
                 break;
 
             Thread.Sleep(SettingManager.Instance.CustomerSpawnDelay * 1000);
@@ -56,7 +57,10 @@ public class CustomerContainer
             int seat = GetEmptySeat();
 
             if (seat != -1)
+            {
                 AddCustomer(new Customer(_containerLayout, _customerRect), seat);
+                _popedCount++;
+            }
         }
     }
 
@@ -103,7 +107,7 @@ public class CustomerContainer
 
         m_customer.Layout.SetPos(_custStandardLayout, RectCorner.TopL, (_custStandardLayout.Width + 4) * m_seatNumber, 0);
 
-        m_customer.Order(MenuManager.RandomMenuNum);
+        m_customer.Order(MenuManager.Instance.RandomMenuNum);
         m_customer.Layout.Print();
     }
 
@@ -139,6 +143,7 @@ public class CustomerContainer
     {
         this._waitCount = _rand.Next(SettingManager.Instance.MinWaitCount,
             SettingManager.Instance.MaxWaitCount);
+        _popedCount = _waitCount * -1;
 
         ChangedWaiting?.Invoke(_waitCount);
     }
@@ -151,7 +156,8 @@ public class CustomerContainer
         _waitCount--;
         ChangedWaiting?.Invoke(_waitCount);
 
-        //클리어 로직?
+        if (_waitCount <= 0)
+            GameManager.Instance.GameClear();
     }
 
     /// <summary>
@@ -187,10 +193,14 @@ public class CustomerContainer
         while (true)
         {
             if (node == null)
-                break;
-            else if(MenuManager.GetBurgerScore(node.Value.SelectNumber) == m_foodTotalScore)
             {
-                ChangedGold?.Invoke(MenuManager.Burgers[node.Value.SelectNumber - 1].Price);
+                ChangedGold?.Invoke(LevelSystem.Instance.ReduceGold);
+                break;
+            }
+                
+            else if(MenuManager.Instance.GetBurgerScore(node.Value.SelectNumber) == m_foodTotalScore)
+            {
+                ChangedGold?.Invoke(MenuManager.Instance.Burgers[node.Value.SelectNumber - 1].Price);
                 RemoveCustomer(node.Value);
                 DecreaseWaitCount();
                 break;
