@@ -51,6 +51,9 @@ public class SettingManager
         SetConsoleMode(handle, mode | ENABLE_VIRTUAL_TERMINAL_PROCESSING);
     }
 
+    /// <summary>
+    /// 진행되는 라운드에 필요이상의 숫자키 입력을 방지합니다.
+    /// </summary>
     public void SetLimitKey(int m_keyNumber)
     {
         if(1 <= m_keyNumber && m_keyNumber <= 9)

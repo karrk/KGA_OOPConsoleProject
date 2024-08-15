@@ -1,18 +1,4 @@
-﻿public enum RectOption
-{
-    Relative,
-    Absolute,
-}
-
-public enum RectCorner
-{
-    TopL,
-    TopR,
-    BotL,
-    BotR,
-}
-
-public struct Rect
+﻿public struct Rect
 {
     public int StartX;
     public int StartY;

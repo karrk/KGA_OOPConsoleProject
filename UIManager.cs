@@ -10,7 +10,6 @@ public class UIManager
 
     private TextBox _goldTextBox = null;
 
-
     public UIManager()
     {
         if (_instance != null)
@@ -23,7 +22,10 @@ public class UIManager
     {
         _mainLayout = new Layout(new Rect(1, 1, 200, 60));
         _mainLayout.SetColor(120);
+        
         DrawMainGameTitle();
+        _goldTextBox = new TextBox(string.Empty);
+
         InitLayouts();
 
         _mainLayout.Print();
@@ -38,6 +40,9 @@ public class UIManager
         AddSpaceBarLayout();
     }
 
+    /// <summary>
+    /// Gold 텍스트를 수정하여 출력합니다.
+    /// </summary>
     public void RenewalGold(int m_gold)
     {
         _goldTextBox.TurnOff();
@@ -48,16 +53,18 @@ public class UIManager
         _goldTextBox.Print();
     }
 
+    /// <summary>
+    /// 좌측,상단 커스터머영역 레이아웃
+    /// </summary>
     private void AddOrderLayout()
     {
         Layout orderLayout = new Layout(new Rect(120, 16));
         orderLayout.SetParent(_mainLayout);
         orderLayout.SetPos(10, 10, RectOption.Relative);
 
-        _goldTextBox = new TextBox("수 입 : 0 원");
         _goldTextBox.SetParent(orderLayout);
-        _goldTextBox.SetAlign(HorizonAlign.Right);
-        _goldTextBox.SetAlign(VerticalAlign.Top);
+
+        RenewalGold(0);
         
         Customer c = new Customer(orderLayout);
         Layout cLayout = c.Layout;
@@ -77,6 +84,9 @@ public class UIManager
         CustomerContainer.AddCustomer(f);
     }
 
+    /// <summary>
+    /// 좌측,하단 미리보기 영역 레이아웃
+    /// </summary>
     private void AddPreviewLayout()
     {
         Layout previewLayout = new Layout(new Rect(40, 30));
@@ -113,10 +123,12 @@ public class UIManager
         tableImg2.SetColor(88);
         tableImg3.SetColor(196);
 
-
         BurgerTable.SetTableLayout(previewLayout);
     }
 
+    /// <summary>
+    /// 중앙,하단 음식재료, 키패드버튼 영역 레이아웃
+    /// </summary>
     private void AddSelectLayout()
     {
         Layout btnAreaLayout = new Layout(new Rect(70, 26));
@@ -156,6 +168,9 @@ public class UIManager
         }
     }
 
+    /// <summary>
+    /// 중앙, 하단부 스페이스바 레이아웃
+    /// </summary>
     private void AddSpaceBarLayout()
     {
         Layout spaceBarLayout = new Layout(new Rect(50, 3));
@@ -171,6 +186,9 @@ public class UIManager
         spaceText.SetColor(51);
     }
 
+    /// <summary>
+    /// 우측 메뉴 레시피 레이아웃
+    /// </summary>
     private void AddMenuLayout()
     {
         Layout menuBaseLayout = new Layout(new Rect(50, 58));
@@ -228,7 +246,10 @@ public class UIManager
 
     }
 
-    public static void AddBurgerImage(RectUI m_baseLayout,Burger m_burger)
+    /// <summary>
+    /// 해당 레이아웃내에 버거의 이미지를 출력합니다.
+    /// </summary>
+    private void AddBurgerImage(RectUI m_baseLayout,Burger m_burger)
     {
         for (int i = 0; i < m_burger.Count; i++)
         {
@@ -253,6 +274,9 @@ public class UIManager
 
     }
 
+    /// <summary>
+    /// 메인게임의 좌측 상단의 게임타이틀 작성
+    /// </summary>
     private void DrawMainGameTitle()
     {
         TextBox title = new TextBox

@@ -18,6 +18,10 @@ public class InputManager
             _instance = this;
     }
 
+    /// <summary>
+    /// 키패드 1부터 제한키 입력감지,
+    /// 스페이스바 키 입력감지
+    /// </summary>
     public void CheckInput()
     {
         _inputKey = Console.ReadKey(true);

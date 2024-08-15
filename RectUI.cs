@@ -13,7 +13,7 @@ public abstract class RectUI
     public int Width => _rect.EndX - _rect.StartX;
     public int Height => _rect.EndY - _rect.StartY;
 
-    protected int _printColor = 231; // white
+    protected int _printColor = 231;
 
     private RectUI _parent = null;
     public RectUI Parent => _parent;
@@ -29,22 +29,6 @@ public abstract class RectUI
     {
         this._rect = m_rect;
     }
-
-    // 좌표지정에 혼동이 생김, 명확한 단계설정이 필요해보임
-    //public RectUI(RectUI m_source, RectCorner m_corner, int m_offsetX, int m_offsetY, Rect m_size)
-    //{
-    //    if (m_size.StartX != 0 || m_size.StartY != 0)
-    //        throw new Exception("Rect 객체 잘못된 생성 Width, Height 값을 통해 생성자 호출요망");
-
-    //    int[] standard = m_source.GetCorner(m_corner);
-
-    //    this._rect = new Rect(
-    //        standard[0] + m_offsetX, 
-    //        standard[1] + m_offsetY,
-    //        m_offsetX + m_size.EndX, 
-    //        m_offsetY + m_size.EndY);
-
-    //}
 
     /// <summary>
     /// UI 요소의 꼭지점 좌표를 반환합니다.
@@ -129,12 +113,18 @@ public abstract class RectUI
         return this;
     }
 
+    /// <summary>
+    /// 해당 UI 요소의 출력색상을 지정합니다.
+    /// </summary>
     public RectUI SetColor(int m_colorCode)
     {
         this._printColor = m_colorCode;
         return this;
     }
 
+    /// <summary>
+    /// 부모 레이아웃을 기준으로 좌, 우 정렬
+    /// </summary>
     public RectUI SetAlign(HorizonAlign m_horizon)
     {
         if (Parent == null)
@@ -157,6 +147,9 @@ public abstract class RectUI
         return this;
     }
 
+    /// <summary>
+    /// 부모 레이아웃 기준으로 상, 하 정렬
+    /// </summary>
     public RectUI SetAlign(VerticalAlign m_vertical)
     {
         if (Parent == null)
@@ -180,7 +173,7 @@ public abstract class RectUI
     }
 
     /// <summary>
-    /// UI 요소를 잠시 꺼둡니다.
+    /// UI 요소를 감춥니다.
     /// </summary>
     public void TurnOff()
     {

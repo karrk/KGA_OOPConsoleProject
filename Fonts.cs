@@ -9,7 +9,7 @@
 
     public const char EMPTY = '\u0020';
 
-    public static List<Char> OptionCharList = new List<char>()
+    public static List<Char> ElementCharList = new List<char>()
     {
         '\u0150',
         '\u014C',

@@ -16,15 +16,14 @@ public class TextBox : RectUI
     {
     }
 
-    //public TextBox(RectUI m_source, RectCorner m_corner, int m_offsetX, int m_offsetY, Rect m_size) : base(m_source, m_corner, m_offsetX, m_offsetY, m_size)
-    //{
-    //}
-
     public TextBox(string m_text)
     {
         SetNewText(m_text);
     }
 
+    /// <summary>
+    /// 기존의 문자를 비우고 새로운 문자로 배치합니다.
+    /// </summary>
     public void SetNewText(string m_text)
     {
         _lineRange.Clear();
@@ -40,7 +39,7 @@ public class TextBox : RectUI
             _sb.Append(m_text[i]);
             count++;
 
-            if (CharContoroller.isHalf(m_text[i]))
+            if (CharController.isHalf(m_text[i]))
             {
                 _sb.Append(' '); // 반각 문자는 공백 추가로 2칸 차지하게 함
                 count++;
@@ -51,6 +50,11 @@ public class TextBox : RectUI
         _lineRange.Add(count);
     }
 
+    /// <summary>
+    /// 문자열을 추가합니다.
+    /// </summary>
+    /// <param name="m_lineMode">true = 다음라인에 작성 , false = 기존라인에 추가작성</param>
+    /// <returns></returns>
     public TextBox AddText(string m_text, bool m_lineMode = false)
     {
         if (m_lineMode)
@@ -69,7 +73,7 @@ public class TextBox : RectUI
             _sb.Append(m_text[i]);
             count++;
 
-            if (CharContoroller.isHalf(m_text[i]))
+            if (CharController.isHalf(m_text[i]))
             {
                 _sb.Append(' '); // 반각 문자 뒤에 공백 추가
                 count++;
@@ -85,11 +89,19 @@ public class TextBox : RectUI
         return this;
     }
 
+    /// <summary>
+    /// 문자를 추가합니다.
+    /// </summary>
+    /// <param name="m_text"></param>
+    /// <param name="m_lineMode">true = 다음라인에 작성 , false = 기존라인에 추가작성</param>
     public TextBox AddText(char m_text, bool m_lineMode = false)
     {
         return AddText(m_text.ToString(), m_lineMode);
     }
 
+    /// <summary>
+    /// UI 요소를 화면에 출력합니다.
+    /// </summary>
     public override void Print()
     {
         int standardX = Left;

@@ -37,6 +37,9 @@ public class Customer
         Order(MenuManager.RandomMenuNum);
     }
 
+    /// <summary>
+    /// 선택한 메뉴번호를 결정 후 화면에 출력
+    /// </summary>
     public void Order(int m_number)
     {
         _communicateBox.SetNewText($"{m_number}번 주 세 요");
@@ -59,6 +62,9 @@ public class Customer
         return img;
     }
 
+    /// <summary>
+    /// 출력된 손님 이미지를 감춥니다.
+    /// </summary>
     public void Hide()
     {
         _layout.TurnOff();

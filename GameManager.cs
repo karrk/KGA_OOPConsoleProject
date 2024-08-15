@@ -9,7 +9,6 @@ public class GameManager
     private SettingManager _setting;
     private InputManager _input;
 
-
     private int _gold;
 
     public GameManager()
