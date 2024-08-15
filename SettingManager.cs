@@ -21,19 +21,23 @@ public class SettingManager
 
     public static SettingManager Instance => _instance;
 
+    public const int WINDOW_WIDTH = 205;
+    public const int WINDOW_HEIGHT = 62;
+
     public int FoodsMinCount => 10;
     public int FoodsMaxCount => 25;
     public int TableStackCount => 2;
     public int MinStackLine => 3;
-    public int MaxStackLine => 15;
+    public int MaxStackLine => 12;
     public int MaxBurgerCount => 3;
     public int MaxLevel => 3;
     public int MinPricePerElement => 2;
     public int MaxPricePerElement => 7;
-    public int PrintableCustomer => 5;
-    public int MinWaitCount => 5;
-    public int MaxWaitCount => 11;
-    public int CustomerSpawnDelay = 3;
+    public int PrintableCustomer => 6;
+    public int MinWaitCount => 6;
+    public int MaxWaitCount => 10;
+    public int CustomerSpawnDelay = 4;
+    
 
     private int _limitInputNumber = (int)ConsoleKey.NumPad9;
     public int LimitInputNumber => _limitInputNumber;
@@ -51,8 +55,13 @@ public class SettingManager
         SetConsole();
     }
 
+    /// <summary>
+    /// 콘솔 환경을 설정합니다.
+    /// </summary>
     private void SetConsole()
     {
+        Console.SetWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT);
+
         Console.OutputEncoding = Encoding.UTF8;
         Console.CursorVisible = false;
 
