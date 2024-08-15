@@ -14,12 +14,28 @@
             _instance = this;
     }
 
+    private int _reduceGold;
+    public int ReduceGold
+    {
+        get
+        {
+            if (GameManager.Instance.PlayerGold < _reduceGold *-1)
+                return GameManager.Instance.PlayerGold * -1;
+
+            return _reduceGold;
+        }
+    }
+
     public void Init()
     {
         InitLevel();
+        _reduceGold = (SettingManager.Instance.MaxPricePerElement
+                             - SettingManager.Instance.MinPricePerElement) / 2 * -100;
     }
 
     public int this[int level] => _levels[level].GetRandom();
+
+    
 
     public int GetPrice(int m_elementStackCount)
     {
