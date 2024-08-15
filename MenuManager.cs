@@ -1,18 +1,29 @@
-﻿public static class MenuManager
+﻿public class MenuManager
 {
-    private static Random _rand = new Random();
-    private static int _randomElementNum => _rand.Next(0, Fonts.ElementCharList.Count);
-    private static int _randomColorNum => _rand.Next(90, 191);
-    public static int RandomMenuNum => _rand.Next(1, _burgers.Count+1);
+    private static MenuManager _instance = null;
+    public static MenuManager Instance => _instance;
 
-    private static List<Burger> _burgers = new List<Burger>();
-    public static List<Burger> Burgers => _burgers;
+    private Random _rand = new Random();
+    private int _randomElementNum => _rand.Next(0, Fonts.ElementCharList.Count);
+    private int _randomColorNum => _rand.Next(90, 191);
+    public int RandomMenuNum => _rand.Next(1, _burgers.Count+1);
 
-    private static List<FoodElement> _elements = new List<FoodElement>();
+    private List<Burger> _burgers = new List<Burger>();
+    public List<Burger> Burgers => _burgers;
 
-    private static int _lastFoodNumber = 1;
+    private List<FoodElement> _elements = new List<FoodElement>();
 
-    public static void Init()
+    private int _lastFoodNumber = 1;
+
+    public MenuManager()
+    {
+        if (_instance != null)
+            throw new Exception("이미 생성된 인스턴스를 갱신하려합니다.");
+        else
+            _instance = this;
+    }
+
+    public void Init()
     {
         _lastFoodNumber = 1;
         RegistBurger();
@@ -22,7 +33,7 @@
     /// <summary>
     /// 재료를 반환받습니다. 재료 목록은 중복이 없습니다.
     /// </summary>
-    public static FoodElement GetElement(int m_idx)
+    public FoodElement GetElement(int m_idx)
     {
         return _elements[m_idx];
     }
@@ -31,7 +42,7 @@
     /// 재료목록에 해당 char 데이터가 있는지 확인합니다.
     /// </summary>
     /// <param name="element"> 재료가 있다면 출력받습니다. 없다면 null</param>
-    private static bool isContainChar(char m_ch,out FoodElement element)
+    private bool isContainChar(char m_ch,out FoodElement element)
     {
         foreach (var e in _elements)
         {
@@ -51,7 +62,7 @@
     /// 임의의 버거를 생성합니다.
     /// </summary>
     /// <param name="m_stackCount">몇층의 버거인지 확인하기 위한 매개변수</param>
-    private static Burger CreateRandomBurger(int m_price, int m_stackCount)
+    private Burger CreateRandomBurger(int m_price, int m_stackCount)
     {
         Burger burger = new Burger(m_price);
         
@@ -80,7 +91,7 @@
     }
 
     // 임시 메서드
-    private static void RegistBurger()
+    private void RegistBurger()
     {
         _burgers.Add(CreateRandomBurger(200, 4));
         _burgers.Add(CreateRandomBurger(1000, 6));
@@ -91,7 +102,7 @@
     /// 키패드 버튼과 음식재료를 동기화 하기위한 함수
     /// 해당 레이아웃으로 선택한 음식재료정보가 등록됩니다.
     /// </summary>
-    public static void RegistElementBtn(Layout m_baseBtn, int m_elementIdx)
+    public void RegistElementBtn(Layout m_baseBtn, int m_elementIdx)
     {
         if (m_elementIdx >= _elements.Count)
             return;
@@ -119,7 +130,7 @@
     /// <summary>
     /// N번째 버거의 총 Score를 가져옵니다.
     /// </summary>
-    public static int GetBurgerScore(int m_burgerIdx)
+    public int GetBurgerScore(int m_burgerIdx)
     {
         return _burgers[m_burgerIdx-1].FoodScore;
     }

@@ -24,7 +24,7 @@ public class BurgerTable
         if (_stackLine >= SettingManager.Instance.MaxStackLine)
             return;
 
-        FoodElement element = MenuManager.GetElement(m_selectNumber - 1);
+        FoodElement element = MenuManager.Instance.GetElement(m_selectNumber - 1);
         DrawStackedElement(element);
 
         _stackLine++;

@@ -32,11 +32,10 @@ public class UIManager
         _goldTextBox = new TextBox(string.Empty);
         _waitTextBox = new TextBox(string.Empty);
         
+        InitLayouts();
 
         CustomerContainer.Instance.ChangedWaiting += RenewalWaitText;
-        CustomerContainer.Instance.ChangedGold += RenewalGoldText;
-
-        InitLayouts();
+        RenewalGoldText(0);
 
         _mainLayout.Print();
     }
@@ -82,13 +81,9 @@ public class UIManager
         orderLayout.SetParent(_mainLayout);
         orderLayout.SetPos(10, 10, RectOption.Relative);
         _layouts[(int)UILayout.Order] = orderLayout;
-        //CustomerContainer.Instance.SetContainerLayout(orderLayout);
 
         _goldTextBox.SetParent(orderLayout);
         _waitTextBox.SetParent(orderLayout);
-
-        RenewalGoldText(0);
-        //RenewalWaitText(10);
     }
 
     /// <summary>
@@ -172,7 +167,7 @@ public class UIManager
                 btn.SetPos(intervalX * j + (width * (j - 1)),
                     -intervalY * i - (height * (i - 1)), RectOption.Relative);
 
-                MenuManager.RegistElementBtn(btn,count++);
+                MenuManager.Instance.RegistElementBtn(btn,count++);
             }
         }
     }
@@ -227,7 +222,7 @@ public class UIManager
         menu1Text.SetAlign(HorizonAlign.Left).SetAlign(VerticalAlign.Top);
         menu1Text.SetPos(2, 0, RectOption.Relative);
 
-        AddBurgerImage(menu1Layout, MenuManager.Burgers[0]);
+        AddBurgerImage(menu1Layout, MenuManager.Instance.Burgers[0]);
 
 
         // 버거 2
@@ -240,7 +235,7 @@ public class UIManager
         menu2Text.SetAlign(HorizonAlign.Left).SetAlign(VerticalAlign.Top);
         menu2Text.SetPos(2, 0, RectOption.Relative);
 
-        AddBurgerImage(menu2Layout, MenuManager.Burgers[1]);
+        AddBurgerImage(menu2Layout, MenuManager.Instance.Burgers[1]);
 
 
         // 버거 3
@@ -253,7 +248,7 @@ public class UIManager
         menu3Text.SetAlign(HorizonAlign.Left).SetAlign(VerticalAlign.Top);
         menu3Text.SetPos(2, 0, RectOption.Relative);
 
-        AddBurgerImage(menu3Layout, MenuManager.Burgers[2]);
+        AddBurgerImage(menu3Layout, MenuManager.Instance.Burgers[2]);
 
     }
 
