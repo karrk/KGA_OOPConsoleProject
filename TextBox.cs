@@ -102,7 +102,7 @@ public class TextBox : RectUI
     /// <summary>
     /// UI 요소를 화면에 출력합니다.
     /// </summary>
-    public override void Print()
+    protected override void PrintLogic()
     {
         int standardX = Left;
         int standardY = Top;

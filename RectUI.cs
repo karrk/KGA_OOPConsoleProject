@@ -22,6 +22,7 @@ public abstract class RectUI
     protected VerticalAlign _vertical;
 
     protected List<RectUI> _childs;
+    protected bool _isPrint = true;
 
     public RectUI() { }
 
@@ -194,8 +195,32 @@ public abstract class RectUI
         }
     }
 
+    public void SetPrint(bool m_printable)
+    {
+        this._isPrint = m_printable;
+    }
+
     /// <summary>
     /// UI 요소를 화면에 출력합니다.
     /// </summary>
-    public abstract void Print();
+    public virtual void Print()
+    {
+        if(_isPrint)
+            PrintLogic();
+        
+        PrintChilds();
+    }
+
+    private void PrintChilds()
+    {
+        if (_childs == null)
+            return;
+
+        foreach (var child in _childs)
+        {
+            child.Print();
+        }
+    }
+
+    protected abstract void PrintLogic();
 }

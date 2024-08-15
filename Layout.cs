@@ -6,8 +6,8 @@ public class Layout : RectUI
     {
     }
 
-    public override void Print()
-     {
+    protected override void PrintLogic()
+    {
         // 상, 하
         for (int i = 0; i < Width; i++)
         {
@@ -24,21 +24,12 @@ public class Layout : RectUI
 
         // 좌상, 우상 모서리
         ColorPrinter.Print(Left, Top, _printColor, Fonts.LAYOUT_OUTLINE_TOPLEFT);
-        ColorPrinter.Print(Right+1, Top, _printColor, Fonts.LAYOUT_OUTLINE_TOPRIGHT);
+        ColorPrinter.Print(Right + 1, Top, _printColor, Fonts.LAYOUT_OUTLINE_TOPRIGHT);
 
 
         // 좌하, 우하 모서리
         ColorPrinter.Print(Left, Bottom, _printColor, Fonts.LAYOUT_OUTLINE_DOWNLEFT);
-        ColorPrinter.Print(Right+1, Bottom, _printColor, Fonts.LAYOUT_OUTLINE_DOWNRIGHT);
-
-
-        if (_childs != null)
-        {
-            for (int i = 0; i < _childs.Count; i++)
-            {
-                _childs[i].Print();
-            }
-        }
+        ColorPrinter.Print(Right + 1, Bottom, _printColor, Fonts.LAYOUT_OUTLINE_DOWNRIGHT);
 
     }
 }
