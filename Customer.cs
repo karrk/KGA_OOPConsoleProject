@@ -11,10 +11,13 @@ public class Customer
 
     private int _selectMenu;
     public int SelectNumber => _selectMenu;
-    
-    public Customer(RectUI m_baseUI)
+
+    private int _seatNumber;
+    public int SeatNumber => _seatNumber;
+
+    public Customer(RectUI m_baseUI,Rect m_layoutSize)
     {
-        _layout = new Layout(new Rect(0,0,15,9));
+        _layout = new Layout(m_layoutSize);
         _layout.SetParent(m_baseUI);
 
         _imgTextBox = SetImgBox();
@@ -24,17 +27,16 @@ public class Customer
         _communicateBox = new TextBox("");
         _communicateBox.SetParent(_layout);
 
-        _layout.SetAlign(HorizonAlign.Left);
-        _layout.SetAlign(VerticalAlign.Center);
         _communicateBox.SetAlign(HorizonAlign.Center);
         _communicateBox.SetAlign(VerticalAlign.Top);
-
-        _layout.SetPos(5, 2, RectOption.Relative);
         _communicateBox.SetPos(0, -3, RectOption.Relative);
 
-        _layout.SetColor(0);
+        _layout.SetPrint(false);
+    }
 
-        Order(MenuManager.RandomMenuNum);
+    public void SetSeatNumber(int m_number)
+    {
+        this._seatNumber = m_number;
     }
 
     /// <summary>

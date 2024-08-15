@@ -28,8 +28,12 @@ public class SettingManager
     public int MaxStackLine => 15;
     public int MaxBurgerCount => 3;
     public int MaxLevel => 3;
-    public int MinPricePerElement = 2;
-    public int MaxPricePerElement = 7;
+    public int MinPricePerElement => 2;
+    public int MaxPricePerElement => 7;
+    public int PrintableCustomer => 5;
+    public int MinWaitCount => 5;
+    public int MaxWaitCount => 11;
+    public int CustomerSpawnDelay = 3;
 
     private int _limitInputNumber = (int)ConsoleKey.NumPad9;
     public int LimitInputNumber => _limitInputNumber;
