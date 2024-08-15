@@ -33,7 +33,8 @@ public class CustomerContainer
         _containerLayout = UIManager.Instance[UILayout.Order];
         CreateCustomerStandard();
         SetWaitCount();
-        
+        ChangedGold?.Invoke(0);
+
         _thread = new Thread(ThreadRun);
         _thread.Start();
     }

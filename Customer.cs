@@ -19,19 +19,27 @@ public class Customer
     {
         _layout = new Layout(m_layoutSize);
         _layout.SetParent(m_baseUI);
+        _layout.SetPrint(false);
 
-        _imgTextBox = SetImgBox();
-        _imgTextBox.SetColor(ColorPrinter.GetRandomColorNumber());
-        _imgTextBox.SetParent(_layout);
+        CreateCommuiteBox();
+        CreateImageBox();
+    }
 
+    private void CreateCommuiteBox()
+    {
         _communicateBox = new TextBox("");
         _communicateBox.SetParent(_layout);
 
         _communicateBox.SetAlign(HorizonAlign.Center);
         _communicateBox.SetAlign(VerticalAlign.Top);
         _communicateBox.SetPos(0, -3, RectOption.Relative);
+    }
 
-        _layout.SetPrint(false);
+    private void CreateImageBox()
+    {
+        _imgTextBox = SetImgBox();
+        _imgTextBox.SetColor(ColorPrinter.GetRandomColorNumber());
+        _imgTextBox.SetParent(_layout);
     }
 
     public void SetSeatNumber(int m_number)
