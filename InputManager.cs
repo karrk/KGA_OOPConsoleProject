@@ -20,7 +20,7 @@ public class InputManager
 
     /// <summary>
     /// 키패드 1부터 제한키 입력감지,
-    /// 스페이스바 키 입력감지
+    /// 스페이스바 키 입력감지,(엔터키추가)
     /// </summary>
     public void CheckInput()
     {
@@ -30,7 +30,8 @@ public class InputManager
         {
             InputedNumkey?.Invoke(_inputKey.Key - ConsoleKey.NumPad0);
         }
-        else if(ConsoleKey.Spacebar == _inputKey.Key)
+        else if(ConsoleKey.Spacebar == _inputKey.Key ||
+            ConsoleKey.Enter == _inputKey.Key)
         {
             InputedSpaceKey?.Invoke();
         }
