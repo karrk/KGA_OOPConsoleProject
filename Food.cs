@@ -1,8 +1,8 @@
 ﻿public abstract class Food
 {
-    protected int _num;
+    protected int _foodScore;
 
-    public int Number => _num;
+    public int FoodScore => _foodScore;
 }
 
 public class FoodElement : Food
@@ -16,7 +16,7 @@ public class FoodElement : Food
     public FoodElement(char m_char, int m_foodNum)
     {
         this._foodChar = m_char;
-        this._num = m_foodNum;
+        this._foodScore = m_foodNum;
     }
 
     public void SetColor(int m_colorNumber)
@@ -26,7 +26,7 @@ public class FoodElement : Food
 
     public FoodElement Copy()
     {
-        FoodElement copy = new FoodElement(this._foodChar,_num);
+        FoodElement copy = new FoodElement(this._foodChar,_foodScore);
         copy.SetColor(this._colorNumber);
 
         return copy;
@@ -55,14 +55,14 @@ public class Burger : Food
         }
     }
 
-    public bool IsMatchFoodNumber(int m_numbers)
+    public bool IsMatchFoodScore(int m_score)
     {
-        return (this._num & m_numbers) == this._num;
+        return (this._foodScore & m_score) == this._foodScore;
     }
 
     public void AddStack(FoodElement m_food)
     {
-        _num += m_food.Number;
+        _foodScore += m_food.FoodScore;
         _burgerStack.Add(m_food);
     }
 

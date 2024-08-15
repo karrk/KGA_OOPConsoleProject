@@ -31,7 +31,7 @@ public static class CustomerContainer
         }
     }
 
-    public static void SearchBurger(int m_foodTotalNumber)
+    public static void SearchBurger(int m_foodTotalScore)
     {
         LinkedListNode<Customer> node = _customers.First;
 
@@ -39,7 +39,7 @@ public static class CustomerContainer
         {
             if (node == null)
                 break;
-            else if(MenuManager.GetBurgerTotalNumber(node.Value.SelectNumber) == m_foodTotalNumber)
+            else if(MenuManager.GetBurgerTotalNumber(node.Value.SelectNumber) == m_foodTotalScore)
             {
                 GameManager.Instance.AddGold(
                     MenuManager.Burgers[node.Value.SelectNumber-1].Price);

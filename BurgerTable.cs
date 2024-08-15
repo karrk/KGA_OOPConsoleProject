@@ -3,17 +3,17 @@
 public class BurgerTable
 {
     private static Layout _burgerTableLayout = null;
-    private int _foodTotalNumber;
+    private int _foodTotalScore;
 
     private int _stackLine;
-    private int _lastNumber;
+    private int _lastScore;
 
     private List<TextBox> _stackedList 
         = new List<TextBox>(SettingManager.Instance.MaxStackLine);
 
     public void Init()
     {
-        _foodTotalNumber = 0;
+        _foodTotalScore = 0;
         _stackLine = 0;
     }
 
@@ -21,8 +21,8 @@ public class BurgerTable
     {
         FoodElement element = MenuManager.GetElement(m_elementNumber - 1);
         
-        _foodTotalNumber += element.Number;
-        _lastNumber = element.Number;
+        _foodTotalScore += element.FoodScore;
+        _lastScore = element.FoodScore;
 
         StackElement(element);
     }
@@ -32,12 +32,12 @@ public class BurgerTable
         if (_stackedList.Count <= 0)
             return;
 
-        _foodTotalNumber -= _lastNumber;
+        _foodTotalScore -= _lastScore;
         _stackLine = 0;
         TableClear();
         _stackedList.Clear();
-        CustomerContainer.SearchBurger(_foodTotalNumber);
-        _foodTotalNumber = 0;
+        CustomerContainer.SearchBurger(_foodTotalScore);
+        _foodTotalScore = 0;
     }
 
     public static void SetTableLayout(Layout m_layout)

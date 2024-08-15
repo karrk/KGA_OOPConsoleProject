@@ -14,7 +14,7 @@
 
     public static void Init()
     {
-        BurgerSetting();
+        RegistBurger();
         SettingManager.Instance.SetLimitKey(_elements.Count);
     }
 
@@ -39,7 +39,7 @@
         return false;
     }
 
-    private static Burger GenerateBurger(int m_price, int m_stackCount)
+    private static Burger CreateRandomBurger(int m_price, int m_stackCount)
     {
         Burger burger = new Burger(m_price);
 
@@ -64,11 +64,11 @@
         return burger;
     }
 
-    private static void BurgerSetting()
+    private static void RegistBurger()
     {
-        _burgers.Add(GenerateBurger(200, 4));
-        _burgers.Add(GenerateBurger(1000, 6));
-        _burgers.Add(GenerateBurger(4000, 8));
+        _burgers.Add(CreateRandomBurger(200, 4));
+        _burgers.Add(CreateRandomBurger(1000, 6));
+        _burgers.Add(CreateRandomBurger(4000, 8));
     }
 
     public static void RegistElementBtn(Layout m_baseBtn, int m_elementIdx)
@@ -98,6 +98,6 @@
 
     public static int GetBurgerTotalNumber(int m_burgerIdx)
     {
-        return _burgers[m_burgerIdx-1].Number;
+        return _burgers[m_burgerIdx-1].FoodScore;
     }
 }
