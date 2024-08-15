@@ -44,7 +44,7 @@ public class BurgerTable
         _stackLine = 0;
         TableClear();
         _stackedList.Clear();
-        CustomerContainer.SearchBurger(_foodTotalScore);
+        CustomerContainer.Instance.SearchBurger(_foodTotalScore);
         _foodTotalScore = 0;
     }
 

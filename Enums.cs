@@ -25,3 +25,14 @@ public enum RectCorner
     BotL,
     BotR,
 }
+
+public enum UILayout
+{
+    Main,
+    Order,
+    Preview,
+    Elements,
+    SpaceBar,
+    Menus,
+    Size,
+}

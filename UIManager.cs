@@ -9,6 +9,10 @@ public class UIManager
     private Layout _mainLayout = null;
 
     private TextBox _goldTextBox = null;
+    private TextBox _waitTextBox = null;
+
+    private Layout[] _layouts = new Layout[(int)UILayout.Size];
+    public Layout this[UILayout m_layout] => _layouts[(int)m_layout];
 
     public UIManager()
     {
@@ -22,9 +26,15 @@ public class UIManager
     {
         _mainLayout = new Layout(new Rect(1, 1, 200, 60));
         _mainLayout.SetColor(120);
-        
+        _layouts[(int)UILayout.Main] = _mainLayout;
+
         DrawMainGameTitle();
         _goldTextBox = new TextBox(string.Empty);
+        _waitTextBox = new TextBox(string.Empty);
+        
+
+        CustomerContainer.Instance.ChangedWaiting += RenewalWaitText;
+        CustomerContainer.Instance.ChangedGold += RenewalGoldText;
 
         InitLayouts();
 
@@ -43,7 +53,7 @@ public class UIManager
     /// <summary>
     /// Gold 텍스트를 수정하여 출력합니다.
     /// </summary>
-    public void RenewalGold(int m_gold)
+    public void RenewalGoldText(int m_gold)
     {
         _goldTextBox.TurnOff();
         _goldTextBox.SetNewText($"수 입 : {m_gold}원");
@@ -53,35 +63,32 @@ public class UIManager
         _goldTextBox.Print();
     }
 
+    public void RenewalWaitText(int m_count)
+    {
+        _waitTextBox.TurnOff();
+        _waitTextBox.SetNewText($" 대 기 인 원 : {m_count}명");
+        _waitTextBox.SetAlign(HorizonAlign.Center);
+        _waitTextBox.SetAlign(VerticalAlign.Top);
+        
+        _waitTextBox.Print();
+    }
+
     /// <summary>
-    /// 좌측,상단 커스터머영역 레이아웃
+    /// 좌측,상단 Customer영역 레이아웃
     /// </summary>
     private void AddOrderLayout()
     {
         Layout orderLayout = new Layout(new Rect(120, 16));
         orderLayout.SetParent(_mainLayout);
         orderLayout.SetPos(10, 10, RectOption.Relative);
+        _layouts[(int)UILayout.Order] = orderLayout;
+        //CustomerContainer.Instance.SetContainerLayout(orderLayout);
 
         _goldTextBox.SetParent(orderLayout);
+        _waitTextBox.SetParent(orderLayout);
 
-        RenewalGold(0);
-        
-        Customer c = new Customer(orderLayout);
-        Layout cLayout = c.Layout;
-
-        Customer d = new Customer(orderLayout);
-        d.Layout.SetPos(c.Layout, RectCorner.TopR, 4, 0);
-
-        Customer e = new Customer(orderLayout);
-        e.Layout.SetPos(d.Layout, RectCorner.TopR, 4, 0);
-
-        Customer f = new Customer(orderLayout);
-        f.Layout.SetPos(e.Layout, RectCorner.TopR, 4, 0);
-
-        CustomerContainer.AddCustomer(c);
-        CustomerContainer.AddCustomer(d);
-        CustomerContainer.AddCustomer(e);
-        CustomerContainer.AddCustomer(f);
+        RenewalGoldText(0);
+        //RenewalWaitText(10);
     }
 
     /// <summary>
@@ -93,6 +100,7 @@ public class UIManager
         previewLayout.SetParent(_mainLayout);
         previewLayout.SetAlign(VerticalAlign.Bottom);
         previewLayout.SetPos(10, -3, RectOption.Relative);
+        _layouts[(int)UILayout.Preview] = previewLayout;
 
         TextBox tableText = new TextBox("테 이 블");
         TextBox tableImg1 = new TextBox(" █████████████████████████████████████████");
@@ -136,6 +144,7 @@ public class UIManager
         btnAreaLayout.SetAlign(HorizonAlign.Center);
         btnAreaLayout.SetAlign(VerticalAlign.Bottom);
         btnAreaLayout.SetPos(-6, -7, RectOption.Relative);
+        _layouts[(int)UILayout.Elements] = btnAreaLayout;
 
         TextBox elementText = new TextBox("재 료");
 
@@ -178,6 +187,7 @@ public class UIManager
         spaceBarLayout.SetAlign(VerticalAlign.Bottom);
         spaceBarLayout.SetAlign(HorizonAlign.Center);
         spaceBarLayout.SetPos(-5, -3, RectOption.Relative);
+        _layouts[(int)UILayout.SpaceBar] = spaceBarLayout;
 
         TextBox spaceText = new TextBox($"SpaceBar : 서 빙");
         spaceText.SetParent(spaceBarLayout);
@@ -196,6 +206,7 @@ public class UIManager
         menuBaseLayout.SetAlign(VerticalAlign.Center);
         menuBaseLayout.SetAlign(HorizonAlign.Right);
         menuBaseLayout.SetPos(-10, 0, RectOption.Relative);
+        _layouts[(int)UILayout.Menus] = menuBaseLayout;
 
         TextBox menuText = new TextBox("= 메 뉴 레 시 피 =");
         menuText.SetParent(menuBaseLayout);
