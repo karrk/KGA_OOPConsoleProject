@@ -6,13 +6,13 @@ public class UIManager
 
     public static UIManager Instance => _instance;
 
-    private Layout _mainLayout = null;
-
     private TextBox _goldTextBox = null;
     private TextBox _waitTextBox = null;
 
     private Layout[] _layouts = new Layout[(int)UILayout.Size];
     public Layout this[UILayout m_layout] => _layouts[(int)m_layout];
+
+    private TextBox[] _selectTexts = new TextBox[(int)SelectText.Size];
 
     public UIManager()
     {
@@ -24,88 +24,260 @@ public class UIManager
 
     public void Init()
     {
-        _mainLayout = new Layout(new Rect(1, 1, 200, 60));
-        _mainLayout.SetColor(120);
-        _layouts[(int)UILayout.Main] = _mainLayout;
-
-        DrawMainGameTitle();
         _goldTextBox = new TextBox(string.Empty);
         _waitTextBox = new TextBox(string.Empty);
         
         InitLayouts();
+        CreateSelectTexts();
+    }
 
-        CustomerContainer.Instance.ChangedWaiting += RenewalWaitText;
-        RenewalGoldText(0);
+    public void ResetOptions()
+    {
+        SettingBtnImage();
+        SettingMenuImage();
+    }
 
-        _mainLayout.Print();
+    public void PrintMainMenuUI(bool m_print)
+    {
+        if (m_print)
+        {
+            _layouts[(int)UILayout.MainMenuPage].SetPrint(true);
+            _layouts[(int)UILayout.MainMenuPage].Print();
+        }
+        else
+        {
+            _layouts[(int)UILayout.MainMenuPage].TurnOff();
+            _layouts[(int)UILayout.MainMenuPage].SetPrint(false);
+        }
+    }
+
+    public void PrintMainGameUI(bool m_print)
+    {
+        if(m_print)
+        {
+            _layouts[(int)UILayout.Main].Print();
+        }
+        else
+        {
+            Thread.Sleep(1000);
+            Console.Clear();
+        }
+    }
+
+    public void PrintResult(bool m_print)
+    {
+        if(m_print)
+        {
+            _layouts[(int)UILayout.ResultPage].SetPrint(true);
+            SettingTotalGoldToResult();
+            _layouts[(int)UILayout.ResultPage].Print();
+        }
+        else
+        {
+            _layouts[(int)UILayout.ResultPage].TurnOff();
+            _layouts[(int)UILayout.ResultPage].SetPrint(false);
+        }
     }
 
     private void InitLayouts()
     {
-        AddOrderLayout();
-        AddPreviewLayout();
-        AddSelectLayout();
-        AddMenuLayout();
-        AddSpaceBarLayout();
+        CreateLayouts();
+        SetLayouts();
     }
 
-    /// <summary>
-    /// Gold 텍스트를 수정하여 출력합니다.
-    /// </summary>
-    public void RenewalGoldText(int m_gold)
-    {
-        _goldTextBox.TurnOff();
-        _goldTextBox.SetNewText($"수 입 : {m_gold}원");
-        _goldTextBox.SetAlign(HorizonAlign.Right);
-        _goldTextBox.SetAlign(VerticalAlign.Top);
+    #region MainGameScene
 
-        _goldTextBox.Print();
+    private void CreateLayouts()
+    {
+        _layouts[(int)UILayout.Main] = new Layout(new Rect(1, 1, 200, 60));
+
+        _layouts[(int)UILayout.MainMenuPage] = new Layout(new Rect(1, 1, 50, 10));
+
+        _layouts[(int)UILayout.Order] = new Layout(new Rect(120, 16));
+        _layouts[(int)UILayout.Preview] = new Layout(new Rect(40, 30));
+        _layouts[(int)UILayout.Elements] = new Layout(new Rect(70, 26));
+        _layouts[(int)UILayout.SpaceBar] = new Layout(new Rect(50, 3));
+        _layouts[(int)UILayout.Menus] = new Layout(new Rect(50, 58));
+
+        _layouts[(int)UILayout.ResultPage] = new Layout(new Rect(60, 25));
     }
 
-    public void RenewalWaitText(int m_count)
+    private void SetLayouts()
     {
-        _waitTextBox.TurnOff();
-        _waitTextBox.SetNewText($" 대 기 인 원 : {m_count}명");
-        _waitTextBox.SetAlign(HorizonAlign.Center);
-        _waitTextBox.SetAlign(VerticalAlign.Top);
+        Layout tempLayout;
+
+        // 메인 레이아웃
+        tempLayout = _layouts[(int)UILayout.Main];
+        tempLayout.SetColor(120);
+        SettingMainGameTitle();
+
+        // 메인메뉴 레이아웃
+        tempLayout = _layouts[(int)UILayout.MainMenuPage];
+        tempLayout.SetParent(_layouts[(int)UILayout.Main]);
+        tempLayout.SetAlign(HorizonAlign.Center).SetAlign(VerticalAlign.Center);
+        tempLayout.SetColor(0);
+        SettingMainGameTitleImage();
+        //SettingMainMenuText(0);
+
+        // Customer 프린트 영역 레이아웃
+        tempLayout = _layouts[(int)UILayout.Order];
+        tempLayout.SetParent(_layouts[(int)UILayout.Main]);
+        tempLayout.SetPos(10, 10, RectOption.Relative);
+        _goldTextBox.SetParent(tempLayout);
+        _waitTextBox.SetParent(tempLayout);
+
+        // 미리보기 영역 레이아웃
+        tempLayout = _layouts[(int)UILayout.Preview];
+        tempLayout.SetParent(_layouts[(int)UILayout.Main]);
+        tempLayout.SetAlign(VerticalAlign.Bottom);
+        tempLayout.SetPos(10, -3, RectOption.Relative);
+        SettingPreviewTableImage();
+
+        // 재료버튼 영역 레이아웃
+        tempLayout = _layouts[(int)UILayout.Elements];
+        tempLayout.SetParent(_layouts[(int)UILayout.Main]);
+        tempLayout.SetAlign(HorizonAlign.Center);
+        tempLayout.SetAlign(VerticalAlign.Bottom);
+        tempLayout.SetPos(-6, -7, RectOption.Relative);
+        SettingElemenetText();
         
-        _waitTextBox.Print();
+        // 스페이스바 영역 레이아웃
+        tempLayout = _layouts[(int)UILayout.SpaceBar];
+        tempLayout.SetParent(_layouts[(int)UILayout.Main]);
+        tempLayout.SetAlign(VerticalAlign.Bottom).SetAlign(HorizonAlign.Center);
+        tempLayout.SetPos(-5, -3, RectOption.Relative);
+        SettingSpaceBarText();
+
+        // 메뉴레시피 영역 레이아웃
+        tempLayout = _layouts[(int)UILayout.Menus];
+        tempLayout.SetParent(_layouts[(int)UILayout.Main]);
+        tempLayout.SetAlign(VerticalAlign.Center).SetAlign(HorizonAlign.Right);
+        tempLayout.SetPos(-10, 0, RectOption.Relative);
+        SettingMenuRecipeText();
+
+        // 결과창 영역 레이아웃
+        tempLayout = _layouts[(int)UILayout.ResultPage];
+        tempLayout.SetParent(_layouts[(int)UILayout.Main]);
+        tempLayout.SetAlign(VerticalAlign.Center).SetAlign(HorizonAlign.Center);
+        tempLayout.SetPrint(false);
+    }
+
+    private void CreateSelectTexts()
+    {
+        TextBox tempBox;
+
+        tempBox = _selectTexts[(int)SelectText.Menu_Start] = new TextBox("게 임 시 작");
+        tempBox.SetParent(_layouts[(int)UILayout.MainMenuPage]);
+        tempBox.SetAlign(HorizonAlign.Center).SetAlign(VerticalAlign.Top);
+        tempBox.SetPos(0, 8, RectOption.Relative);
+
+        tempBox = _selectTexts[(int)SelectText.Menu_Escape] = new TextBox("나 가 기");
+        tempBox.SetParent(_layouts[(int)UILayout.MainMenuPage]);
+        tempBox.SetAlign(HorizonAlign.Center).SetAlign(VerticalAlign.Bottom);
+        tempBox.SetPos(0, 2, RectOption.Relative);
+
+        tempBox = _selectTexts[(int)SelectText.Result_GotoMenu] = new TextBox("메 뉴 로  돌 아 가 기");
+        tempBox.SetParent(_layouts[(int)UILayout.ResultPage]);
+        tempBox.SetAlign(HorizonAlign.Center).SetAlign(VerticalAlign.Bottom);
+        tempBox.SetPos(0, -5, RectOption.Relative);
+
+        tempBox = _selectTexts[(int)SelectText.Result_Escape] = new TextBox("게 임 종 료");
+        tempBox.SetParent(_layouts[(int)UILayout.ResultPage]);
+        tempBox.SetAlign(HorizonAlign.Center).SetAlign(VerticalAlign.Bottom);
+        tempBox.SetPos(0, -3, RectOption.Relative);
+    }
+
+
+    /// <summary>
+    /// 메인게임의 좌측 상단의 게임타이틀 작성
+    /// </summary>
+    private void SettingMainGameTitle()
+    {
+        TextBox title = new TextBox
+          (" ## ## # ## # #  ##  ##   ##  # #  ")
+   .AddText("## ##   ## #   #   #  # #  # ## ", true)
+   .AddText("# # # # # ## # #   #  # #  # ##", true)
+   .AddText("#   # # # ## # #   #  # #  # # #", true)
+   .AddText("#   # # # ## #  ##  ##   ##  # #", true);
+
+        title.SetColor(202);
+        title.SetParent(_layouts[(int)UILayout.Main]);
+        title.SetAlign(VerticalAlign.Top).SetAlign(HorizonAlign.Left);
+        title.SetPos(40, 1, RectOption.Relative);
+    }
+
+    #region 메인메뉴 추가설정
+
+    public void SwitchMainMenuText(int m_select)
+    {
+        TextBox startText = _selectTexts[(int)SelectText.Menu_Start];
+        TextBox escapeText = _selectTexts[(int)SelectText.Menu_Escape];
+        int red = 196;
+        int white = 231;
+
+        if(m_select == 0)
+        {
+            startText.SetColor(red);
+            escapeText.SetColor(white);
+        }
+        else
+        {
+            startText.SetColor(white);
+            escapeText.SetColor(red);
+        }
+
+        startText.Print();
+        escapeText.Print();
     }
 
     /// <summary>
-    /// 좌측,상단 Customer영역 레이아웃
+    /// 메인메뉴의 게임타이틀 작성
     /// </summary>
-    private void AddOrderLayout()
+    private void SettingMainGameTitleImage()
     {
-        Layout orderLayout = new Layout(new Rect(120, 16));
-        orderLayout.SetParent(_mainLayout);
-        orderLayout.SetPos(10, 10, RectOption.Relative);
-        _layouts[(int)UILayout.Order] = orderLayout;
+        TextBox titleImage = new TextBox
+            (" ")
+   .AddText("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡀⠠⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀", true)
+   .AddText("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠄⡀⢀⠄⡠⠄⠢⠌⠂⠄⠱⡀⠴⡨⢉⡉⠑⢊⠒⠂⠦⠤⠤⣀⣀⡀⠀⠀⠀⠀", true)
+   .AddText("⠀⠀⠀⠀⠀⡀⢀⠠⡀⠄⠂⠌⡘⠠⢁⠊⠔⠠⢌⡐⠠⠡⡘⡤⢑⣤⣤⣡⣜⡡⢊⡔⡡⢂⠔⡠⢄⡰⢜⠀⠀⠀", true)
+   .AddText("⠀⠀⠰⡘⢂⠡⢈⠐⢠⣈⣁⣢⣤⣥⣤⣼⣾⢃⢖⣬⣵⣭⣷⡜⢸⡧⢿⡽⣞⣿⣿⡞⣷⣿⡞⣷⣮⣶⣼⡂⠀", true)
+   .AddText("⠠⠤⠶⡴⢶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣍⢺⣟⡼⣽⣯⡷⢉⡿⠹⠚⢽⣾⣳⡿⣷⢻⡌⠁⠀⠀⣿⡡⠀", true)
+   .AddText("⠀⠀⠐⠰⠠⡌⢍⠻⢿⣿⡟⡩⢉⡍⢻⢿⣿⡌⢿⣮⣳⢻⣾⡗⠌⡇⠀⡀⢸⣷⣻⣽⣿⣸⡇⢄⠈⠀⣿⡑⠀", true)
+   .AddText("⠀⠀⠨⢡⢡⠼⢮⡽⣮⣽⡤⢥⢳⡼⣧⣯⣿⡜⣻⠳⢏⠻⡝⣧⠘⣍⠳⠑⠚⡉⠏⡙⢋⠓⠲⠘⠦⠥⠻⠥⠃", true)
+   .AddText("⠀⠀⢈⣖⣻⢾⡽⣶⢧⣼⣹⢧⡯⢷⡶⣆⣿⡜⣱⡌⣢⣓⣜⠇⡸⢼⡩⢓⠣⠲⠤⡔⡠⡄⣡⣈⠄⡤⢠⠄⣄⢠⢀⡀⢀⡀⠀⠀", true)
+   .AddText("⠀⠀⠠⠌⡉⡉⠽⡩⠯⠿⢇⡉⣙⣫⣽⣹⣿⢜⠃⠌⠠⣀⠰⡘⢄⡛⡰⣁⢦⣙⡒⡤⣑⡸⠔⢮⣞⡱⠧⡞⡜⣦⡓⣬⠣⢜⣉⡇", true)
+   .AddText("⠀⠀⢸⡼⡽⢿⠿⣿⢿⡿⣿⠿⣿⣟⡿⢿⡿⣞⡯⢟⡿⡽⣻⣽⢫⣿⣽⣭⣯⣝⣯⢷⢯⡗⡡⠘⣿⢸⡷⢾⡶⣶⡵⣮⠗⠈⣿⠅", true)
+   .AddText("⠀⠀⢸⡳⣽⣿⣿⢮⣟⡶⣭⢧⡽⣤⡝⣦⡽⣼⡱⣎⡵⣱⢳⡞⣿⣿⣿⢟⠿⣿⣾⢯⡟⡷⢐⠛⡛⣘⡛⣛⢛⣓⣛⢋⢇⡛⡙⠆⠀ ", true)
+   .AddText("⠀⢺⣋⠓⣿⣿⣽⣎⠗⡛⡙⢋⠛⡓⢛⠳⠛⠳⡙⠎⠷⠭⠳⢻⣿⡿⣽⠯⢷⡹⣿⣿⣹⣭⣯⣯⣽⣥⣯⣽⣯⣽⣭⡿⣮⣽⢽⣳⡆  ", true)
+   .AddText("⠀⠀⠀⠈⠀⢛⠯⣟⣿⣿⣿⡏⠹⢿⠯⠉⠛⢓⣹⣯⣾⣶⣧⣿⡟⣟⣿⣿⣾⣳⣿⣿⡽⣟⣿⣻⠟⢯⣷⣻⣾⣽⣯⡟⠋⠋⠋⠉⠁⠀  ", true)
+   .AddText("⠀⠀⠀⠀⠀⠘⠿⠾⠿⠿⠟⠀⠀⠀⠀⠀⠀⠁⠀⠙⠒⠛⠛⠋⠀⢸⣮⣟⣷⣻⣿⠃⠀⠀⠁⠀⠀⠀⠻⣿⣿⣿⠟⠁⠀⠀⠀⠀⠀⠀     ", true)
+   .AddText("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠛⠚⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀         ", true)
+   .AddText(" ", true)
+   .AddText(" ", true)
+   .AddText(" ", true)
+   .AddText("⠀⠀⠀⠀⠀⠀⠀⠀⠀-⠀⠀M⠀I⠀N⠀I⠀C⠀O⠀O⠀K⠀⠀-", true);
 
-        _goldTextBox.SetParent(orderLayout);
-        _waitTextBox.SetParent(orderLayout);
+        titleImage.SetColor(152);
+        titleImage.SetParent(_layouts[(int)UILayout.MainMenuPage]);
+        titleImage.SetAlign(VerticalAlign.Top).SetAlign(HorizonAlign.Left);
+        titleImage.SetPos(0, -20, RectOption.Relative);
     }
 
-    /// <summary>
-    /// 좌측,하단 미리보기 영역 레이아웃
-    /// </summary>
-    private void AddPreviewLayout()
-    {
-        Layout previewLayout = new Layout(new Rect(40, 30));
-        previewLayout.SetParent(_mainLayout);
-        previewLayout.SetAlign(VerticalAlign.Bottom);
-        previewLayout.SetPos(10, -3, RectOption.Relative);
-        _layouts[(int)UILayout.Preview] = previewLayout;
+    #endregion
 
+    #region 미리보기 영역 추가설정
+
+    private void SettingPreviewTableImage()
+    {
         TextBox tableText = new TextBox("테 이 블");
         TextBox tableImg1 = new TextBox(" █████████████████████████████████████████");
         TextBox tableImg2 = new TextBox(" █████████████████████████████████████████");
         TextBox tableImg3 = new TextBox(" █████████████████████████████████████████");
 
-        tableText.SetParent(previewLayout);
-        tableImg1.SetParent(previewLayout);
-        tableImg2.SetParent(previewLayout);
-        tableImg3.SetParent(previewLayout);
+        tableText.SetParent(_layouts[(int)UILayout.Preview]);
+        tableImg1.SetParent(_layouts[(int)UILayout.Preview]);
+        tableImg2.SetParent(_layouts[(int)UILayout.Preview]);
+        tableImg3.SetParent(_layouts[(int)UILayout.Preview]);
 
         tableText.SetAlign(VerticalAlign.Top);
         tableImg1.SetAlign(VerticalAlign.Bottom);
@@ -125,28 +297,23 @@ public class UIManager
         tableImg1.SetColor(52);
         tableImg2.SetColor(88);
         tableImg3.SetColor(196);
-
-        BurgerTable.SetTableLayout(previewLayout);
     }
 
-    /// <summary>
-    /// 중앙,하단 음식재료, 키패드버튼 영역 레이아웃
-    /// </summary>
-    private void AddSelectLayout()
-    {
-        Layout btnAreaLayout = new Layout(new Rect(70, 26));
-        btnAreaLayout.SetParent(_mainLayout);
-        btnAreaLayout.SetAlign(HorizonAlign.Center);
-        btnAreaLayout.SetAlign(VerticalAlign.Bottom);
-        btnAreaLayout.SetPos(-6, -7, RectOption.Relative);
-        _layouts[(int)UILayout.Elements] = btnAreaLayout;
+    #endregion
 
+    #region 재료버튼 영역 추가 설정
+
+    private void SettingElemenetText()
+    {
         TextBox elementText = new TextBox("재 료");
 
-        elementText.SetParent(btnAreaLayout);
+        elementText.SetParent(_layouts[(int)UILayout.Elements]);
         elementText.SetAlign(HorizonAlign.Center);
         elementText.SetAlign(VerticalAlign.Top);
+    }
 
+    private void SettingBtnImage()
+    {
         Rect btnSize = new Rect(18, 5);
 
         int intervalX = 4;
@@ -162,58 +329,47 @@ public class UIManager
             for (int j = 1; j <= 3; j++)
             {
                 Layout btn = new Layout(btnSize);
-                btn.SetParent(btnAreaLayout);
+                btn.SetParent(_layouts[(int)UILayout.Elements]);
                 btn.SetAlign(VerticalAlign.Bottom).SetAlign(HorizonAlign.Left);
                 btn.SetPos(intervalX * j + (width * (j - 1)),
                     -intervalY * i - (height * (i - 1)), RectOption.Relative);
 
-                MenuManager.Instance.RegistElementBtn(btn,count++);
+                MenuManager.Instance.RegistElementBtn(btn, count++);
             }
         }
     }
+    #endregion
 
-    /// <summary>
-    /// 중앙, 하단부 스페이스바 레이아웃
-    /// </summary>
-    private void AddSpaceBarLayout()
+    #region 스페이스바 영역 추가설정
+
+    private void SettingSpaceBarText()
     {
-        Layout spaceBarLayout = new Layout(new Rect(50, 3));
-        spaceBarLayout.SetParent(_mainLayout);
-        spaceBarLayout.SetAlign(VerticalAlign.Bottom);
-        spaceBarLayout.SetAlign(HorizonAlign.Center);
-        spaceBarLayout.SetPos(-5, -3, RectOption.Relative);
-        _layouts[(int)UILayout.SpaceBar] = spaceBarLayout;
-
         TextBox spaceText = new TextBox($"SpaceBar : 서 빙");
-        spaceText.SetParent(spaceBarLayout);
+        spaceText.SetParent(_layouts[(int)UILayout.SpaceBar]);
         spaceText.SetAlign(VerticalAlign.Center);
         spaceText.SetAlign(HorizonAlign.Center);
         spaceText.SetColor(51);
     }
 
-    /// <summary>
-    /// 우측 메뉴 레시피 레이아웃
-    /// </summary>
-    private void AddMenuLayout()
-    {
-        Layout menuBaseLayout = new Layout(new Rect(50, 58));
-        menuBaseLayout.SetParent(_mainLayout);
-        menuBaseLayout.SetAlign(VerticalAlign.Center);
-        menuBaseLayout.SetAlign(HorizonAlign.Right);
-        menuBaseLayout.SetPos(-10, 0, RectOption.Relative);
-        _layouts[(int)UILayout.Menus] = menuBaseLayout;
+    #endregion
 
+    #region 메뉴레시피영역 추가설정
+
+    private void SettingMenuRecipeText()
+    {
         TextBox menuText = new TextBox("= 메 뉴 레 시 피 =");
-        menuText.SetParent(menuBaseLayout);
+        menuText.SetParent(_layouts[(int)UILayout.Menus]);
         menuText.SetAlign(VerticalAlign.Top).SetAlign(HorizonAlign.Center);
         menuText.SetPos(0, 3, RectOption.Relative);
+    }
 
+    private void SettingMenuImage()
+    {
         Rect menuSize = new Rect(40, 12);
 
-
-        // 버거 1
+        // 버거 1 레이아웃
         Layout menu1Layout = new Layout(menuSize);
-        menu1Layout.SetParent(menuBaseLayout);
+        menu1Layout.SetParent(_layouts[(int)UILayout.Menus]);
         menu1Layout.SetAlign(HorizonAlign.Center).SetAlign(VerticalAlign.Top);
         menu1Layout.SetPos(0, 10, RectOption.Relative);
 
@@ -222,12 +378,9 @@ public class UIManager
         menu1Text.SetAlign(HorizonAlign.Left).SetAlign(VerticalAlign.Top);
         menu1Text.SetPos(2, 0, RectOption.Relative);
 
-        AddBurgerImage(menu1Layout, MenuManager.Instance.Burgers[0]);
-
-
-        // 버거 2
+        // 버거 2 레이아웃
         Layout menu2Layout = new Layout(menuSize);
-        menu2Layout.SetParent(menuBaseLayout);
+        menu2Layout.SetParent(_layouts[(int)UILayout.Menus]);
         menu2Layout.SetPos(menu1Layout, RectCorner.BotL, 0, 4);
 
         TextBox menu2Text = new TextBox("2번");
@@ -235,12 +388,9 @@ public class UIManager
         menu2Text.SetAlign(HorizonAlign.Left).SetAlign(VerticalAlign.Top);
         menu2Text.SetPos(2, 0, RectOption.Relative);
 
-        AddBurgerImage(menu2Layout, MenuManager.Instance.Burgers[1]);
-
-
-        // 버거 3
+        // 버거 3 레이아웃
         Layout menu3Layout = new Layout(menuSize);
-        menu3Layout.SetParent(menuBaseLayout);
+        menu3Layout.SetParent(_layouts[(int)UILayout.Menus]);
         menu3Layout.SetPos(menu2Layout, RectCorner.BotL, 0, 4);
 
         TextBox menu3Text = new TextBox("3번");
@@ -248,8 +398,9 @@ public class UIManager
         menu3Text.SetAlign(HorizonAlign.Left).SetAlign(VerticalAlign.Top);
         menu3Text.SetPos(2, 0, RectOption.Relative);
 
+        AddBurgerImage(menu1Layout, MenuManager.Instance.Burgers[0]);
+        AddBurgerImage(menu2Layout, MenuManager.Instance.Burgers[1]);
         AddBurgerImage(menu3Layout, MenuManager.Instance.Burgers[2]);
-
     }
 
     /// <summary>
@@ -280,21 +431,68 @@ public class UIManager
 
     }
 
-    /// <summary>
-    /// 메인게임의 좌측 상단의 게임타이틀 작성
-    /// </summary>
-    private void DrawMainGameTitle()
-    {
-        TextBox title = new TextBox
-            (" #     #   #   ##    #  #   ###   ###   ###   #  #  ")
-   .AddText ("### ###       # #   #     #     #   # #   #  # #",true)
-   .AddText ("#  #  #   #   #  #  #  #  #     #   # #   #  ##",true)
-   .AddText ("#     #   #   #   # #  #  #     #   # #   #  # #",true)
-   .AddText ("#     #   #   #    ##  #   ###   ###   ###   #  #",true);
+    #endregion
 
-        title.SetColor(202);
-        title.SetParent(_mainLayout);
-        title.SetAlign(VerticalAlign.Top).SetAlign(HorizonAlign.Left);
-        title.SetPos(12, 1, RectOption.Relative);
+    #region 결과화면 추가설정
+
+    public void SwitchResultWindownText(int m_select)
+    {
+        TextBox goMainMenuText = _selectTexts[(int)SelectText.Result_GotoMenu];
+        TextBox escapeText = _selectTexts[(int)SelectText.Result_Escape];
+        int red = 196;
+        int white = 231;
+
+        if (m_select == 0)
+        {
+            goMainMenuText.SetColor(red);
+            escapeText.SetColor(white);
+        }
+        else
+        {
+            goMainMenuText.SetColor(white);
+            escapeText.SetColor(red);
+        }
+
+        goMainMenuText.Print();
+        escapeText.Print();
     }
+
+    private void SettingTotalGoldToResult()
+    {
+        TextBox result = new TextBox($"총 수 입 : {GameManager.Instance.PlayerGold}");
+        result.SetParent(_layouts[(int)UILayout.ResultPage]);
+        result.SetColor(120);
+        result.SetAlign(HorizonAlign.Center).SetAlign(VerticalAlign.Top);
+        result.SetPos(0, 5,RectOption.Relative);
+    }
+
+    #endregion
+
+    /// <summary>
+    /// Gold 텍스트를 수정하여 출력합니다.
+    /// </summary>
+    public void RenewalGoldText(int m_gold)
+    {
+        _goldTextBox.TurnOff();
+        _goldTextBox.SetNewText($"수 입 : {m_gold}원");
+        _goldTextBox.SetAlign(HorizonAlign.Right);
+        _goldTextBox.SetAlign(VerticalAlign.Top);
+
+        _goldTextBox.Print();
+    }
+
+    /// <summary>
+    /// 대기 인원수 텍스트를 수정하여 출력합니다.
+    /// </summary>
+    public void RenewalWaitText(int m_count)
+    {
+        _waitTextBox.TurnOff();
+        _waitTextBox.SetNewText($" 대 기 인 원 : {m_count}명");
+        _waitTextBox.SetAlign(HorizonAlign.Center);
+        _waitTextBox.SetAlign(VerticalAlign.Top);
+
+        _waitTextBox.Print();
+    }
+
+    #endregion
 }
