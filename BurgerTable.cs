@@ -2,7 +2,6 @@
 
 public class BurgerTable
 {
-    private static Layout _burgerTableLayout = null;
     private int _foodTotalScore;
 
     private int _stackLine;
@@ -12,10 +11,17 @@ public class BurgerTable
 
     public void Init()
     {
+        //for (int i = 0; i < SettingManager.Instance.MaxStackLine; i++)
+        //{
+        //    StackFoodElement(1);
+        //}
+
+        //TableClear();
+        _stackedList.Clear();
         _foodTotalScore = 0;
         _stackLine = 0;
     }
-    
+
     /// <summary>
     /// 미리보기영역(테이블)에 음식재료를 추가합니다.
     /// </summary>
@@ -49,21 +55,12 @@ public class BurgerTable
     }
 
     /// <summary>
-    /// 버거테이블로 지정할 기준레이아웃을 설정합니다.
-    /// </summary>
-    public static void SetTableLayout(Layout m_layout)
-    {
-        _burgerTableLayout = m_layout;
-    }
-
-    /// <summary>
     /// 테이블에 추가한 재료이미지를 화면에 출력합니다.
     /// </summary>
     private void DrawStackedElement(FoodElement m_element)
     {
         TextBox stackImg = new TextBox("");
-        stackImg.SetParent(_burgerTableLayout);
-        stackImg.SetParent(_burgerTableLayout);
+        stackImg.SetParent(UIManager.Instance[UILayout.Preview]);
         stackImg.SetAlign(VerticalAlign.Bottom).SetAlign(HorizonAlign.Center);
         stackImg.SetColor(m_element.ColorNumber);
 
@@ -80,6 +77,8 @@ public class BurgerTable
         _stackedList.Add(stackImg);
 
         stackImg.Print();
+
+        stackImg.SetParent(null);
     }
 
     /// <summary>

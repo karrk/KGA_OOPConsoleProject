@@ -19,7 +19,7 @@ public class Customer
     {
         _layout = new Layout(m_layoutSize);
         _layout.SetParent(m_baseUI);
-        _layout.SetPrint(false);
+        _layout.SetColor(0);
 
         CreateCommuiteBox();
         CreateImageBox();
@@ -78,5 +78,6 @@ public class Customer
     public void Hide()
     {
         _layout.TurnOff();
+        _layout.SetParent(null);
     }
 }

@@ -13,7 +13,6 @@ public class CustomerContainer
     private bool _isThreadRunning;
 
     private Layout _custStandardLayout;
-    private Layout _containerLayout;
 
     public event Action<int> ChangedWaiting;
     public event Action<int> ChangedGold;
@@ -32,12 +31,32 @@ public class CustomerContainer
 
     public void Init()
     {
-        _containerLayout = UIManager.Instance[UILayout.Order];
         CreateCustomerStandard();
-        SetWaitCount();
+    }
 
+    public void ResetOptions()
+    {
+        _customers.Clear();
+        Array.Fill(_seat, null);
+
+        SetWaitCount();
         _thread = new Thread(ThreadRun);
         _thread.Start();
+    }
+
+    public void ClearContainer()
+    {
+        LinkedListNode<Customer> node = _customers.First;
+
+        while (true)
+        {
+            if (node == null)
+                break;
+
+            node.Value.Hide();
+
+            node = node.Next;
+        }
     }
 
     /// <summary>
@@ -58,7 +77,7 @@ public class CustomerContainer
 
             if (seat != -1)
             {
-                AddCustomer(new Customer(_containerLayout, _customerRect), seat);
+                AddCustomer(new Customer(UIManager.Instance[UILayout.Order], _customerRect), seat);
                 _popedCount++;
             }
         }
@@ -157,7 +176,7 @@ public class CustomerContainer
         ChangedWaiting?.Invoke(_waitCount);
 
         if (_waitCount <= 0)
-            GameManager.Instance.GameClear();
+            GameManager.Instance.MainGameClear();
     }
 
     /// <summary>
