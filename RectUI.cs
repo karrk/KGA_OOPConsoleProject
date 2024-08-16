@@ -105,7 +105,14 @@ public abstract class RectUI
     /// </summary>
     public RectUI SetParent(RectUI m_parent)
     {
-        if (m_parent._childs == null)
+        if (m_parent == null)
+        {
+            this.Parent._childs.Remove(this);
+            this._parent = null;
+            return null;
+        }
+
+        else if (m_parent._childs == null)
             m_parent._childs = new List<RectUI>();
 
         m_parent._childs.Add(this);
@@ -205,9 +212,10 @@ public abstract class RectUI
     /// </summary>
     public virtual void Print()
     {
-        if(_isPrint)
-            PrintLogic();
-        
+        if (!_isPrint)
+            return;
+
+        PrintLogic();
         PrintChilds();
     }
 
