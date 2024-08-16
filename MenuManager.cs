@@ -23,8 +23,11 @@
             _instance = this;
     }
 
-    public void Init()
+    public void Init() { }
+
+    public void ResetOptions()
     {
+        _burgers.Clear();
         _lastFoodNumber = 1;
         RegistBurger();
         SettingManager.Instance.SetLimitKey(_elements.Count);
@@ -81,11 +84,6 @@
             burger.AddStack(element);
         }
 
-        //score = Burger.CalculateElementScore(burger[0], m_stackCount);
-        //copyElement = burger[0].Copy();
-        //copyElement.SetFoodScore(score);
-
-        //burger.AddStack(copyElement);
         burger.CloseStack();
         return burger;
     }
