@@ -14,10 +14,10 @@ MiniCook은 간단한 프로그래밍으로 고객이 요구하는 햄버거를 
 
 ## 게임미리보기
 
-[gamePreviewJpg](./Images/GamePreviewImage.jpg)
+![gamePreviewJpg](./Images/GamePreviewImage.jpg)
 
 ### 플레이 영상
-[gamePlay](./Images/GamePlay.gif)
+![gamePlay](./Images/GamePlay.gif)
 
 ### Branch
 - **Master(main)**
