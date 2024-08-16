@@ -37,7 +37,6 @@ public class SettingManager
     public int MinWaitCount => 6;
     public int MaxWaitCount => 10;
     public int CustomerSpawnDelay = 4;
-    
 
     private int _limitInputNumber = (int)ConsoleKey.NumPad9;
     public int LimitInputNumber => _limitInputNumber;
