@@ -9,6 +9,7 @@ public class InputManager
     
     public event Action<int> InputedNumkey;
     public event Action InputedSpaceKey;
+    public event Action InputedArrowKey;
 
     public InputManager()
     {
@@ -34,6 +35,11 @@ public class InputManager
             ConsoleKey.Enter == _inputKey.Key)
         {
             InputedSpaceKey?.Invoke();
+        }
+        else if(ConsoleKey.UpArrow == _inputKey.Key ||
+            ConsoleKey.DownArrow == _inputKey.Key)
+        {
+            InputedArrowKey?.Invoke();
         }
     }
 }
