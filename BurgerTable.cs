@@ -11,12 +11,6 @@ public class BurgerTable
 
     public void Init()
     {
-        //for (int i = 0; i < SettingManager.Instance.MaxStackLine; i++)
-        //{
-        //    StackFoodElement(1);
-        //}
-
-        //TableClear();
         _stackedList.Clear();
         _foodTotalScore = 0;
         _stackLine = 0;
@@ -64,9 +58,9 @@ public class BurgerTable
         stackImg.SetAlign(VerticalAlign.Bottom).SetAlign(HorizonAlign.Center);
         stackImg.SetColor(m_element.ColorNumber);
 
-        for (int i = 0; i < SettingManager.Instance.TableStackCount; i++)
+        for (int i = 0; i < SettingManager.Instance.ElementPrintHeigh; i++)
         {
-            for (int j = 0; j < SettingManager.Instance.FoodsMaxCount; j++)
+            for (int j = 0; j < SettingManager.Instance.ElementTextMaxCount; j++)
             {
                 stackImg.AddText(m_element.FoodChar);
             }

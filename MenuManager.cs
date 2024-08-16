@@ -117,7 +117,7 @@
         elementImg.SetAlign(HorizonAlign.Center)
             .SetAlign(VerticalAlign.Center);
 
-        for (int i = 0; i < SettingManager.Instance.FoodsMinCount; i++)
+        for (int i = 0; i < SettingManager.Instance.ElementTextMinCount; i++)
         {
             elementImg.AddText(_elements[m_elementIdx].FoodChar);
         }

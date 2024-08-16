@@ -27,8 +27,9 @@ public class GameManager
             _instance = this;
     }
 
-    
-    // 씬이 계속 쌓이는 문제가 발생됨
+    /// <summary>
+    /// 프로그램 실행시 작동되는 로직
+    /// </summary>
     public void ProgramRun()
     {
         SceneManager.ChangedScene += ChangedScene;
@@ -36,6 +37,7 @@ public class GameManager
         SceneManager.LoadMainMenuScene();
     }
 
+    // 씬이 계속 쌓이는 문제가 발생됨
     private void ChangedScene(Scene m_scene)
     {
         RegistEvents(m_scene);
@@ -55,32 +57,25 @@ public class GameManager
 
                 UIManager.Instance.PrintMainMenuUI(true);
                 _menuSelector.Init();
-
                 _menuSelector.MainMenuTextSwitch();
-
                 CurrentSceneRun();
                 SceneFinish();
-
                 _menuSelector.Select(m_scene);
                 break;
 
             case Scene.MainGame:
 
                 UIManager.Instance.PrintMainMenuUI(false);
-
                 MenuManager.Instance.ResetOptions();
                 LevelSystem.Instance.ResetOptions();
                 UIManager.Instance.ResetOptions();
                 CustomerContainer.Instance.ResetOptions();
-
                 _playerGold = 0;
                 AddGold(0);
 
                 UIManager.Instance.PrintMainGameUI(true);
                 _burgerTable.Init();
-
                 CurrentSceneRun();
-                
                 StopMultiThreads();
                 SceneFinish();
                 UIManager.Instance.PrintMainGameUI(false);
@@ -89,12 +84,9 @@ public class GameManager
 
             case Scene.Result:
                 UIManager.Instance.PrintResult(true);
-
                 _menuSelector.Init();
                 _menuSelector.ResultWindowTextSwitch();
-
                 CurrentSceneRun();
-
                 SceneFinish();
                 UIManager.Instance.PrintResult(false);
                 _menuSelector.Select(m_scene);
@@ -176,11 +168,17 @@ public class GameManager
         UIManager.Instance.RenewalGoldText(_playerGold);
     }
 
+    /// <summary>
+    /// 메인스레드 외 다른 스레드가 동작되고 있다면 종료시킵니다.
+    /// </summary>
     private void StopMultiThreads()
     {
         _custContainer.StopThread();
     }
 
+    /// <summary>
+    /// 현재 씬에 내에서 입력처리를 진행합니다.
+    /// </summary>
     public void CurrentSceneRun()
     {
         while(true)
@@ -188,20 +186,21 @@ public class GameManager
             if (_isFinished)
                 break;
 
-            Input();
+            InputManager.Instance.CheckInput();
         }
     }
 
-    private void Input()
-    {
-        _input.CheckInput();
-    }
-
+    /// <summary>
+    /// 현재 씬을 종료시킵니다.
+    /// </summary>
     public void SceneFinish()
     {
         this._isFinished = true;
     }
 
+    /// <summary>
+    /// 메인게임종료 시 실행될 메서드목록
+    /// </summary>
     public void MainGameClear()
     {
         _burgerTable.Init();

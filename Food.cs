@@ -67,14 +67,6 @@ public class Burger : Food
     }
 
     /// <summary>
-    /// 전달받은 score와 버거의 숫자가 같은지 확인합니다.
-    /// </summary>
-    public bool IsMatchFoodScore(int m_score)
-    {
-        return (this._foodScore & m_score) == this._foodScore;
-    }
-
-    /// <summary>
     /// 버거에 음식재료를 추가합니다.
     /// </summary>
     public void AddStack(FoodElement m_food)

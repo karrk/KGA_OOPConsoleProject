@@ -29,8 +29,8 @@
 
     public void Init()
     {
-        _reduceGold = (SettingManager.Instance.MaxPricePerElement
-                             - SettingManager.Instance.MinPricePerElement) / 2 * -100;
+        _reduceGold = (SettingManager.Instance.MaxPrice
+                             - SettingManager.Instance.MinPrice) / 2 * -100;
     }
 
 
@@ -39,6 +39,9 @@
         SettingLevel();
     }
 
+    /// <summary>
+    /// 설정된 레벨에 맞게 레벨테이블을 설정합니다.
+    /// </summary>
     private void SettingLevel()
     {
         int count;
@@ -58,13 +61,5 @@
 
             _levels.Add(arr);
         }
-    }
-
-    public int GetPrice(int m_elementStackCount)
-    {
-        int price = _rand.Next(SettingManager.Instance.MinPricePerElement,
-            SettingManager.Instance.MaxPricePerElement);
-
-        return price * m_elementStackCount * 100;
     }
 }

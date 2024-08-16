@@ -21,7 +21,8 @@ public class InputManager
 
     /// <summary>
     /// 키패드 1부터 제한키 입력감지,
-    /// 스페이스바 키 입력감지,(엔터키추가)
+    /// 스페이스바,엔터키 입력감지,
+    /// 방향키 위, 아래 입력감지,
     /// </summary>
     public void CheckInput()
     {

@@ -9,6 +9,9 @@
         _resultSelected = -1;
     }
 
+    /// <summary>
+    /// 해당 메서드 작동시 메인메뉴 텍스트 선택을 변경합니다.
+    /// </summary>
     public void MainMenuTextSwitch()
     {
         _mainMenuSelected =
@@ -17,6 +20,9 @@
         UIManager.Instance.SwitchMainMenuText(_mainMenuSelected);
     }
 
+    /// <summary>
+    /// 해당 메서드 작동시 결과화면 텍스트 선택을 변경합니다.
+    /// </summary>
     public void ResultWindowTextSwitch()
     {
         _resultSelected =
@@ -25,6 +31,10 @@
         UIManager.Instance.SwitchResultWindownText(_resultSelected);
     }
 
+
+    /// <summary>
+    /// 씬마다 선택되어 있는 텍스트를 기반으로 동작을 결정합니다.
+    /// </summary>
     public void Select(Scene m_scene)
     {
         switch (m_scene)

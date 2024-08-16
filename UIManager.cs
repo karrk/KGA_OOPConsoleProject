@@ -37,6 +37,9 @@ public class UIManager
         SettingMenuImage();
     }
 
+    /// <summary>
+    /// 메인메뉴의 UI를 출력합니다.
+    /// </summary>
     public void PrintMainMenuUI(bool m_print)
     {
         if (m_print)
@@ -51,6 +54,9 @@ public class UIManager
         }
     }
 
+    /// <summary>
+    /// 메인게임의 UI를 출력합니다.
+    /// </summary>
     public void PrintMainGameUI(bool m_print)
     {
         if(m_print)
@@ -64,6 +70,9 @@ public class UIManager
         }
     }
 
+    /// <summary>
+    /// 결과화면을 출력합니다.
+    /// </summary>
     public void PrintResult(bool m_print)
     {
         if(m_print)
@@ -87,6 +96,9 @@ public class UIManager
 
     #region MainGameScene
 
+    /// <summary>
+    /// 각 레이아웃을 생성합니다.
+    /// </summary>
     private void CreateLayouts()
     {
         _layouts[(int)UILayout.Main] = new Layout(new Rect(1, 1, 200, 60));
@@ -102,6 +114,9 @@ public class UIManager
         _layouts[(int)UILayout.ResultPage] = new Layout(new Rect(60, 25));
     }
 
+    /// <summary>
+    /// 각 레이아웃의 설정
+    /// </summary>
     private void SetLayouts()
     {
         Layout tempLayout;
@@ -117,7 +132,6 @@ public class UIManager
         tempLayout.SetAlign(HorizonAlign.Center).SetAlign(VerticalAlign.Center);
         tempLayout.SetColor(0);
         SettingMainGameTitleImage();
-        //SettingMainMenuText(0);
 
         // Customer 프린트 영역 레이아웃
         tempLayout = _layouts[(int)UILayout.Order];
@@ -162,6 +176,9 @@ public class UIManager
         tempLayout.SetPrint(false);
     }
 
+    /// <summary>
+    /// 선택형 텍스트를 생성합니다.
+    /// </summary>
     private void CreateSelectTexts()
     {
         TextBox tempBox;
@@ -208,6 +225,9 @@ public class UIManager
 
     #region 메인메뉴 추가설정
 
+    /// <summary>
+    /// 메인메뉴의 텍스트의 선택을 변경한 UI를 출력합니다.
+    /// </summary>
     public void SwitchMainMenuText(int m_select)
     {
         TextBox startText = _selectTexts[(int)SelectText.Menu_Start];
@@ -231,7 +251,7 @@ public class UIManager
     }
 
     /// <summary>
-    /// 메인메뉴의 게임타이틀 작성
+    /// 메인메뉴의 게임타이틀 이미지 작성
     /// </summary>
     private void SettingMainGameTitleImage()
     {
@@ -267,6 +287,9 @@ public class UIManager
 
     #region 미리보기 영역 추가설정
 
+    /// <summary>
+    /// 미리보기 영역의 텍스트와 이미지를 설정합니다.
+    /// </summary>
     private void SettingPreviewTableImage()
     {
         TextBox tableText = new TextBox("테 이 블");
@@ -303,6 +326,9 @@ public class UIManager
 
     #region 재료버튼 영역 추가 설정
 
+    /// <summary>
+    /// 재료창의 텍스트를 설정합니다.
+    /// </summary>
     private void SettingElemenetText()
     {
         TextBox elementText = new TextBox("재 료");
@@ -312,6 +338,9 @@ public class UIManager
         elementText.SetAlign(VerticalAlign.Top);
     }
 
+    /// <summary>
+    /// 버튼의 레이아웃과 각 필요 재료이미지를 등록합니다.
+    /// </summary>
     private void SettingBtnImage()
     {
         Rect btnSize = new Rect(18, 5);
@@ -342,6 +371,9 @@ public class UIManager
 
     #region 스페이스바 영역 추가설정
 
+    /// <summary>
+    /// 스페이스바 영역 레이아웃의 텍스트 설정
+    /// </summary>
     private void SettingSpaceBarText()
     {
         TextBox spaceText = new TextBox($"SpaceBar : 서 빙");
@@ -355,6 +387,9 @@ public class UIManager
 
     #region 메뉴레시피영역 추가설정
 
+    /// <summary>
+    /// 메뉴레시피영역의 텍스트 설정
+    /// </summary>
     private void SettingMenuRecipeText()
     {
         TextBox menuText = new TextBox("= 메 뉴 레 시 피 =");
@@ -363,6 +398,9 @@ public class UIManager
         menuText.SetPos(0, 3, RectOption.Relative);
     }
 
+    /// <summary>
+    /// 메뉴레시피영역의 필요한 레이아웃과 이미지를 생성합니다.
+    /// </summary>
     private void SettingMenuImage()
     {
         Rect menuSize = new Rect(40, 12);
@@ -414,7 +452,7 @@ public class UIManager
 
             TextBox elementImg = new TextBox(elementChar.ToString());
 
-            for (int j = 0; j < SettingManager.Instance.FoodsMinCount; j++)
+            for (int j = 0; j < SettingManager.Instance.ElementTextMinCount; j++)
             {
                 elementImg.AddText(elementChar);
             }
@@ -449,7 +487,7 @@ public class UIManager
         }
         else
         {
-            goMainMenuText.SetColor(white);
+            goMainMenuText.SetColor(white); 
             escapeText.SetColor(red);
         }
 

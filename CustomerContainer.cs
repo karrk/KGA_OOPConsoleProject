@@ -44,6 +44,9 @@ public class CustomerContainer
         _thread.Start();
     }
 
+    /// <summary>
+    /// 남아있는 Customer가 있다면 비워냅니다.
+    /// </summary>
     public void ClearContainer()
     {
         LinkedListNode<Customer> node = _customers.First;
@@ -83,6 +86,9 @@ public class CustomerContainer
         }
     }
 
+    /// <summary>
+    /// Customer가 생성될 기준 포지션 레이아웃을 생성합니다.
+    /// </summary>
     private void CreateCustomerStandard()
     {
         _custStandardLayout = new Layout(_customerRect);

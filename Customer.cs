@@ -25,6 +25,9 @@ public class Customer
         CreateImageBox();
     }
 
+    /// <summary>
+    /// 대화 상자를 생성합니다.
+    /// </summary>
     private void CreateCommuiteBox()
     {
         _communicateBox = new TextBox("");
@@ -35,13 +38,19 @@ public class Customer
         _communicateBox.SetPos(0, -3, RectOption.Relative);
     }
 
+    /// <summary>
+    /// 캐릭터의 이미지박스를 생성합니다.
+    /// </summary>
     private void CreateImageBox()
     {
         _imgTextBox = SetImgBox();
         _imgTextBox.SetColor(ColorPrinter.GetRandomColorNumber());
         _imgTextBox.SetParent(_layout);
     }
-
+    
+    /// <summary>
+    /// 캐릭터의 대기열번호를 저장합니다.
+    /// </summary>
     public void SetSeatNumber(int m_number)
     {
         this._seatNumber = m_number;
@@ -73,7 +82,7 @@ public class Customer
     }
 
     /// <summary>
-    /// 출력된 손님 이미지를 감춥니다.
+    /// 출력된 손님 이미지를 감추고 부모 레이아웃을 해지합니다.
     /// </summary>
     public void Hide()
     {
