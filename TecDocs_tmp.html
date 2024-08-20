@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TecDocs.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="minicook-consoleproject">MiniCook ConsoleProject</h1>
+<ul>
+<li>
+<h2 id="contents">Contents</h2>
+<h3 id="%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EB%AA%85--minicook"><code>프로젝트명 : MiniCook</code></h3>
+<ul>
+<li>
+<h4 id="%EC%9D%B4%EB%AF%B8%EC%A7%80">이미지</h4>
+</li>
+</ul>
+<p><img src="file:///c:/Users/tygk1/OneDrive/Desktop/KYA/MiniCooked/Images/GamePreviewImage.jpg" alt="screenshot1"></p>
+<ul>
+<li>플레이영상
+<img src="file:///c:/Users/tygk1/OneDrive/Desktop/KYA/MiniCooked/Images/GamePlay.gif" alt="screenshot2"></li>
+</ul>
+</li>
+<li>
+<h2 id="contents-description">Contents Description</h2>
+<blockquote>
+<h3 id="%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8">프로그램</h3>
+</blockquote>
+<ul>
+<li>고객이 요구하는 햄버거를 만들어 제공하는 게임입니다.<br> <br>싱글플레이를 기반으로 손님이 원하는 주문을 받아 <br>모든 음식을 만들어 제공하는것이 목표입니다<br></li>
+</ul>
+<blockquote>
+<h3 id="%EA%B2%8C%EC%9E%84-%EC%A7%84%ED%96%89%EB%B0%A9%EC%8B%9Dbr">게임 진행방식<br></h3>
+</blockquote>
+<ol>
+<li>숫자 키패드를 활용해 필요한 음식 재료를 쌓아 올립니다.</li>
+<li>스페이스바, 엔터키를 입력해 현재까지 쌓아 올린 음식을 손님 측으로 제시합니다.</li>
+<li>고객의 주문 중 일치한 주문이 있다면 골드를 획득합니다.</li>
+<li>일치한 주문이 없다면 소지골드가 차감됩니다.</li>
+</ol>
+<blockquote>
+<h3 id="%EA%B5%AC%ED%98%84-%EB%B0%A9%EB%B2%95">구현 방법</h3>
+</blockquote>
+<ul>
+<li>
+<p>레이아웃시스템을 구상해 제작 간 편의성을 제공합니다.</p>
+</li>
+<li>
+<p>게임의 주요 핵심이 되는 매니저클래스는 싱글톤 디자인패턴으로 구현하였습니다.</p>
+</li>
+<li>
+<p>프로그램의 전반적인 흐름구조, 각 이벤트, 게임내 설정값들을 하나의 공간에서 관리합니다.</p>
+</li>
+</ul>
+<blockquote>
+<h3 id="%EA%B5%AC%ED%98%84-%EB%B0%A9%EB%B2%95%EC%9D%84-%EC%84%A0%EC%A0%95%ED%95%9C-%EC%9D%B4%EC%9C%A0">구현 방법을 선정한 이유</h3>
+</blockquote>
+<ul>
+<li>
+<p>레이아웃</p>
+<ul>
+<li>수동적으로 콘솔 커서의 위치를 조정해 UI를 구상하게 될경우 제작의 어려움과 가독성, 유지보수성이 크게 떨어집니다.<br>레이아웃시스템을 활용할 경우 각 영역의 용도와 출력되어야할 목록을 쉽게 관리할 수 있으며<br>사용자에게 각 공간의 명확한 공간을 인식시켜줄 수 있음과 동시에,<br>개발자에게 보다 빠른 개발속도, 유지보수비용, 가독성을 제공하기 위함입니다.</li>
+</ul>
+</li>
+<li>
+<p>싱글톤 디자인패턴</p>
+<ul>
+<li>프로그램내에 필요한 클래스가 하나의 객체만 필요한경우 두개 이상의 객체생성을 방지하여 단일성을 유지시킬 수 있습니다.<br> 또한 여러곳에서 접근이 빈번할 경우 전역적인 특징을 활용해 간편한 접근이 가능합니다.</li>
+</ul>
+</li>
+<li>
+<p>핵심 데이터 · 로직의 집중화</p>
+<ul>
+<li>집중화를 통해 각 진행단계를 한눈에 쉽게 파악이 가능하며<br>프로그램의 핵심 멤버와 로직을 한 영역에 집중시켜 개발 유지보수성을 높였습니다.<br> 이는 프로그램의 문제 발생시 쉬운 디버깅이 가능하여 개발비용 절감의 이점을 얻을 수 있습니다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h2 id="%EB%B0%9C%EC%83%9D-%EC%9D%B4%EC%8A%88%EC%99%80-%ED%95%B4%EA%B2%B0%EB%B0%A9%EB%B2%95">발생 이슈와 해결방법</h2>
+<blockquote>
+<h3 id="singleton-static-%ED%81%B4%EB%9E%98%EC%8A%A4">Singleton, Static 클래스</h3>
+</blockquote>
+<ul>
+<li>문제점
+<ul>
+<li>단일성, 전역적인 접근이라는 공통점을 갖게 됨으로써 코드작성의 기준이 명확하지 않음</li>
+</ul>
+</li>
+<li>해결방안
+<ul>
+<li>Static 클래스의 경우 프로그램 실행 시 해당 프로그램이 종료될 때 까지 메모리에 상주하게 된다.
+<br> 즉 적합한 용도로 구현하지 않게 될 경우 메모리낭비로 이어지게 됨을 의미하게 된다.
+<br>싱글톤의 경우 단일객체 인스턴스를 null 로 전환하여 이와 같은 문제점을 방지할 수 있다.
+<br> 프로그램의 클래스 작성 시 프로그램이 동작하는 동안 항상 필요한경우 Static 클래스를 활용하고,
+<br> 반면 필요없는 상황에 언제든 메모리를 해제시켜 이점을 챙길 수 있다 라는 판단이 될 경우 Singleton 디자인패턴을 활용한다.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<h3 id="customercontainer-%ED%81%B4%EB%9E%98%EC%8A%A4-%EB%82%B4%EB%B6%80%EC%9D%98-customer-%EA%B4%80%EB%A6%AC">CustomerContainer 클래스 내부의 Customer 관리</h3>
+</blockquote>
+<ul>
+<li>문제점
+<ul>
+<li>대기중인 Customer 객체집합 내의 요소에 빠른 접근, 추가, 삭제에 필요한 자료구조 선정</li>
+</ul>
+</li>
+<li>해결방안
+<ul>
+<li>Queue : 비적합
+<ul>
+<li>for, foreach 문을 통해 각 객체에 접근이 불가능하며, 접근이 필요할 시 각 요소를 전부 반환해야만 함</li>
+</ul>
+</li>
+<li>List : 적합
+<ul>
+<li>각 요소의 접근해 필요한 데이터를 쉽게 확인이 가능하며 추가, 삭제시 큰 문제는 없다.</li>
+</ul>
+</li>
+<li>LinkedList : 적합
+<ul>
+<li>Next 메서드를 통해 모든요소에 쉽게 접근이 가능하여 순열리스트와 같은 효율성을 갖고 있다.</li>
+<li>Customer Remove 메서드가 동작할 경우 각 노드의 주소값만 변경하므로 순열리스트의 Remove 메서드보다 효율성이 높다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<h3 id="burger-%EA%B0%9D%EC%B2%B4%EC%9D%98-%EB%B9%84%EA%B5%90%EB%B0%A9%EC%8B%9D">Burger 객체의 비교방식</h3>
+</blockquote>
+<ul>
+<li>문제점
+<ul>
+<li>Burger 객체는 여러 FoodElement로 구성된다.
+<br> 만약 유저가 제작한 Burger객체의 FoodElement와 고객이 원하는 Burger의 FoodElement를 전부 비교하는 방식은 비효율적인 방식으로 판단</li>
+</ul>
+</li>
+<li>해결방안
+<ul>
+<li>모든 음식객체(FoodElement, Burger)는 각자 FoodScore라는 정수값을 갖게하여 각 숫자의 비교만으로 Burger객체가 동일한지 판단하는 방식을 채택</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<h3 id="foodscore-%ED%8C%90%EC%A0%95-%EB%AC%B8%EC%A0%9C%EC%A0%90">FoodScore 판정 문제점</h3>
+</blockquote>
+<ul>
+<li>
+<p>문제점</p>
+<ul>
+<li>
+<p>Burger를 구성하는 FoodElement는 각자 FoodScore를 갖고 있지만 이러한 값으로만 Burger객체 판정시<br> 구성 및 순서가 다른 Burger 또한 같다 라는 판정이 나오게 된다.</p>
+<h3 id="ex-element1-score--1--element2-score--10"><code>ex)</code> Element1 Score = 1 , Element2 Score = 10</h3>
+<p><img src="file:///c:/Users/tygk1/OneDrive/Desktop/KYA/MiniCooked/Images/Problem1.png" alt="screenshot3"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>해결방안</p>
+<ul>
+<li>
+<p>해시값과 비슷한 방식을 채택 ( ∑ (FoodElement ÷ StackLine) + 1) + TotalStackCount 계산방식을 활용해 구성과 순서를 지키며 각 위의 문제점을 해결할 수 있다.</p>
+<p><img src="file:///c:/Users/tygk1/OneDrive/Desktop/KYA/MiniCooked/Images/Solution1.png" alt="screenShot4"></p>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<h3 id="%EA%B0%81-%ED%81%B4%EB%9E%98%EC%8A%A4%EA%B0%84%EC%9D%98-%EA%B2%B0%ED%95%A9%EB%8F%84">각 클래스간의 결합도</h3>
+</blockquote>
+<ul>
+<li>문제점
+<ul>
+<li>프로그램의 목적상 입력처리 매니저의 경우 특정 키 입력시 프로그램에서 목적에 맞는 행위를 수행해야 한다.<br> 입력처리 매니저의 경우 각 행위가 필요한 객체를 전부 참조하게 될 경우 클래스간 결합도가 크게 증가하게 된다.</li>
+</ul>
+</li>
+<li>해결방안
+<ul>
+<li>각 입력키에 대한 이벤트를 정의하고 행위가 필요한 클래스의 객체가 개별적으로 각 이벤트에 자신을 등록하여<br> 입력이 발생하는경우 상황에 맞는 행위를 발생시키도록 구현</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<h3 id="%EC%8B%9C%EA%B0%84-%EA%B8%B0%EB%B0%98%EC%9D%98-%EA%B8%B0%EB%8A%A5%EA%B5%AC%ED%98%84">시간 기반의 기능구현</h3>
+</blockquote>
+<ul>
+<li>문제점
+<ul>
+<li>CustomerContainer 의 클래스에서는 비어있는 자리에 대기중인 Customer를 배치시켜야한다.
+<br>이때 while문으로 빈자리를 매번 체크하는 로직을 작성하게 되는경우 메인스레드의 성능저하를 유발할 수 있다.</li>
+</ul>
+</li>
+<li>해결방안
+<ul>
+<li>CustomerContainer 전용 Thread를 별도로 생성하여 SettingManager 에 설정된
+<br> 빈자리 확인딜레이 값을 확인해 지정된 시간(Sec)단위로 빈자리가 발생되었는지 확인하는 로직을 구현</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</body>
+</html>
