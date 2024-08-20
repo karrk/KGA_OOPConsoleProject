@@ -1,0 +1,739 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36" version="24.7.7">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+    <mxGraphModel dx="3180" dy="5552" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="zkfFHV4jXpPFQw0GAbJ--0" value="GameManager" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="350" y="-670" width="210" height="266" as="geometry">
+            <mxRectangle x="330" y="20" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-140" value="+PlayerGold : Int {get}" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--0">
+          <mxGeometry y="26" width="210" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-138" value="-menuSelector : MenuSelector" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--0">
+          <mxGeometry y="52" width="210" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-139" value="-burgerTable : BurgerTable" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--0">
+          <mxGeometry y="78" width="210" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="zkfFHV4jXpPFQw0GAbJ--4" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="zkfFHV4jXpPFQw0GAbJ--0" vertex="1">
+          <mxGeometry y="104" width="210" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="zkfFHV4jXpPFQw0GAbJ--5" value="+GameManager()" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="zkfFHV4jXpPFQw0GAbJ--0" vertex="1">
+          <mxGeometry y="112" width="210" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-27" value="-ChangedScene(Scene) : void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--0">
+          <mxGeometry y="138" width="210" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-28" value="-RegistEvents(Scene) : void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--0">
+          <mxGeometry y="164" width="210" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-29" value="-AddGold(Int) : void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--0">
+          <mxGeometry y="190" width="210" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-31" value="+CurrentSceneRun() : void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--0">
+          <mxGeometry y="214" width="210" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-33" value="+MainGameClear() : void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--0">
+          <mxGeometry y="240" width="210" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="zkfFHV4jXpPFQw0GAbJ--17" value="UIManager" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="1123" y="-430" width="200" height="372" as="geometry">
+            <mxRectangle x="550" y="140" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zkfFHV4jXpPFQw0GAbJ--22" value="-goldTextBox : TextBox" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="zkfFHV4jXpPFQw0GAbJ--17" vertex="1">
+          <mxGeometry y="26" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-60" value="-waitTextBox : TextBox" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--17">
+          <mxGeometry y="52" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-61" value="-layouts : Layout[]" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--17">
+          <mxGeometry y="78" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-62" value="-selectTexts : TextBox[]" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--17">
+          <mxGeometry y="104" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="zkfFHV4jXpPFQw0GAbJ--23" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="zkfFHV4jXpPFQw0GAbJ--17" vertex="1">
+          <mxGeometry y="130" width="200" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="zkfFHV4jXpPFQw0GAbJ--24" value="+UIManager()" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="zkfFHV4jXpPFQw0GAbJ--17" vertex="1">
+          <mxGeometry y="138" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-165" value="+Init() : void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--17">
+          <mxGeometry y="164" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-164" value="+ResetOptions():void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--17">
+          <mxGeometry y="190" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-66" value="-InitLayouts():void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--17">
+          <mxGeometry y="216" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-67" value="-CreateLayouts():void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--17">
+          <mxGeometry y="242" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-68" value="-SetLayouts():void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--17">
+          <mxGeometry y="268" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-69" value="-CreateSelectTexts():void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--17">
+          <mxGeometry y="294" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-75" value="+RenewalGoldText(Int):void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--17">
+          <mxGeometry y="320" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-76" value="+RenewalWaitText(Int):void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="zkfFHV4jXpPFQw0GAbJ--17">
+          <mxGeometry y="346" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-78" value="SettingManager" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1353" y="-430" width="200" height="510" as="geometry">
+            <mxRectangle x="550" y="140" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-79" value="+WINDOW_WIDTH : int = 205" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-78">
+          <mxGeometry y="26" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-99" value="+WINDOW_HEIGHT : int = 62" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-78">
+          <mxGeometry y="52" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-83" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-78">
+          <mxGeometry y="78" width="200" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-84" value="+ElementTextMinCount : int {get}" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-78">
+          <mxGeometry y="86" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-100" value="+ElementTextMaxCount : int {get}" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-78">
+          <mxGeometry y="112" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-101" value="+ElementPrintHeigh : int {get}" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-78">
+          <mxGeometry y="138" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-102" value="+MinStackLine : int {get}" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-78">
+          <mxGeometry y="164" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-103" value="+MaxStackLine : int {get}" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-78">
+          <mxGeometry y="190" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-104" value="+MaxBurgerCount : int {get}" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-78">
+          <mxGeometry y="216" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-105" value="+MaxLevel : int {get}" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-78">
+          <mxGeometry y="242" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-106" value="+MinPrice : int {get}" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-78">
+          <mxGeometry y="268" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-107" value="+MaxPrice : int {get}" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-78">
+          <mxGeometry y="294" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-108" value="+MinWaitCount : int {get}" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-78">
+          <mxGeometry y="320" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-110" value="+MaxWaitCount : int {get}" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-78">
+          <mxGeometry y="346" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-111" value="+CustomerSpawnDelay : int {get}" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-78">
+          <mxGeometry y="372" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-112" value="+LimitInputNumber : int {get}" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-78">
+          <mxGeometry y="398" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-97" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-78">
+          <mxGeometry y="424" width="200" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-167" value="+Init() : void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-78">
+          <mxGeometry y="432" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-98" value="+SettingManager():void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-78">
+          <mxGeometry y="458" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-114" value="+SetLimitKey(Int):void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-78">
+          <mxGeometry y="484" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-115" value="_SceneManager" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="903" y="-430" width="200" height="164" as="geometry">
+            <mxRectangle x="550" y="140" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-116" value="+_ChangedScene: Action&lt;Scene&gt;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-115">
+          <mxGeometry y="26" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-132" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-115">
+          <mxGeometry y="52" width="200" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-133" value="+_LoadOpenGameScene():void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-115">
+          <mxGeometry y="60" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-134" value="+_LoadMainMenuScene():void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-115">
+          <mxGeometry y="86" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-136" value="+_LoadMainGame():void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-115">
+          <mxGeometry y="112" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-137" value="+_LoadResultScene():void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-115">
+          <mxGeometry y="138" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-141" value="MenuSelector" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="730" y="-750" width="210" height="170" as="geometry">
+            <mxRectangle x="330" y="20" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-145" value="-mainMenuSelected : int" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-141">
+          <mxGeometry y="26" width="210" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-146" value="-resultSelected : int" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-141">
+          <mxGeometry y="52" width="210" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-147" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-141">
+          <mxGeometry y="78" width="210" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-148" value="+MainMenuTextSwitch() : void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-141">
+          <mxGeometry y="86" width="210" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-149" value="+ResultWindowTextSwitch() : void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-141">
+          <mxGeometry y="112" width="210" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-150" value="+Select(Scene) : void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-141">
+          <mxGeometry y="138" width="210" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-157" value="MenuManager" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1573" y="-430" width="230" height="268" as="geometry">
+            <mxRectangle x="330" y="20" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-158" value="+Burgers : List&lt;Burger&gt; {get}" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-157">
+          <mxGeometry y="26" width="230" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-159" value="-elements : List&lt;Element&gt;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-157">
+          <mxGeometry y="52" width="230" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-160" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-157">
+          <mxGeometry y="78" width="230" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-161" value="+MenuManager()" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-157">
+          <mxGeometry y="86" width="230" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-231" value="+Init() : void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-157">
+          <mxGeometry y="112" width="230" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-232" value="+ResetOptions() : void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-157">
+          <mxGeometry y="138" width="230" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-162" value="+GetElement(int) : FoodElement" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-157">
+          <mxGeometry y="164" width="230" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-163" value="-IsContainChar(char,FoodElement) : bool" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-157">
+          <mxGeometry y="190" width="230" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-168" value="-CreateRandomBurger(int,int) : Burger" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-157">
+          <mxGeometry y="216" width="230" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-169" value="+GetBurgerScore(int) : int" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-157">
+          <mxGeometry y="242" width="230" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-170" value="LevelSystem" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1823" y="-430" width="200" height="190" as="geometry">
+            <mxRectangle x="550" y="140" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-171" value="+levels : int[]" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-170">
+          <mxGeometry y="26" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-177" value="+ReduceGold : int {get}" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-170">
+          <mxGeometry y="52" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-172" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-170">
+          <mxGeometry y="78" width="200" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-173" value="+LevelSystem()" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-170">
+          <mxGeometry y="86" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-174" value="+Init() : void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-170">
+          <mxGeometry y="112" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-178" value="+ResetOptions() : void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-170">
+          <mxGeometry y="138" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-176" value="-SettingLevel" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-170">
+          <mxGeometry y="164" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-179" value="InputManager" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="2043" y="-430" width="200" height="190" as="geometry">
+            <mxRectangle x="550" y="140" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-180" value="-inputKey : ConsoleKeyInfo" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-179">
+          <mxGeometry y="26" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-187" value="+InputedNumkey : Action&lt;int&gt;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-179">
+          <mxGeometry y="52" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-188" value="+InputedSpaceKey : Action&lt;void&gt;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-179">
+          <mxGeometry y="78" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-189" value="+InputedArrowKey : Action&lt;void&gt;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-179">
+          <mxGeometry y="104" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-182" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-179">
+          <mxGeometry y="130" width="200" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-184" value="+InputManager()" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-179">
+          <mxGeometry y="138" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-190" value="+CheckInput() : void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-179">
+          <mxGeometry y="164" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-215" value="BurgerTable" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="730" y="-990" width="210" height="190" as="geometry">
+            <mxRectangle x="330" y="20" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-216" value="-foodTotalScore : int" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-215">
+          <mxGeometry y="26" width="210" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-217" value="-stackLine : int" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-215">
+          <mxGeometry y="52" width="210" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-222" value="-stackedList : List&lt;TextBox&gt;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-215">
+          <mxGeometry y="78" width="210" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-218" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-215">
+          <mxGeometry y="104" width="210" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-219" value="+StackFoodElement(int) : void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-215">
+          <mxGeometry y="112" width="210" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-220" value="+Serve() : void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-215">
+          <mxGeometry y="138" width="210" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-221" value="-TableClear() : void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-215">
+          <mxGeometry y="164" width="210" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-280" value="" style="group" vertex="1" connectable="0" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1920" y="-1260" width="540" height="472" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-258" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;abstract&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;Food&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;#foodScore : int&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+FoodScore : int {get}&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+SetFoodScore(int) : void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" vertex="1" parent="hotCiEky1M4ksta6Ardu-280">
+          <mxGeometry x="140" width="270" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-260" value="FoodElement" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="hotCiEky1M4ksta6Ardu-280">
+          <mxGeometry y="230" width="210" height="120" as="geometry">
+            <mxRectangle x="330" y="20" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-261" value="-foodChar : char" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-260">
+          <mxGeometry y="26" width="210" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-268" value="+FoodChar : char {get} " style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-260">
+          <mxGeometry y="52" width="210" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-262" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-260">
+          <mxGeometry y="78" width="210" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-263" value="+FoodElement(char,int)" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-260">
+          <mxGeometry y="86" width="210" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-267" value="" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="hotCiEky1M4ksta6Ardu-280">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="400" y="230" as="sourcePoint" />
+            <mxPoint x="280" y="120" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="400" y="180" />
+              <mxPoint x="280" y="180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-269" value="Burger" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="hotCiEky1M4ksta6Ardu-280">
+          <mxGeometry x="260" y="230" width="280" height="242" as="geometry">
+            <mxRectangle x="330" y="20" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-270" value="-price : int" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-269">
+          <mxGeometry y="26" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-271" value="+Price : int {get}" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-269">
+          <mxGeometry y="52" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-274" value="+Count : int {get}" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-269">
+          <mxGeometry y="78" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-275" value="-burgerStack : List&lt;FoodElement&gt;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-269">
+          <mxGeometry y="104" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-272" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-269">
+          <mxGeometry y="130" width="280" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-273" value="+Burger(int)" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-269">
+          <mxGeometry y="138" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-276" value="+_CalculateElementScore(FoodElement,int) : void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-269">
+          <mxGeometry y="164" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-277" value="+AddStack(FoodElement) : void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-269">
+          <mxGeometry y="190" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-278" value="+CloseStack() : void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-269">
+          <mxGeometry y="216" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-279" value="" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="hotCiEky1M4ksta6Ardu-280">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="110" y="230" as="sourcePoint" />
+            <mxPoint x="280" y="120" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="110" y="180" />
+              <mxPoint x="280" y="180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-295" value="" style="endArrow=open;endFill=1;endSize=12;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="hotCiEky1M4ksta6Ardu-27" target="hotCiEky1M4ksta6Ardu-115">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="790" y="290" as="sourcePoint" />
+            <mxPoint x="839" y="-430" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1003" y="-520" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-305" value="" style="endArrow=open;endFill=1;endSize=12;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="hotCiEky1M4ksta6Ardu-27" target="zkfFHV4jXpPFQw0GAbJ--17">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="650" y="-580" as="sourcePoint" />
+            <mxPoint x="849" y="-420" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1223" y="-520" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-306" value="" style="endArrow=open;endFill=1;endSize=12;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="hotCiEky1M4ksta6Ardu-27" target="hotCiEky1M4ksta6Ardu-78">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="646" y="-509" as="sourcePoint" />
+            <mxPoint x="1070" y="-420" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1453" y="-520" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-307" value="" style="endArrow=open;endFill=1;endSize=12;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="hotCiEky1M4ksta6Ardu-27" target="hotCiEky1M4ksta6Ardu-157">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="646" y="-509" as="sourcePoint" />
+            <mxPoint x="1300" y="-420" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1690" y="-520" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-308" value="" style="endArrow=open;endFill=1;endSize=12;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="hotCiEky1M4ksta6Ardu-27" target="hotCiEky1M4ksta6Ardu-170">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="646" y="-509" as="sourcePoint" />
+            <mxPoint x="1535" y="-420" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1923" y="-520" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-309" value="" style="endArrow=open;endFill=1;endSize=12;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="hotCiEky1M4ksta6Ardu-27" target="hotCiEky1M4ksta6Ardu-179">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="646" y="-509" as="sourcePoint" />
+            <mxPoint x="1770" y="-420" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="2140" y="-520" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-310" value="" style="group" vertex="1" connectable="0" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="260" y="-1680" width="350" height="880" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-51" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center;&quot;&gt;&lt;b style=&quot;&quot;&gt;Enum:Scene&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;OpenGame&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;MainMenu&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;MainGame&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;Result&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" vertex="1" parent="hotCiEky1M4ksta6Ardu-310">
+          <mxGeometry x="73" y="760" width="160" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-57" value="Enum" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;fillColor=#60a917;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="hotCiEky1M4ksta6Ardu-310">
+          <mxGeometry width="350" height="880" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-59" value="UI" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-310">
+          <mxGeometry x="40" y="40" width="300" height="680" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-58" value="" style="group" vertex="1" connectable="0" parent="hotCiEky1M4ksta6Ardu-310">
+          <mxGeometry x="74" y="87" width="250" height="620" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-45" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center;&quot;&gt;&lt;b style=&quot;&quot;&gt;Enum:HorizonAlign&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;Left&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;Center&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;Right&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" vertex="1" parent="hotCiEky1M4ksta6Ardu-58">
+          <mxGeometry y="530" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-46" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center;&quot;&gt;&lt;b style=&quot;&quot;&gt;Enum:VerticalAlign&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;Top&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;Center&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;Botto&lt;span style=&quot;background-color: initial;&quot;&gt;m&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" vertex="1" parent="hotCiEky1M4ksta6Ardu-58">
+          <mxGeometry y="427" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-47" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center;&quot;&gt;&lt;b style=&quot;&quot;&gt;Enum:RectOption&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;Relative&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;Absolute&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" vertex="1" parent="hotCiEky1M4ksta6Ardu-58">
+          <mxGeometry y="360" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-49" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center;&quot;&gt;&lt;b style=&quot;&quot;&gt;Enum:UILayout&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;Main&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;MainMenuPage&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;Order&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;Preview&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;Elements&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;SpaceBar&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;Menus&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;ResultPage&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" vertex="1" parent="hotCiEky1M4ksta6Ardu-58">
+          <mxGeometry y="100" width="160" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-50" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center;&quot;&gt;&lt;b style=&quot;&quot;&gt;Enum:SelectText&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;Menu_Start&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;Menu_Escape&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;Result_GotoMenu&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;Result_Escape&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" vertex="1" parent="hotCiEky1M4ksta6Ardu-58">
+          <mxGeometry width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-48" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center;&quot;&gt;&lt;b style=&quot;&quot;&gt;Enum:RectCorner&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;TopL&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;TopR&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;BotL&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;BotR&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" vertex="1" parent="hotCiEky1M4ksta6Ardu-58">
+          <mxGeometry y="260" width="250" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-311" value="" style="endArrow=open;endFill=1;endSize=12;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="hotCiEky1M4ksta6Ardu-27" target="hotCiEky1M4ksta6Ardu-222">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="646" y="-509" as="sourcePoint" />
+            <mxPoint x="849" y="-420" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="680" y="-520" />
+              <mxPoint x="680" y="-900" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-312" value="" style="endArrow=open;endFill=1;endSize=12;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="hotCiEky1M4ksta6Ardu-27" target="hotCiEky1M4ksta6Ardu-148">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="640" y="-520" as="sourcePoint" />
+            <mxPoint x="750" y="-679" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="680" y="-520" />
+              <mxPoint x="680" y="-650" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-313" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="hotCiEky1M4ksta6Ardu-222" target="hotCiEky1M4ksta6Ardu-78">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="928" y="-689.0000000000002" as="sourcePoint" />
+            <mxPoint x="1268" y="-430" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1500" y="-900" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-314" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="hotCiEky1M4ksta6Ardu-148">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="930" y="-891" as="sourcePoint" />
+            <mxPoint x="1040" y="-430" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1040" y="-650" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-316" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="hotCiEky1M4ksta6Ardu-222" target="hotCiEky1M4ksta6Ardu-258">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="929" y="-689" as="sourcePoint" />
+            <mxPoint x="1759" y="-1200" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1019" y="-899" />
+              <mxPoint x="1019" y="-1200" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-317" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="hotCiEky1M4ksta6Ardu-148" target="zkfFHV4jXpPFQw0GAbJ--17">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="950" y="-971" as="sourcePoint" />
+            <mxPoint x="1050" y="-420" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1273" y="-651" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-323" value="" style="group" vertex="1" connectable="0" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1210" y="250" width="719" height="620" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-230" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;struct&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;Rect&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+startX : int&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+startY : int&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+endX : int&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+endY : int&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+Rect(int,int)&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+Rect(int,int,int,int,RectOption)&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;container=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-323">
+          <mxGeometry y="88" width="270" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-322" value="" style="group" vertex="1" connectable="0" parent="hotCiEky1M4ksta6Ardu-323">
+          <mxGeometry x="260" width="459" height="620" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-229" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;abstract&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;RectUI&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# rect : Rect&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ Top, Left, Right, Bottom : int {get}&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ Width, Height : int {get}&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ Parent : RectUI {get}&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# printColor : int&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# horizon : HorizonAlign&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# vertical : VerticalAlign&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# childs : List&amp;lt;RectUI&amp;gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+RectUI(Rect)&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+GetCorner(RectCorner) : int[]&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+SetPos(int,int,RectOption) : RectUI&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+SetPos(RectUI, RectCorner, int, int) : RectUI&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+SetParent(RectUI) : RectUI&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+SetAlign(HorigonAlign) : RectUI&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+SetAlign(Vertical) : RectUI&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+TurnOff() : void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+SetPrint(bool) : void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+Print() : void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;#PrintLogic() : void&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;container=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-322">
+          <mxGeometry x="99" width="270" height="340" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-233" value="Layout" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;container=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-322">
+          <mxGeometry y="450" width="210" height="70" as="geometry">
+            <mxRectangle x="330" y="20" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-244" value="" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="hotCiEky1M4ksta6Ardu-322" source="hotCiEky1M4ksta6Ardu-233" target="hotCiEky1M4ksta6Ardu-229">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="-231" y="400" as="sourcePoint" />
+            <mxPoint x="-71" y="400" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="105" y="400" />
+              <mxPoint x="234" y="400" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-248" value="" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="hotCiEky1M4ksta6Ardu-322" target="hotCiEky1M4ksta6Ardu-229">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="354" y="450" as="sourcePoint" />
+            <mxPoint x="524" y="340" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="354" y="400" />
+              <mxPoint x="234" y="400" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-249" value="TextBox" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;container=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-322">
+          <mxGeometry x="249" y="450" width="210" height="170" as="geometry">
+            <mxRectangle x="330" y="20" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-237" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;container=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-322">
+          <mxGeometry y="476" width="210" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-239" value="# PrintLogic() : void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;container=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-322">
+          <mxGeometry y="484" width="210" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-250" value="-sb : StringBuilder" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;container=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-322">
+          <mxGeometry x="249" y="476" width="210" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-253" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;container=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-322">
+          <mxGeometry x="249" y="502" width="210" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-254" value="+SetNewText(string) : void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;container=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-322">
+          <mxGeometry x="249" y="510" width="210" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-255" value="+AddText(string,bool) : TextBox" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;container=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-322">
+          <mxGeometry x="249" y="536" width="210" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-256" value="+AddText(char,bool) : TextBox" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;container=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-322">
+          <mxGeometry x="249" y="562" width="210" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-257" value="#PrintLogic() : void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;container=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-322">
+          <mxGeometry x="249" y="588" width="210" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-326" value="" style="endArrow=diamondThin;endFill=1;endSize=24;html=1;rounded=0;exitX=-0.001;exitY=0.482;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="hotCiEky1M4ksta6Ardu-323" source="hotCiEky1M4ksta6Ardu-229" target="hotCiEky1M4ksta6Ardu-230">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="140" y="330" as="sourcePoint" />
+            <mxPoint x="300" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-324" value="" style="group" vertex="1" connectable="0" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="610" y="-60" width="490" height="346" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-282" value="Customer" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;container=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-324">
+          <mxGeometry x="290" width="200" height="294" as="geometry">
+            <mxRectangle x="550" y="140" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-191" value="CustomerContainer" style="swimlane;fontStyle=0;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="hotCiEky1M4ksta6Ardu-324">
+          <mxGeometry width="200" height="346" as="geometry">
+            <mxRectangle x="550" y="140" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-192" value="-customers : LinkedList&lt;Customer&gt;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-191">
+          <mxGeometry y="26" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-193" value="-seat : customer[]" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-191">
+          <mxGeometry y="52" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-194" value="-customerStandardLayout : Layout" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-191">
+          <mxGeometry y="78" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-195" value="+ChangedWaiting : Action&lt;int&gt;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-191">
+          <mxGeometry y="104" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-207" value="+ChangedGold : Action&lt;int&gt;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-191">
+          <mxGeometry y="130" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-196" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-191">
+          <mxGeometry y="156" width="200" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-197" value="+CustomerContainer()" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-191">
+          <mxGeometry y="164" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-198" value="+Init() : void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-191">
+          <mxGeometry y="190" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-208" value="+ResetOptions() : void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-191">
+          <mxGeometry y="216" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-209" value="+ClearContainer() : void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-191">
+          <mxGeometry y="242" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-212" value="-AddCustomer(Customer,int) : void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-191">
+          <mxGeometry y="268" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-213" value="+RemoveCustomer(Customer): void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-191">
+          <mxGeometry y="294" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-214" value="+SearchBurger(int) : void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-191">
+          <mxGeometry y="320" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-283" value="-layout : Layout" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-324">
+          <mxGeometry x="290" y="26" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-284" value="-imgTextBox : TextBox" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-324">
+          <mxGeometry x="290" y="52" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-285" value="-communicateBox : TextBox" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-324">
+          <mxGeometry x="290" y="78" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-286" value="-selectMenu : int" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-324">
+          <mxGeometry x="290" y="104" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-290" value="-seatNumber : int" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-324">
+          <mxGeometry x="290" y="130" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-291" value="+SelectMenu : int {get}" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-324">
+          <mxGeometry x="290" y="156" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-292" value="+SeatNumber : int {get}" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="hotCiEky1M4ksta6Ardu-324">
+          <mxGeometry x="290" y="182" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-287" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-324">
+          <mxGeometry x="290" y="208" width="200" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-288" value="-CreateCommuniteBox() : void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-324">
+          <mxGeometry x="290" y="216" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-289" value="+Order(int) : void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-324">
+          <mxGeometry x="290" y="242" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-293" value="+Hide() : void" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="hotCiEky1M4ksta6Ardu-324">
+          <mxGeometry x="290" y="268" width="200" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-294" value="0.." style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.003;entryY=0.15;entryDx=0;entryDy=0;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="hotCiEky1M4ksta6Ardu-324" source="hotCiEky1M4ksta6Ardu-196" target="hotCiEky1M4ksta6Ardu-291">
+          <mxGeometry x="0.3194" relative="1" as="geometry">
+            <mxPoint x="-210" y="410" as="sourcePoint" />
+            <mxPoint x="166" y="370" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-325" value="" style="endArrow=open;endFill=1;endSize=12;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="hotCiEky1M4ksta6Ardu-27" target="hotCiEky1M4ksta6Ardu-191">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="646" y="-509" as="sourcePoint" />
+            <mxPoint x="2153" y="-420" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="710" y="-519" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-328" value="" style="endArrow=diamondThin;endFill=1;endSize=24;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="hotCiEky1M4ksta6Ardu-289" target="hotCiEky1M4ksta6Ardu-229">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="1349" y="241" as="sourcePoint" />
+            <mxPoint x="1260" y="240" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1704" y="200" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-331" value="1.." style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;rounded=0;exitX=0.524;exitY=1.068;exitDx=0;exitDy=0;entryX=0.32;entryY=-0.006;entryDx=0;entryDy=0;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="hotCiEky1M4ksta6Ardu-76" target="hotCiEky1M4ksta6Ardu-229">
+          <mxGeometry x="0.9214" relative="1" as="geometry">
+            <mxPoint x="820" y="110" as="sourcePoint" />
+            <mxPoint x="911" y="110" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1228" y="160" />
+              <mxPoint x="1655" y="160" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hotCiEky1M4ksta6Ardu-332" value="0.." style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;rounded=0;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="hotCiEky1M4ksta6Ardu-157" target="hotCiEky1M4ksta6Ardu-258">
+          <mxGeometry x="0.9214" relative="1" as="geometry">
+            <mxPoint x="1238" y="-46" as="sourcePoint" />
+            <mxPoint x="2060" y="-1200" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1745" y="-450" />
+              <mxPoint x="1746" y="-1170" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

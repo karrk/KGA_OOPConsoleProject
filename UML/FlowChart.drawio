@@ -1,0 +1,131 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36" version="24.7.7">
+  <diagram name="페이지-1" id="lplOfnasVw-8CacY3Em1">
+    <mxGraphModel dx="909" dy="918" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="SQaTaCNpQmetJiKPlGW7-1" value="Serve" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="50" y="10" width="70" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="SQaTaCNpQmetJiKPlGW7-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="SQaTaCNpQmetJiKPlGW7-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="190.0000000000001" y="100.11111111111109" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SQaTaCNpQmetJiKPlGW7-6" value="N" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="SQaTaCNpQmetJiKPlGW7-5">
+          <mxGeometry x="-0.0327" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SQaTaCNpQmetJiKPlGW7-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SQaTaCNpQmetJiKPlGW7-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="85" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SQaTaCNpQmetJiKPlGW7-8" value="Y" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="SQaTaCNpQmetJiKPlGW7-7">
+          <mxGeometry x="0.1684" relative="1" as="geometry">
+            <mxPoint y="-3" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SQaTaCNpQmetJiKPlGW7-2" value="SearchBurger" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="30" y="80" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="SQaTaCNpQmetJiKPlGW7-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="SQaTaCNpQmetJiKPlGW7-1" target="SQaTaCNpQmetJiKPlGW7-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SQaTaCNpQmetJiKPlGW7-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SQaTaCNpQmetJiKPlGW7-9">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="245.0000000000001" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SQaTaCNpQmetJiKPlGW7-9" value="ReduceGold" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="190" y="80" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="SQaTaCNpQmetJiKPlGW7-11" value="Done" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="190" y="160" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="SQaTaCNpQmetJiKPlGW7-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SQaTaCNpQmetJiKPlGW7-12">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="85" y="230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SQaTaCNpQmetJiKPlGW7-12" value="AddGold" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="30" y="160" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="SQaTaCNpQmetJiKPlGW7-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="SQaTaCNpQmetJiKPlGW7-14" target="SQaTaCNpQmetJiKPlGW7-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SQaTaCNpQmetJiKPlGW7-14" value="RemoveCustomer" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="30" y="230" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="SQaTaCNpQmetJiKPlGW7-15" value="Done" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="30" y="300" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="SQaTaCNpQmetJiKPlGW7-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="SQaTaCNpQmetJiKPlGW7-18" target="SQaTaCNpQmetJiKPlGW7-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SQaTaCNpQmetJiKPlGW7-18" value="CreateBurgur" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="432.12" y="10" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="SQaTaCNpQmetJiKPlGW7-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SQaTaCNpQmetJiKPlGW7-19">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="477.12" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SQaTaCNpQmetJiKPlGW7-19" value="요청된 버거의 층 만큼 랜덤한 재료 쌓기" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="415.87" y="80" width="122.5" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="SQaTaCNpQmetJiKPlGW7-21" value="버거에 사용된 재료를&amp;nbsp;&lt;div&gt;UI 에 등록해야 하지만 이미 등록된&amp;nbsp;&lt;/div&gt;&lt;div&gt;재료라면 추가 등록하지 않아야함&lt;/div&gt;" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="542.12" y="10" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="SQaTaCNpQmetJiKPlGW7-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SQaTaCNpQmetJiKPlGW7-23">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="662.12" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SQaTaCNpQmetJiKPlGW7-25" value="이미등록된 재료" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="SQaTaCNpQmetJiKPlGW7-24">
+          <mxGeometry x="-0.1379" y="-1" relative="1" as="geometry">
+            <mxPoint x="10" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SQaTaCNpQmetJiKPlGW7-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SQaTaCNpQmetJiKPlGW7-23">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="477.12" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SQaTaCNpQmetJiKPlGW7-27" value="등록되지 않은 재료" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="SQaTaCNpQmetJiKPlGW7-26">
+          <mxGeometry x="-0.1704" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SQaTaCNpQmetJiKPlGW7-23" value="재료 등록하기" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="415.87" y="150" width="122.5" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="SQaTaCNpQmetJiKPlGW7-28" value="Done" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="662.12" y="150" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="SQaTaCNpQmetJiKPlGW7-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SQaTaCNpQmetJiKPlGW7-29">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="479.12" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SQaTaCNpQmetJiKPlGW7-29" value="사용된 음식재료&amp;nbsp;&lt;div&gt;리스트에 추가&lt;/div&gt;" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="415.87" y="250" width="126.25" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="SQaTaCNpQmetJiKPlGW7-31" value="UI 요소로 등록" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="414" y="320" width="126.25" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="SQaTaCNpQmetJiKPlGW7-32" value="Done" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="424" y="390" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="SQaTaCNpQmetJiKPlGW7-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="SQaTaCNpQmetJiKPlGW7-31">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="477.12" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
